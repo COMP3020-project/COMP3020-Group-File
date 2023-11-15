@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .node rect {
+            fill: #fff;
+            stroke: steelblue;
+            stroke-width: 3px;
+        }
+
+        .node text {
+            font: 12px sans-serif;
+        }
+
+        .link {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 2px;
+            opacity: 1;
+        }
+
+        .link.hidden {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var data = {
+            "name": "Department",
+            "children": [{
+                "name": "Year 1",
+                "children": [{
+                    "name": "Semester 1",
+                    "children": [{
+                        "name": "Course 1"
+                    }, {
+                        "name": "Course 2"
+                    }]
+                },
+                {
+                    "name": "Semester 2",
+                    "children": [{
+                        "name": "Course 3"
+                    }, {
+                        "name": "Course 4"
+                    }]
+                }
+                ]
+            },
+            {
+                "name": "Year 2",
+                "children": [{
+                    "name": "Semester 1",
+                    "children": [{
+                        "name": "Course 5"
+                    }, {
+                        "name": "Course 6"
+                    }]
+                },
+                {
+                    "name": "Semester 2",
+                    "children": [{
+                        "name": "Course 7"
+                    }, {
+                        "name": "Course 8"
+                    }]
+                },
+                {
+                    "name": "Semester 1",
+                    "children": [{
+                        "name": "Course 9"
+                    }, {
+                        "name": "Course 10"
+                    }]
+                },
+                {
+                    "name": "Semester 2",
+                    "children": [{
+                        "name": "Course 11"
+                    }, {
+                        "name": "Course 12"
+                    }]
+                }
+                ]
+            },
+            {
+                "name": "Year 3",
+                "children": [{
+                    "name": "Semester 1",
+                    "children": [{
+                        "name": "Course 13"
+                    }, {
+                        "name": "Course 14"
+                    }]
+                },
+                {
+                    "name": "Semester 2",
+                    "children": [{
+                        "name": "Course 15"
+                    }, {
+                        "name": "Course 16"
+                    }]
+                }
+                ]
+            },
+            {
+                "name": "Year 4",
+                "children": [{
+                    "name": "Semester 1",
+                    "children": [{
+                        "name": "Course 17"
+                    }, {
+                        "name": "Course 18"
+                    }]
+                },
+                {
+                    "name": "Semester 2",
+                    "children": [{
+                        "name": "Course 19"
+                    }, {
+                        "name": "Course 20"
+                    }]
+                }
+                ]
+            }
+            ]
+        };
+
+        var margin = {
+            top: 20,
+            right: 120,
+            bottom: 20,
+            left: 120
+        },
+            width = 960 - margin.right - margin.left,
+            height = 500 - margin.top - margin.bottom;
+
+        var i = 0,
+            duration = 750,
+            root;
+
+        var tree = d3.tree().size([width, height]);
+
+        var diagonal = d3.linkVertical()
+            .x(function (d) {
+                return d.x;
+            })
+            .y(function (d) {
+                return d.y;
+            });
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.right + margin.left)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        root = d3.hierarchy(data);
+        root.x0 = width / 2;
+        root.y0 = 0;
+
+        // Initially hide children of Year nodes
+        root.children.forEach(collapse);
+
+        update(root);
+
+        d3.select(self.frameElement).style("height", "500px");
+
+        function collapse(d) {
+            if (d.children) {
+                d._children = d.children;
+                d._children.forEach(collapse);
+                d.children = null;
+            }
+        }
+
+        var simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().id(function (d) {
+                return d.id;
+            }))
+            .force("charge", d3.forceManyBody())
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        function update(source) {
+            // Compute the new tree layout.
+            var nodes = tree(root).descendants(),
+                links = tree(root).links();
+
+            // Declare the links…
+            var link = svg.selectAll("path.link")
+                .data(links, function (d) {
+                    return d.target.id;
+                });
+
+            // Enter the links.
+            link.enter().insert("path", "g")
+                .attr("class", "link")
+                .attr("d", function (d) {
+                    return diagonal(d); // Use the diagonal function directly with the data
+                });
+
+            // Update the display of nodes and links.
+            link.transition()
+                .duration(duration)
+                .attr("d", diagonal)
+                .style("opacity", 1)
+                .attr("class", function (d) {
+                    return "link" + (d.target.children || d.target._children ? "" : " hidden");
+                });
+
+            link.exit().transition()
+                .duration(duration)
+                .style("opacity", 0)
+                .remove();
+
+            // Declare the nodes…
+            var node = svg.selectAll("g.node")
+                .data(nodes, function (d) {
+                    return d.id;
+                });
+
+            // Enter the nodes.
+            var nodeEnter = node.enter().append("g")
+                .attr("class", "node")
+                .attr("transform", function (d) {
+                    return "translate(" + d.x + "," + d.y + ")";
+                })
+                .on("click", function (d) {
+                    toggle(d);
+                    update(d);
+                })
+                .call(d3.drag()
+                    .on("start", function (d) {
+                        d3.event.sourceEvent.stopPropagation();
+                        d.fx = d.x;
+                        d.fy = d.y;
+                    })
+                    .on("drag", function (d) {
+                        d.fx = d3.event.x;
+                        d.fy = d3.event.y;
+                    })
+                    .on("end", function (d) {
+                        if (!d3.event.active) {
+                            simulation.alphaTarget(0);
+                        }
+                        d.fx = null;
+                        d.fy = null;
+                    }));
+
+            nodeEnter.append("rect")
+                .attr("width", function (d) {
+                    return d.data.name.length * 8;
+                })
+                .attr("height", 20)
+                .attr("x", function (d) {
+                    return -(d.data.name.length * 4);
+                })
+                .attr("y", -10)
+                .style("fill", "#fff");
+
+            nodeEnter.append("text")
+                .attr("x", 0)
+                .attr("dy", ".35em")
+                .attr("text-anchor", "middle")
+                .text(function (d) {
+                    return d.data.name;
+                })
+                .style("fill-opacity", 1)
+                .each(function (d) {
+                    // Get the length of the text
+                    var textLength = this.getComputedTextLength();
+
+                    // Add some padding and set a minimum width
+                    var rectWidth = Math.max(textLength + 10, 40);
+
+                    d3.select(this.parentNode).select("rect")
+                        .attr("width", rectWidth)
+                        .attr("height", 20)
+                        .attr("x", -rectWidth / 2)
+                        .attr("y", -10);
+                });
+
+            // Update the display of nodes.
+            node.transition()
+                .duration(duration)
+                .attr("transform", function (d) {
+                    return "translate(" + d.x + "," + d.y + ")";
+                })
+                .style("opacity", 1);
+
+            // Exit the nodes.
+            node.exit()
+                .transition()
+                .duration(duration)
+                .style("opacity", 0)
+                .remove();
+        }
+
+        function toggle(d) {
+            if (d.children) {
+                d._children = d.children;
+                d.children = null;
+            } else {
+                // Collapse all other year children
+                if (d.parent) {
+                    d.parent.children.forEach(function (child) {
+                        if (child !== d && child.children) {
+                            collapse(child);
+                        }
+                    });
+                }
+                d.children = d._children;
+                d._children = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+
+    <title>Account</title>
+</head>
+
+<body>
+    <div class="top-section-container">
+        <h2>Welcome, Users</h2>
+        <button id="Sign-Out">Sign Out</button>
+    </div>
+    <div class="big-container">
+        <div class="left-container">
+            <div class="search-left-container">
+                <h2><i class="fas fa-magnifying-glass"></i> Search</h2>
+            </div>
+            <div class="tree-left-container">
+                <h2><i class="fa-solid fa-share-nodes"></i></i> Tree</h2>
+            </div>
+            <div class="account-left-container" style="background-color: orange;">
+                <h2><i class="fa-regular fa-user"></i> Account</h2>
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="account">
+                <div class="account-title">
+                    Account Information
+                </div>
+                <div class="account-info">
+                    <div class="account-section">
+                        <span class="section-title">Profile</span>
+                        <!--Replace placeholder with javascript file-->
+                        <div class="input-section">
+                            <div class="col-25">
+                                <label for="username">Username:</label>
+                            </div>
+
+                            <div class="col-75">
+                                <input class="user-input" type="text" id="username" name="username"
+                                    placeholder="Username">
+                            </div>
+
+                        </div>
+
+                        <div class="input-section">
+                            <div class="col-25">
+                                <label for="email">Email:</label>
+                            </div>
+
+                            <div class="col-75">
+                                <input class="user-input" type="text" id="email" name="email" placeholder="Email">
+                            </div>
+
+                        </div>
+
+                        <div class="input-section">
+                            <div class="col-25">
+                                <label for="gender">Gender:</label>
+                            </div>
+                            <div class="col-75">
+                                <select id="gender" name="gender" class="user-input">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Non-binary">Non-binary</option>
+                                    <option value="Other">Other</option>
+                                    <option value="">Blank</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-section">
+                            <div class="col-25">
+                                <label for="dateofbirth">Birthdate:</label>
+                            </div>
+                            <div class="col-75">
+                                <input class="user-input" maxlength="10" type="date" id="dateofbirth" name="dateofbirth"
+                                    placeholder="dd/mm/yyyy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-section">
+                        <span class="section-title">Password</span>
+                        <div class="input-section">
+                            <input class="user-input" type="password" id="currentPassword"
+                                placeholder="Current Password">
+                        </div>
+                        <div class="input-section">
+                            <input class="user-input" type="password" id="currentPassword" placeholder="New Password">
+                        </div>
+                        <div id="passwordError"></div>
+                        <div class="input-section">
+                            <input class="user-input" type="password" id="currentPassword"
+                                placeholder="Confirm New Password">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="account">
+                <div class="account-title">
+                    <span style="width: 40%;">Favorite Book</span>
+                    <div>
+                        <label for="filter">Filter:</label>
+                        <select id="filter" name="filter" class="user-input">
+                            <option value="1" selected>High to low</option>
+                            <option value="2">Low to high</option>
+                            <option value="3">Alphabet</option>
+                            <option value="4">By Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Resize your image to 150-250 for this to work properly -->
+                <!-- Or copy the direct link of the image for this to work-->
+                <div class="book-grid">
+                    <div class="book-item">
+                        <div class="cover-display" style="background-image: url('../Images/test_1.png');">
+                        </div>
+                        <span>Algorithm and data structure</span>
+                        <button>Share</button>
+                        <div class="Stars" style="--rating: 2.3;" aria-label="Rating of this product is 2.3 out of 5.">
+                        </div>
+                    </div>
+                    <div class="book-item">
+                        <div class="cover-display"
+                            style="background-image: url('https://thenobleartist.com/wp-content/uploads/2015/10/ChildOfTheKindred_ebook1.jpg');">
+                        </div>
+                        <span>Algorithm and data structure</span>
+                        <button>Share</button>
+                        <div class="Stars" style="--rating: 2.3;" aria-label="Rating of this product is 2.3 out of 5.">
+                        </div>
+                    </div>
+                    <div class="book-item">
+                        <div class="cover-display"
+                            style="background-image: url('https://about.canva.com/wp-content/uploads/sites/3/2015/01/children_bookcover.png');">
+                        </div>
+                        <span>Algorithm and data structure</span>
+                        <button>Share</button>
+                        <div class="Stars" style="--rating: 2.3;" aria-label="Rating of this product is 2.3 out of 5.">
+                        </div>
+                    </div>
+                    <div class=" book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                    <div class="book-item">
+                        <img src="../Images/Logo.png" style="max-width:100%; height:auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="script.js"></script>
+</body>
+
+</html>
