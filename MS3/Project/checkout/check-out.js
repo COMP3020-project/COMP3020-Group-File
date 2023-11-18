@@ -46,3 +46,14 @@ function updateSubtotal() {
     }
     subtotalParagraph.textContent = '$' + subtotal.toFixed(2);
 }
+
+// show payment options
+
+document.getElementById('proceed-button').addEventListener('click', () => {
+    let paymentMethods = document.getElementById('payment-methods');
+    if(paymentMethods.style.display === 'none'){
+        paymentMethods.style.display = 'block';
+    }else{
+        paymentMethods.style.display = 'none';
+    }
+})

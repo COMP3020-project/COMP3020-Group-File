@@ -19,7 +19,7 @@
     <div class="cart">
 
         <div class="textbook">
-            <img src="./img/book1.PNG" alt="Textbook 1" class="textbook-img">
+            <img src="../img/book1.PNG" alt="Textbook 1" class="textbook-img">
             <div class="textbook-info">
                 <h3>Textbook 1</h3>
                 <p>Author: Author 1</p>
@@ -33,7 +33,7 @@
             <button class="remove-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="textbook">
-            <img src="./img/book2.PNG" alt="Textbook 2" class="textbook-img">
+            <img src="../img/book2.PNG" alt="Textbook 2" class="textbook-img">
             <div class="textbook-info">
                 <h3>Textbook 2</h3>
                 <p>Author: Author 2</p>
@@ -49,29 +49,36 @@
         <div class="subtotal">
             <p id="subtotal">Total: $110.00</p>
         </div>
-    <div class="checkout-container">
-        <h2>Payment Methods</h2>
-        <div class="payment-options">
-           
-            <div class="payment-option">
-                <i class="fab fa-paypal payment-icon"></i>
-                <span class="payment-label">PayPal</span>
+        <button id="proceed-button">Proceed to Payment</button>
+        
+        <div id = "payment-methods" class="checkout-container">
+            <h2>Payment Methods</h2>
+            <div class="payment-options">
+            
+                <div class="payment-option">
+                    <i class="fab fa-paypal payment-icon"></i>
+                    <span class="payment-label">PayPal</span>
+                </div>
+                <div class="payment-option">
+                    <i class="fab fa-apple-pay payment-icon"></i>
+                    <span class="payment-label">Apple Pay</span>
+                </div>
             </div>
-            <div class="payment-option">
-                <i class="fab fa-apple-pay payment-icon"></i>
-                <span class="payment-label">Apple Pay</span>
-            </div>
+            <div class="or-divider">or</div>
+            <form class="credit-card-form">
+                <input type="text" class="form-field" placeholder="Credit Card Number" required>
+                <input type="text" class="form-field" placeholder="Card holder name" required>
+                <div class="form-field-group">
+                    <input type="text" id = "Expiration-date" class="form-field" placeholder="Expiration Date (MM/YY)" required>
+                    <input type="text" id = "CCV" class="form-field" placeholder="CCV" required>
+                </div>
+                <input type="email" class="form-field" placeholder="Email" required>
+            </form>
+            <button class="pay-button">Place order</button>
         </div>
-        <div class="or-divider">or</div>
-        <form class="credit-card-form">
-            <input type="text" class="form-field" placeholder="Credit Card Number" required>
-            <input type="text" class="form-field" placeholder="Card holder name" required>
-            <input type="text" id = "Expiration-date" class="form-field" placeholder="Expiration Date (MM/YY)" required>
-            <input type="text" id = "CCV" class="form-field" placeholder="CCV" required>
-            <input type="email" class="form-field" placeholder="Email" required>
-        </form>
-        <button class="pay-button">Place order</button>
     </div>
+</div>
+        
        
         
         
