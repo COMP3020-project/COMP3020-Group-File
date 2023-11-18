@@ -319,7 +319,8 @@
         .data(nodes, function (d) {
           return d.id;
         });
-
+      var initialX = null;
+      var initialY = null;
       // Enter the nodes.
       var nodeEnter = node.enter().append("g")
         .attr("class", "node")
@@ -331,21 +332,25 @@
           update(d);
         })
         .call(d3.drag()
-          .on("start", function (d) {
-            d3.event.sourceEvent.stopPropagation();
-            d.fx = d.x;
-            d.fy = d.y;
-          })
           .on("drag", function (d) {
-            d.fx = d3.event.x;
-            d.fy = d3.event.y;
+            if (!d.dragStarted) {
+                d.dragStarted = true;
+                initialX = d.x;
+                initialY = d.y;
+            }
+            d.x += d3.event.dx;
+            d.y += d3.event.dy;
+            d3.select(this).attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
           })
           .on("end", function (d) {
-            if (!d3.event.active) {
-              simulation.alphaTarget(0);
-            }
-            d.fx = null;
-            d.fy = null;
+              // var node = d3.select(this);
+              // node.classed('active', false);
+              if(d.dragStarted){
+                d.dragStarted = false;
+                d.x = initialX; // Reset to initial coordinates
+                d.y = initialY;
+                d3.select(this).transition().duration(500).attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
+              }
           }));
 
       nodeEnter.append("rect")
