@@ -222,6 +222,39 @@ body {
             background-color: #e9b303;
         }
 .form-field:last-child {
-    margin-right: 0; /* Remove margin-right for the last field */
+    margin-right: 0; 
 }
 
+
+.form-field-group{
+    display:flex;
+    justify-content: space-between;
+}
+
+.form-field-group .form-field{
+    width:45%;
+}
+
+
+#payment-methods{
+    display:none;
+}
+
+#proceed-button {
+    display: block;
+    margin: auto;
+    width: 50%;
+    font-size: 1.5rem;
+    padding: 10px 20px; /* Add padding */
+    background-color: #4CAF50; /* Change the background color */
+    color: white; /* Change the text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Add transition for smooth color change */
+}
+
+#proceed-button:hover {
+    background-color: #45a049; /* Change the background color on hover */
+}
