@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.top-section-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: black 3px solid;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 5%;
+}
+
+#Sign-Out {
+    font-size: 1.2em;
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#Sign-Out:hover {
+    background-color: #45a049;
+}
+
+
+.left-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 20%;
+    border-right: 1px solid;
+}
+
+.big-container {
+    width: 100%;
+    height: 94.5%;
+    display: flex;
+}
+
+.search-left-container {
+    position: absolute;
+    top: 25%;
+}
+
+.search-left-container h2 {
+    font-size: 2.3vh;
+}
+
+.search-left-container h2 i {
+    font-size: 3vh;
+}
+
+.tree-left-container {
+    position: absolute;
+    top: 40%;
+}
+
+.tree-left-container h2 {
+    font-size: 20px;
+}
+
+.tree-left-container h2 i {
+    font-size: 4vh;
+    transform: rotate(90deg);
+}
+
+.account-left-container {
+    position: absolute;
+    top: 55%;
+}
+
+.account-left-container h2 {
+    font-size: 3vh;
+}
+
+.account-left-container h2 i {
+    font-size: 3vh;
+}
+
+.search-left-container,
+.tree-left-container,
+.account-left-container {
+    z-index: 1;
+    width: 10%;
+    height: 10vh;
+    border: 2px solid #dddddd;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.search-left-container:hover,
+.tree-left-container:hover,
+.account-left-container:hover {
+    cursor: pointer;
+    background-color: rgba(36, 236, 60, 0.444);
+}
+
+.search-left-container h2,
+.tree-left-container h2,
+.account-left-container h2 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.logo-search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+img {
+    mix-blend-mode: multiply;
+    clip-path: inset(0 0 120px 0);
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform: translateY(-120px);
+
+}
+
+.search-bar {
+    width: 150%;
+    max-width: 600px;
+    padding: 3vh;
+    border: 3px solid #3498db;
+    border-radius: 15px;
+    outline: none;
+    font-size: 3vh;
+    transition: border-color 0.3s;
+    flex: 1;
+}
+
+.search-bar:hover,
+.search-bar:focus {
+    border-color: #2ecc71;
+}
+
+.search-button {
+    margin-top: 25px;
+    padding: 25px 50px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.3s;
+}
+
+
+.search-button:hover {
+    background-color: #2ecc71;
+}
+
+#suggestions {
+
+    position: absolute;
+    top: 44%;
+    list-style-type: none;
+    background-color: #f1f1f1;
+    width: 600px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+#suggestions li {
+    padding: 12px;
+    cursor: pointer;
+}
+
+#suggestions li:hover {
+    background-color: #ddd;
+}
+

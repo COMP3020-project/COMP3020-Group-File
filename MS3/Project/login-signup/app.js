@@ -14,7 +14,9 @@ const fakeDatabase = {
     const user = fakeDatabase.users.find(user => user.email === email && user.password === password);
   
     if (user) {
-      alert('Login successful!');
+      // alert('Login successful!');
+      window.location.href = '../search-files/search.html';
+
     } else {
       alert('Login failed: user not found or incorrect password.');
     }
@@ -55,7 +57,6 @@ const fakeDatabase = {
   }
 
 
-  
   // Redirect to the signup page
   function handleGoToSignup() {
     window.location.href = 'signup.html'; // Adjust to the correct path
@@ -69,7 +70,7 @@ const fakeDatabase = {
   // Handle "Continue as guest" action
   function handleContinueAsGuest() {
     // Implement the logic for continuing as guest
-    alert('Continuing as guest...');
+    window.location.href = "../search-files/search.html"
   }
   
   // Handle "Forgot password" action

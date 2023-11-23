@@ -9,10 +9,20 @@
       fill: #fff;
       stroke: steelblue;
       stroke-width: 3px;
+      border-radius: 10px; /* rounded corners */
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* subtle shadow */
     }
 
+    .node:hover rect {
+      fill: #e6f7ff;
+      stroke: #1890ff;
+    }
+
+
     .node text {
-      font: 12px sans-serif;
+      font: 14px 'Segoe UI', sans-serif; /* updated font */
+      fill: #333;
+
     }
 
     .link {
@@ -20,6 +30,8 @@
       stroke: #ccc;
       stroke-width: 2px;
       opacity: 1;
+      transition: all 0.5s ease-in-out;
+
     }
 
     .link.hidden {

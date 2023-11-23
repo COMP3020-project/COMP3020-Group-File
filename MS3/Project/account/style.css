@@ -18,6 +18,13 @@ body {
     height: 5%;
 }
 
+.top-section-container h2 {
+    color: #e00707;  
+    font-size: 2em;  
+    text-align: center; 
+    padding: 20px;  
+}
+
 #Sign-Out {
     font-size: 1.2em;
     margin-right: 10px;
@@ -50,8 +57,6 @@ body {
     height: 94.5%;
     display: flex;
 }
-
-
 
 .search-left-container {
     position: absolute;
@@ -97,10 +102,9 @@ body {
 .tree-left-container,
 .account-left-container {
     z-index: 1;
-    width: 80%;
+    width: 60%;
     height: 10vh;
     border: 2px solid #dddddd;
-
     display: flex;
     align-items: center;
     justify-content: center;
