@@ -79,19 +79,48 @@ function constructBookList()
   console.log(bookList);
   for(let i =0; i < bookList.length; i++)
   {
+    //console.log(bookList[i].id);
     const book = data.textbooks[bookList[i].id]
-    console.log(book)
-    html += `<div class="book-item">
-    <div class="cover-display" style="background-image: url('${book.CoverImage}');">
-    </div>
-    <span>${book.Title}</span>
-    <button onclick="sharePopUp(${bookList[i].ShareLink})">Share</button>
-    <div class="Stars" style="--rating: ${bookList[i].rating};" aria-label="Rating of this product is ${bookList[i].rating} out of 5.">
-    </div>
-</div>`
+    //console.log(book)
+    const bookItem = constructBookItem(book, bookList[i].rating);
+    document.getElementById("book-list").appendChild(bookItem);
   }
-  document.getElementById("book-list").innerHTML = html;
 }
+
+function constructBookItem(book, rating)
+{
+  var outerDiv = document.createElement("div");
+  outerDiv.classList.add("book-item")
+
+  var innerDiv1 = document.createElement("div");
+  innerDiv1.classList.add("cover-display");
+  innerDiv1.style.setProperty("background-image", `url('${book.CoverImage}')`);
+
+  var title = document.createElement("span");
+  title.textContent = book.Title
+
+  var shareButton = document.createElement("button");
+  shareButton.textContent = "Share"
+  shareButton.addEventListener('click', () => {sharePopUp(book.ShareLink)});
+
+  var ratingDiv = document.createElement("div")
+  ratingDiv.classList.add("Stars");
+  ratingDiv.style.setProperty("--rating", rating);
+  ratingDiv.style.setProperty("aria-label", `Rating of this product is ${rating} out of 5.`)
+  ratingDiv.addEventListener("click", (ratingDiv) => {rateBook(ratingDiv)})
+
+  outerDiv.appendChild(innerDiv1);
+  outerDiv.appendChild(title);
+  outerDiv.appendChild(shareButton);
+  outerDiv.appendChild(ratingDiv);
+  return outerDiv;
+}
+
+function rateBook(element)
+{
+  console.log(element);
+}
+
 function sharePopUp(link)
 {
   alert(`Sharing link: ${link}`)
