@@ -18,6 +18,12 @@ document.getElementById("Sign-Out").addEventListener('click',() =>{
   });
   
 var currentUser = data.fakeUser;
+
+//------
+var test = localStorage.getItem("currentUser");
+console.log(test);
+
+
 document.getElementById("username").value = currentUser.username;
 document.getElementById("gender").value  = currentUser.gender;
 document.getElementById("dateofbirth").value  = currentUser.DOB;
@@ -76,7 +82,6 @@ function constructBookList()
   {
     bookList = Object.values(currentUser.bookList).sort(sortAlphabet);
   }
-  var html = ""
   console.log(bookList);
   document.getElementById("book-list").innerHTML = "";
   for(let i =0; i < bookList.length; i++)
@@ -86,17 +91,7 @@ function constructBookList()
     console.log(book)
     const bookItem = constructBookItem(book, bookList[i].rating);
     document.getElementById("book-list").appendChild(bookItem);
-    
-//     html += `<div class="book-item">
-//     <div class="cover-display" style="background-image: url('${book.CoverImage}');">
-//     </div>
-//     <span>${book.Title}</span>
-//     <button onclick="sharePopUp('${book.ShareLink}')">Share</button>
-//     <div class="Stars" style="--rating: ${bookList[i].rating};" aria-label="Rating of this product is ${bookList[i].rating} out of 5.">
-//     </div>
-// </div>`
   }
- // document.getElementById("book-list").innerHTML = html;
 }
 
 function constructBookItem(book, rating)
@@ -119,6 +114,7 @@ function constructBookItem(book, rating)
   ratingDiv.classList.add("Stars");
   ratingDiv.style.setProperty("--rating", rating);
   ratingDiv.style.setProperty("aria-label", `Rating of this product is ${rating} out of 5.`)
+  ratingDiv.addEventListener("click", (event) => {rateBook(event, ratingDiv, book.ID)})
 
   outerDiv.appendChild(innerDiv1);
   outerDiv.appendChild(title);
@@ -128,6 +124,21 @@ function constructBookItem(book, rating)
 }
 
 
+function rateBook(event, ratingDiv, id)
+{
+  var rect = ratingDiv.getBoundingClientRect();
+  var newRating = ((event.clientX - rect.left) / (rect.right - rect.left)) * 5;
+  ratingDiv.style.setProperty("--rating", newRating);
+  for (let i =0; i < currentUser.bookList.length; i++)
+  {
+    if (currentUser.bookList[i].id == id)
+    {
+      currentUser.bookList[i].rating = newRating;
+      break;
+    }
+  }
+  localStorage.setItem(currentUser.email, JSON.stringify(currentUser));
+}
 function sharePopUp(link)
 {
   console.log(link)
