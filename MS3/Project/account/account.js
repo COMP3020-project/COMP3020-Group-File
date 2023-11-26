@@ -23,8 +23,9 @@ document.getElementById("gender").value  = currentUser.gender;
 document.getElementById("dateofbirth").value  = currentUser.DOB;
 constructBookList();
 
-document.getElementById("profile-button").addEventListener("click", updateProfile);
-document.getElementById("password-button").addEventListener("click", updatePassword);
+document.getElementById("profile-button").addEventListener("click", () => {updateProfile();});
+document.getElementById("password-button").addEventListener("click",() => {updatePassword();});
+document.getElementById("sort").addEventListener("change", () => {constructBookList();})
 
 function updateProfile()
 {
@@ -77,29 +78,63 @@ function constructBookList()
   }
   var html = ""
   console.log(bookList);
+  document.getElementById("book-list").innerHTML = "";
   for(let i =0; i < bookList.length; i++)
   {
+    console.log(bookList[i].id);
     const book = data.textbooks[bookList[i].id]
     console.log(book)
-    html += `<div class="book-item">
-    <div class="cover-display" style="background-image: url('${book.CoverImage}');">
-    </div>
-    <span>${book.Title}</span>
-    <button onclick="sharePopUp(${bookList[i].ShareLink})">Share</button>
-    <div class="Stars" style="--rating: ${bookList[i].rating};" aria-label="Rating of this product is ${bookList[i].rating} out of 5.">
-    </div>
-</div>`
+    const bookItem = constructBookItem(book, bookList[i].rating);
+    document.getElementById("book-list").appendChild(bookItem);
+    
+//     html += `<div class="book-item">
+//     <div class="cover-display" style="background-image: url('${book.CoverImage}');">
+//     </div>
+//     <span>${book.Title}</span>
+//     <button onclick="sharePopUp('${book.ShareLink}')">Share</button>
+//     <div class="Stars" style="--rating: ${bookList[i].rating};" aria-label="Rating of this product is ${bookList[i].rating} out of 5.">
+//     </div>
+// </div>`
   }
-  document.getElementById("book-list").innerHTML = html;
+ // document.getElementById("book-list").innerHTML = html;
 }
+
+function constructBookItem(book, rating)
+{
+  var outerDiv = document.createElement("div");
+  outerDiv.classList.add("book-item")
+
+  var innerDiv1 = document.createElement("div");
+  innerDiv1.classList.add("cover-display");
+  innerDiv1.style.setProperty("background-image", `url('${book.CoverImage}')`);
+
+  var title = document.createElement("span");
+  title.textContent = book.Title
+
+  var shareButton = document.createElement("button");
+  shareButton.textContent = "Share"
+  shareButton.addEventListener('click', () => {sharePopUp(book.ShareLink)});
+
+  var ratingDiv = document.createElement("div")
+  ratingDiv.classList.add("Stars");
+  ratingDiv.style.setProperty("--rating", rating);
+  ratingDiv.style.setProperty("aria-label", `Rating of this product is ${rating} out of 5.`)
+
+  outerDiv.appendChild(innerDiv1);
+  outerDiv.appendChild(title);
+  outerDiv.appendChild(shareButton);
+  outerDiv.appendChild(ratingDiv);
+  return outerDiv;
+}
+
+
 function sharePopUp(link)
 {
-  alert(`Sharing link: ${link}`)
+  console.log(link)
+  alert(`Sharing link: \n ${link}`)
 }
 function sortRating(a, b)
 {
-  console.log("rating");
-  console.log(a.rating);
   if(a.rating > b.rating)
   {
     return -1
@@ -116,7 +151,6 @@ function sortRating(a, b)
 
 function sortRatingReverse(a, b)
 {
-  console.log("rating reverse");
   if(a.rating < b.rating)
   {
     return -1
@@ -133,7 +167,6 @@ function sortRatingReverse(a, b)
 
 function sortAlphabet(a, b)
 {
-  console.log("sort alphabet");
   var bookA = data.textbooks[a.id];
   var bookB = data.textbooks[b.id];
   const titleA = bookA.Title;
