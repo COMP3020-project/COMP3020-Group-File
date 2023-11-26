@@ -17,6 +17,15 @@ document.getElementById("Sign-Out").addEventListener('click',() =>{
     window.location.href = "../account/account.html";
   });
 
+  document.addEventListener('DOMContentLoaded', function() {
+    var currentUserEmail = localStorage.getItem('currentUser');
+    if (currentUserEmail) {
+        var userData = JSON.parse(localStorage.getItem(currentUserEmail));
+        if (userData && userData.username) {
+            document.getElementById('welcomeMessage').textContent = 'Welcome, ' + userData.username;
+        }
+    }
+  });
 
 var currentUser = data.getUser("user@example.com");
 console.log(currentUser);

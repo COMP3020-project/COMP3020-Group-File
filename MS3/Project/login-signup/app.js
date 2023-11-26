@@ -35,16 +35,8 @@
     if (storedUser) {
       const userDetails = JSON.parse(storedUser);
       if (password === userDetails.password) {
-        // save information to  LocalStorag
-        const currentUser = {
-          email: email,
-          username: userDetails.username,
-          password: userDetails.password,
-          gender: "Male", // defult value
-          DOB: "2011-11-20", // defult value
-          bookList: [{id: 1, rating: 9}, {id: 2, rating: 8}, {id: 3, rating: 4}] // defult
-        };
-        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+        // Save only the email of the current user in LocalStorage
+        localStorage.setItem("currentUser", email);
         window.location.href = '../search-files/search.html';
       } else {
         alert('Login failed: incorrect password.');
@@ -55,7 +47,6 @@
   
     return false;
   }
-  
   
 
   // Function to check password length
