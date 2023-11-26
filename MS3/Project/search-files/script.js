@@ -23,6 +23,11 @@ document.querySelector('.account-left-container').addEventListener('click', func
 const searchInput = document.querySelector('.search-bar');
 const suggestionsList = document.getElementById('suggestions');
 
+var userEmail = localStorage.getItem("currentUser");
+console.log(userEmail);
+var currentUser = data.getUser(userEmail);
+document.getElementById("welcome-text").innerText = "Hello" + ", " + currentUser.username;
+
 searchInput.addEventListener('input', function () {
   const inputValue = searchInput.value.toLowerCase();
 

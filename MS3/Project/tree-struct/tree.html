@@ -88,7 +88,7 @@
 
 <body>
   <div class="top-section-container">
-    <h2 style=" color: #707070; font-size: 2em;   padding: 20px;  ">Welcome, User</h2>
+    <h2 id="welcome-text" style=" color: #707070; font-size: 2em;   padding: 20px;  ">Welcome, User</h2>
     <button id="Sign-Out">Sign Out</button>
   </div>
 
@@ -553,6 +553,7 @@
           // Merge the new items with the existing items
           items = items.merge(newItem);
         }
+
 
         document.getElementById("Sign-Out").addEventListener('click', () => {
           localStorage.removeItem("currentUser");
