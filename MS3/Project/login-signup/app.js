@@ -1,7 +1,7 @@
 // Simulated database for demonstration purposes
 const fakeDatabase = {
     users: [
-      { email: 'user@example.com', password: 'password123' }
+      { email: 'user@example.com', name: 'dummy', password: 'password123', gender: 'male', birthdate: '01-01-2000', listOfBook: 'Textbook1' }
       // Add other user objects as needed
     ]
   };
