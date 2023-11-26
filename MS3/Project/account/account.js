@@ -1,7 +1,7 @@
 import * as data from "../data.js";
 
-
 document.getElementById("Sign-Out").addEventListener('click',() =>{
+    localStorage.removeItem("currentUser");
     window.location.href = "../login-signup/login.html"
   });
 
@@ -17,8 +17,12 @@ document.getElementById("Sign-Out").addEventListener('click',() =>{
     window.location.href = "../account/account.html";
   });
 
-var currentUser = data.getUser("user@example.com");
-console.log(currentUser);
+var userEmail = localStorage.getItem("currentUser");
+console.log(userEmail);
+var currentUser = data.getUser(userEmail);
+// console.log(test);
+// var currentUser = data.getUser("user@example.com");
+// console.log(currentUser);
 //------
 
 
@@ -41,7 +45,7 @@ function updateProfile()
   currentUser.DOB = document.getElementById("dateofbirth").value;
   console.log("profile updated");
   alert("Profile Update");
-  localStorage.setItem(currentUser.email, JSON.stringify(currentUser));
+  localStorage.setItem(userEmail, JSON.stringify(currentUser));
 }
 
 function updatePassword()
@@ -65,9 +69,9 @@ function updatePassword()
     return;
   }
   document.getElementById("error-password").innerText = ""
-  currentUser.password = currentPassword;
+  currentUser.password = newPassword;
   alert("Password Update");
-  localStorage.setItem(currentUser.email, JSON.stringify(currentUser));
+  localStorage.setItem(userEmail, JSON.stringify(currentUser));
   document.getElementById("currentPassword").value = "";
   document.getElementById("newPassword").value = "";
   document.getElementById("newPasswordConfirm").value = "";

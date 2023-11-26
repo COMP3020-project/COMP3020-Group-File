@@ -310,7 +310,6 @@ export function setQuery(book)
     localStorage.setItem("queryID", book['ID']);
 }
 
-export var fakeUser = {email: 'user@example.com', password: 'password123', gender: "Male", DOB: "2011-12-29", username: "Rob", bookList: [{id: 1, rating: 4.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.2}]}
 export function setUser(userID,newUserInfo)
 {
     localStorage.setItem(userID, newUserInfo);

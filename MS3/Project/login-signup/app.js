@@ -1,5 +1,10 @@
 // Simulated database for demonstration purposes
   // Function to handle the login process
+
+  //Create fakeuser
+  var fakeUser = {email: 'user@example.com', password: 'password123', gender: "Male", DOB: "2011-12-29", username: "Rob", bookList: [{id: 1, rating: 4.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.2}]}
+  localStorage.setItem("user@example.com", JSON.stringify(fakeUser));
+
   function handleSignup() {
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
@@ -10,7 +15,8 @@
       if (password === confirmPassword) {
         // save the user into LocalStorage
         if (!localStorage.getItem(email)) { // check if user exist
-          localStorage.setItem(email, JSON.stringify({ username, password }));
+          var newUser = {email: email, password: password, username: username, gender: "", DOB:"1999-12-23", bookList:[]}
+          localStorage.setItem(email, JSON.stringify(newUser));
           alert('Signup successful!');
           window.location.href = 'login.html';
         } else {

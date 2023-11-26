@@ -2,6 +2,7 @@ import * as data from "../data.js";
 const textbooks = data.textbooks;
 // sign out alert
 document.getElementById("Sign-Out").addEventListener('click',() =>{
+  localStorage.removeItem("currentUser");
   window.location.href = "../login-signup/login.html"
 });
 
