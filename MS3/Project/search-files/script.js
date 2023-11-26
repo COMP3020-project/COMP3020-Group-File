@@ -1,6 +1,190 @@
-import * as data from "../data.js"
+const textbooks = {
+    "1": {
+        "ID": "1",
+        "DepartmentID": "COMP",
+        "YearID": "COMP1",
+        "CourseID": "COMP1010",
+        "Title": "Introduction to CS",
+        "Author": "John Doe",
+        "Price": "$30.00",
+        "Version": "1.0",
+        "CoverImage": "link1",
+        "PreviewPage": [
+            "page1",
+            "page2"
+        ],
+        "ShareLink": "",
+        "Rating": "-1"
+    },
+    "2": {
+        "ID": "asdsda2",
+        "DepartmentID": "COMP",
+        "YearID": "COMP1",
+        "CourseID": "COMP1020",
+        "Title": "Introduction to CS 2",
+        "Author": "Jane Smith",
+        "Price": "$25.00",
+        "Version": "2",
+        "CoverImage": "link",
+        "PreviewPage": [
+            "page3",
+            "page4"
+        ],
+        "ShareLink": "",
+        "Rating": "-1"
+    },
+    "3": {
+        "ID": "3",
+        "DepartmentID": "COMP",
+        "YearID": "COMP2",
+        "CourseID": "COMP2140",
+        "Title": "Data structures and Algorithms",
+        "Author": "Deez Balls",
+        "Price": "$32.00",
+        "Version": "5",
+        "CoverImage": "link",
+        "PreviewPage": [
+            "",
+            ""
+        ],
+        "ShareLink": "",
+        "Rating": "-1"
+    },
+    "4": {
+        "ID": "4",
+        "DepartmentID": "COMP",
+        "YearID": "COMP3",
+        "CourseID": "COMP3190",
+        "Title": "Artificial intelligence",
+        "Author": "Deez Balls",
+        "Price": "$40.00",
+        "Version": "10",
+        "CoverImage": "link",
+        "PreviewPage": [
+            "",
+            ""
+        ],
+        "ShareLink": "",
+        "Rating": "-1"
+    },
+    "5": {
+        "ID": "5",
+        "DepartmentID": "COMP",
+        "YearID": "COMP4",
+        "CourseID": "COMP4020",
+        "Title": "HCI 2",
+        "Author": "Gay Sun",
+        "Price": "$35.00",
+        "Version": "10",
+        "CoverImage": "link",
+        "PreviewPage": [
+            "",
+            ""
+        ],
+        "ShareLink": "",
+        "Rating": "-1"
+    }
+  };
+  
+  const courses = {
+    "COMP1010": {
+        "ID": "COMP1010",
+        "DepartmentID": "COMP",
+        "YearID": "COMP1",
+        "Name": "Intro to Computer Science",
+        "BookList": [
+            "1"
+        ]
+    },
+    "COMP1020": {
+        "ID": "COMP1020",
+        "DepartmentID": "COMP",
+        "YearID": "COMP1",
+        "Name": "Intro to Computer Science 2",
+        "BookList": [
+            "2"
+        ]
+    },
+    "COMP2140": {
+        "ID": "COMP2140",
+        "DepartmentID": "COMP",
+        "YearID": "COMP2",
+        "Name": "Data structures and Algorithms",
+        "BookList": [
+            "3"
+        ]
+    },
+    "COMP3190": {
+        "ID": "COMP3190",
+        "DepartmentID": "COMP",
+        "YearID": "COMP3",
+        "Name": "Artificial intelligence",
+        "BookList": [
+            "4"
+        ]
+    },
+    "COMP4020": {
+        "ID": "COMP4020",
+        "DepartmentID": "COMP",
+        "YearID": "COMP4",
+        "Name": "HCI 2",
+        "BookList": [
+            "5"
+        ]
+    }
+  };
 
-const textbooks = data.textbooks;
+
+const departments = {
+    "COMP": {
+        "ID": "COMP",
+        "Name": "Department Of Computer Science",
+        "YearList": [
+            "COMP1",
+            "COMP2",
+            "COMP3",
+            "COMP4"
+        ]
+    }
+};
+
+const years = {
+    "COMP1": {
+        "ID": "COMP1",
+        "DepartmentID": "COMP",
+        "Name": "Year 1",
+        "CourseList": [
+            "COMP1010",
+            "COMP1020"
+        ]
+    },
+    "COMP2": {
+        "ID": "COMP2",
+        "DepartmentID": "COMP",
+        "Name": "Year 2",
+        "CourseList": [
+            "COMP2140"
+        ]
+    },
+    "COMP3": {
+        "ID": "COMP3",
+        "DepartmentID": "COMP",
+        "Name": "Year 3",
+        "CourseList": [
+            "COMP3190"
+        ]
+    },
+    "COMP4": {
+        "ID": "COMP4",
+        "DepartmentID": "COMP",
+        "Name": "Year 4",
+        "CourseList": [
+            "COMP4020"
+        ]
+    }
+};
+
+
 // sign out alert
 document.getElementById("Sign-Out").addEventListener('click',() =>{
   window.location.href = "../login-signup/login.html"
@@ -59,7 +243,6 @@ searchInput.addEventListener('input', function () {
   displaySuggestions(suggestions);
 });
 
-var bookToSearch = {};
 function displaySuggestions(suggestions) {
   suggestionsList.innerHTML = '';
 
@@ -74,7 +257,6 @@ function displaySuggestions(suggestions) {
     suggestionItem.textContent = `${book.Title} - ${book.Price}`;
     suggestionItem.addEventListener('click', function () {
       searchInput.value = `${book.Title}`;
-      bookToSearch = book;
       suggestionsList.style.display = 'none';
     });
 
@@ -89,12 +271,4 @@ document.addEventListener('click', function (event) {
     suggestionsList.style.display = 'none';
   }
 });
-
-document.getElementById("search-button").addEventListener('click', setQuery);
-function setQuery()
-{
-  data.setQuery(bookToSearch);
-  data.constructTree();
-  //window.location.href = "../tree-struct/tree.html";
-}
 
