@@ -205,7 +205,7 @@
             }
           ]
         };
-
+        
         var margin = {
           top: 20,
           right: 120,
@@ -348,14 +348,17 @@
 
           nodeEnter.append("rect")
             .attr("width", function (d) {
-              return d.data.name.length * 8;
+                return d.data.name.length * 8;
             })
             .attr("height", 20)
             .attr("x", function (d) {
-              return -(d.data.name.length * 4);
+                return -(d.data.name.length * 4);
             })
             .attr("y", -10)
-            .style("fill", "#fff");
+            .style("fill", function(d) {
+                // Check if the node is a leaf node
+                return d.children || d._children ? "#fff" : "red"; // White for nodes with children, red for leaf nodes
+            });
 
           nodeEnter.append("text")
             .attr("x", 0)
@@ -394,6 +397,8 @@
             .style("opacity", 0)
             .remove();
         }
+
+        
 
         function isLeafNode(d) {
           return !d.children && !d._children;
