@@ -42,7 +42,7 @@
           password: userDetails.password,
           gender: "Male", // defult value
           DOB: "2011-11-20", // defult value
-          bookList: [{ID: 1, Rating: 9}, {ID: 2, Rating: 8}, {ID: 3, Rating: 4}] // defult
+          bookList: [{id: 1, rating: 9}, {id: 2, rating: 8}, {id: 3, rating: 4}] // defult
         };
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
         window.location.href = '../search-files/search.html';
