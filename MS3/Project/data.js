@@ -1,6 +1,6 @@
 export const textbooks = {
-    "1": {
-        "ID": "1",
+    "0": {
+        "ID": "0",
         "DepartmentID": "COMP",
         "YearID": "COMP1",
         "CourseID": "COMP1010",
@@ -15,8 +15,8 @@ export const textbooks = {
         ],
         "ShareLink": "Introduction-to-CS",
     },
-    "2": {
-        "ID": "2",
+    "1": {
+        "ID": "1",
         "DepartmentID": "COMP",
         "YearID": "COMP1",
         "CourseID": "COMP1012",
@@ -32,8 +32,8 @@ export const textbooks = {
         "ShareLink": "https://umbookstore/books/Introduction-to-CS-2",
     },
 
-    "3": {
-        "ID": "3",
+    "2": {
+        "ID": "2",
         "DepartmentID": "COMP",
         "YearID": "COMP2",
         "CourseID": "COMP2140",
@@ -50,8 +50,8 @@ export const textbooks = {
         ],
         "ShareLink": "https://umbookstore/books/Data-structures-and-Algorithms",
     },
-    "4": {
-        "ID": "4",
+    "3": {
+        "ID": "3",
         "DepartmentID": "COMP",
         "YearID": "COMP3",
         "CourseID": "COMP3190",
@@ -67,7 +67,7 @@ export const textbooks = {
         ],
         "ShareLink": "",
     },
-    "5": {
+    "4": {
         "ID": "4",
         "DepartmentID": "COMP",
         "YearID": "COMP3",
@@ -83,7 +83,7 @@ export const textbooks = {
         ],
         "ShareLink": "",
     },
-    "6": {
+    "5": {
         "ID": "5",
         "DepartmentID": "COMP",
         "YearID": "COMP4",
@@ -140,6 +140,15 @@ export const courses = {
     },
     "COMP2140": {
         "ID": "COMP2140",
+        "DepartmentID": "COMP",
+        "YearID": "COMP2",
+        "Name": "Data structures and Algorithms",
+        "children": [
+            "3"
+        ]
+    },
+    "COMP2160": {
+        "ID": "COMP2160",
         "DepartmentID": "COMP",
         "YearID": "COMP2",
         "Name": "Data structures and Algorithms",
