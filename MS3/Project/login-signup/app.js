@@ -36,7 +36,7 @@
       const { username, password: storedPassword } = JSON.parse(storedUser);
       if (password === storedPassword) {
         // alert('Login successful!');
-        window.location.href = '/search-files/search.html';
+        window.location.href = '../search-files/search.html';
         // 可以选择在此处设置全局变量或另一个 LocalStorage 条目来保存当前登录的用户信息
       } else {
         alert('Login failed: incorrect password.');
