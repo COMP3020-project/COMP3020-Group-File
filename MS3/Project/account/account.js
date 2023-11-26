@@ -27,6 +27,7 @@ console.log(currentUser);
 document.getElementById("username").value = currentUser.username;
 document.getElementById("gender").value  = currentUser.gender;
 document.getElementById("dateofbirth").value  = currentUser.DOB;
+document.getElementById("welcome-text").innerText = "Hello" + ", " + currentUser.username;
 constructBookList();
 
 document.getElementById("profile-button").addEventListener("click", () => {updateProfile();});
