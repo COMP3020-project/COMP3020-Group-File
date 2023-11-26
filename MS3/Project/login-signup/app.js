@@ -33,11 +33,19 @@
   
     const storedUser = localStorage.getItem(email);
     if (storedUser) {
-      const { username, password: storedPassword } = JSON.parse(storedUser);
-      if (password === storedPassword) {
-        // alert('Login successful!');
+      const userDetails = JSON.parse(storedUser);
+      if (password === userDetails.password) {
+        // save information to  LocalStorag
+        const currentUser = {
+          email: email,
+          username: userDetails.username,
+          password: userDetails.password,
+          gender: "Male", // defult value
+          DOB: "2011-11-20", // defult value
+          bookList: [{ID: 1, Rating: 9}, {ID: 2, Rating: 8}, {ID: 3, Rating: 4}] // defult
+        };
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
         window.location.href = '../search-files/search.html';
-        // 可以选择在此处设置全局变量或另一个 LocalStorage 条目来保存当前登录的用户信息
       } else {
         alert('Login failed: incorrect password.');
       }
@@ -45,8 +53,9 @@
       alert('Login failed: user not found.');
     }
   
-    return false; // Prevent form submission
+    return false;
   }
+  
   
 
   // Function to check password length
