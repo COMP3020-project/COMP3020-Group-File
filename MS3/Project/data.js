@@ -1,6 +1,6 @@
 export const textbooks = {
-    "1": {
-        "ID": "1",
+    "0": {
+        "ID": "0",
         "DepartmentID": "COMP",
         "YearID": "COMP1",
         "CourseID": "COMP1010",
@@ -15,8 +15,8 @@ export const textbooks = {
         ],
         "ShareLink": "Introduction-to-CS",
     },
-    "2": {
-        "ID": "2",
+    "1": {
+        "ID": "1",
         "DepartmentID": "COMP",
         "YearID": "COMP1",
         "CourseID": "COMP1012",
@@ -32,8 +32,8 @@ export const textbooks = {
         "ShareLink": "https://umbookstore/books/Introduction-to-CS-2",
     },
 
-    "3": {
-        "ID": "3",
+    "2": {
+        "ID": "2",
         "DepartmentID": "COMP",
         "YearID": "COMP2",
         "CourseID": "COMP2140",
@@ -50,8 +50,8 @@ export const textbooks = {
         ],
         "ShareLink": "https://umbookstore/books/Data-structures-and-Algorithms",
     },
-    "4": {
-        "ID": "4",
+    "3": {
+        "ID": "3",
         "DepartmentID": "COMP",
         "YearID": "COMP3",
         "CourseID": "COMP3190",
@@ -59,7 +59,7 @@ export const textbooks = {
         "Author": "Deez Balls",
         "Price": "$40.00",
         "Version": "10",
-        "CoverImage": "link",
+        "CoverImage": "../Images/IntroToAI.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
@@ -67,7 +67,7 @@ export const textbooks = {
         ],
         "ShareLink": "",
     },
-    "5": {
+    "4": {
         "ID": "4",
         "DepartmentID": "COMP",
         "YearID": "COMP3",
@@ -83,7 +83,7 @@ export const textbooks = {
         ],
         "ShareLink": "",
     },
-    "6": {
+    "5": {
         "ID": "5",
         "DepartmentID": "COMP",
         "YearID": "COMP4",
@@ -92,7 +92,7 @@ export const textbooks = {
         "Author": "Yvonne Rogers",
         "Price": "$66.97",
         "Version": "10",
-        "CoverImage": "link",
+        "CoverImage": "../Images/HCI-textbook.png",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
@@ -147,6 +147,15 @@ export const courses = {
             "3"
         ]
     },
+    "COMP2160": {
+        "ID": "COMP2160",
+        "DepartmentID": "COMP",
+        "YearID": "COMP2",
+        "Name": "Data structures and Algorithms",
+        "children": [
+            "3"
+        ]
+    },
     "COMP2150": {
         "ID": "COMP2150",
         "DepartmentID": "COMP",
@@ -174,6 +183,26 @@ export const courses = {
             "4"
         ]
     },
+
+    "COMP3020": {
+        "ID": "COMP3020",
+        "DepartmentID": "COMP",
+        "YearID": "COMP3",
+        "Name": "HCI",
+        "children": [
+            "4"
+        ]
+    },
+    
+    "COMP3030": {
+        "ID": "COMP3030",
+        "DepartmentID": "COMP",
+        "YearID": "COMP3",
+        "Name": "Automata",
+        "children": [
+            "4"
+        ]
+    },
     
     "COMP3190": {
         "ID": "COMP3190",
@@ -193,7 +222,7 @@ export const courses = {
             "5"
         ]
     },
-    "COMP4020": {
+    "COMP4350": {
         "ID": "COMP4350",
         "DepartmentID": "COMP",
         "YearID": "COMP4",
@@ -310,23 +339,23 @@ export function constructTree()
         var departmentID = book.DepartmentID;
 
         console.log(departmentID);
-        var department = {...departments[departmentID]};
+        var department = JSON.parse(JSON.stringify(departments[departmentID]));
         console.log(department);
         for (let i =0; i < department.children.length; i++)
         {
             var yearID = department.children[i]
             console.log(yearID)
-            var yearInfo = {...years[yearID]}
+            var yearInfo = JSON.parse(JSON.stringify(years[yearID]));
             for (let j = 0; j < yearInfo.children.length; j++)
             {
                 var courseID = yearInfo.children[j];
-                var courseInfo = {...courses[courseID]};
+                var courseInfo = JSON.parse(JSON.stringify(courses[courseID]));
                 console.log(courseID);
                 console.log(courseInfo);
                 for (let k = 0; k < courseInfo.children.length; k++)
                 {
                     var bookID = courseInfo.children[k];
-                    var bookInfo = {...textbooks[bookID]};
+                    var bookInfo = JSON.parse(JSON.stringify(textbooks[bookID]));
                     courseInfo.children[k] = bookInfo;
                 }
                 yearInfo.children[j] = courseID;
