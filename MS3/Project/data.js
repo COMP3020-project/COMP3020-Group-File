@@ -59,7 +59,7 @@ export const textbooks = {
         "Author": "Deez Balls",
         "Price": "$40.00",
         "Version": "10",
-        "CoverImage": "link",
+        "CoverImage": "../Images/IntroToAI.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
@@ -92,7 +92,7 @@ export const textbooks = {
         "Author": "Yvonne Rogers",
         "Price": "$66.97",
         "Version": "10",
-        "CoverImage": "link",
+        "CoverImage": "../Images/HCI-textbook.png",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
@@ -183,6 +183,26 @@ export const courses = {
             "4"
         ]
     },
+
+    "COMP3020": {
+        "ID": "COMP3020",
+        "DepartmentID": "COMP",
+        "YearID": "COMP3",
+        "Name": "HCI",
+        "children": [
+            "4"
+        ]
+    },
+    
+    "COMP3030": {
+        "ID": "COMP3030",
+        "DepartmentID": "COMP",
+        "YearID": "COMP3",
+        "Name": "Automata",
+        "children": [
+            "4"
+        ]
+    },
     
     "COMP3190": {
         "ID": "COMP3190",
@@ -202,7 +222,7 @@ export const courses = {
             "5"
         ]
     },
-    "COMP4020": {
+    "COMP4350": {
         "ID": "COMP4350",
         "DepartmentID": "COMP",
         "YearID": "COMP4",
