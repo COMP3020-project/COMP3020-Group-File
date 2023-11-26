@@ -16,7 +16,8 @@ document.getElementById("Sign-Out").addEventListener('click',() =>{
   document.querySelector('.account-left-container').addEventListener('click', function(){
     window.location.href = "../account/account.html";
   });
-  
+
+
 var currentUser = data.getUser("user@example.com");
 console.log(currentUser);
 //------
