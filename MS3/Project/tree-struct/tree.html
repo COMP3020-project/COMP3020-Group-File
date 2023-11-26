@@ -15,6 +15,8 @@
         stroke-width: 3px;
         border-radius: 10px; /* rounded corners */
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* subtle shadow */
+        
+        
     }
 
     .node:hover rect {
@@ -26,6 +28,7 @@
     .node text {
         font: 14px 'Segoe UI', sans-serif; /* updated font */
         fill: #333;
+        cursor: pointer;
 
     }
 
@@ -75,12 +78,14 @@
 
 
 
-
-
   </style>
 </head>
 
 <body>
+      <div class="top-section-container">
+        <h2 style = " color: #707070; font-size: 2em;   padding: 20px;  ">Welcome, User</h2>
+        <button id="Sign-Out">Sign Out</button>
+    </div>
    
     <div class = "search-left-container">
         <h2><i class="fas fa-magnifying-glass"></i> Search</h2>
@@ -92,7 +97,9 @@
         <h2><i class="fa-regular fa-user"></i> Account</h2>
     </div>
   <div class="container">
+      
     <div class="tree-container">
+      
       <!-- Tree SVG will be appended here -->
       <script>
         // Your existing JavaScript code for the tree
@@ -191,7 +198,7 @@
         height = 400 - margin.top - margin.bottom;
 
         var i = 0,
-        duration = 750,
+        duration = 100,
         root;
 
         var tree = d3.tree().size([width, height]);
@@ -235,10 +242,10 @@
         }
 
         var simulation = d3.forceSimulation()
-          .force("link", d3.forceLink().id(function (d) {
+        force("link", d3.forceLink().id(function (d) {
             return d.id;
-          }))
-          .force("charge", d3.forceManyBody())
+          }).strength(2))
+          .force("charge", d3.forceManyBody().strength(-50))
           .force("center", d3.forceCenter(width / 2, height / 2));
 
         function update(source) {
@@ -522,6 +529,10 @@
         // Merge the new items with the existing items
         items = items.merge(newItem);
       }
+
+        document.getElementById("Sign-Out").addEventListener('click',() =>{
+        window.location.href = "../login-signup/login.html"
+        });
 
         document.querySelector('.search-left-container').addEventListener('click', function(){
         window.location.href = "../search-files/search.html";
