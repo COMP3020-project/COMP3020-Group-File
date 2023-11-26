@@ -59,7 +59,7 @@ searchInput.addEventListener('input', function () {
   displaySuggestions(suggestions);
 });
 
-var bookToSearch = null;
+var bookToSearch = {};
 function displaySuggestions(suggestions) {
   suggestionsList.innerHTML = '';
 

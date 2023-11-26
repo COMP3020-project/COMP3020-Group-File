@@ -224,6 +224,6 @@ export function constructTree()
         }
 
         console.log(department);
-        console.log(departments)
+        console.log(departments);
     }
 }
