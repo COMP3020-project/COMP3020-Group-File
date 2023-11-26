@@ -32,7 +32,7 @@ export const textbooks = {
         "ShareLink": "https://umbookstore/books/Introduction-to-CS-2",
     },
 
-    "4": {
+    "3": {
         "ID": "3",
         "DepartmentID": "COMP",
         "YearID": "COMP2",
@@ -283,11 +283,11 @@ export function setQuery(book)
 
 var fakeDatabase = {
     users: [
-      { email: 'user@example.com', password: 'password123', bookList: [{ID: 1, Rating: 9}, {ID: 2, Rating: 8}, {ID: 3, Rating: 4}]}
+        {email: 'user@example.com', password: 'password123', gender: "Male", DOB: "2011-12-29", username: "Rob", bookList: [{id: 1, rating: 4.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.2}]}
     ]
   };
 
-var fakeUser = {}
+export var fakeUser = {email: 'user@example.com', password: 'password123', gender: "Male", DOB: "2011-12-29", username: "Rob", bookList: [{id: 1, rating: 4.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.2}]}
 export function setDatabase(newDatabase)
 {
     localStorage.set("database", newDatabase);

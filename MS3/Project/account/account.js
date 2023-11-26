@@ -81,11 +81,12 @@ function constructBookList()
   document.getElementById("book-list").innerHTML = "";
   for(let i =0; i < bookList.length; i++)
   {
-    console.log("done");
+    console.log(bookList[i].id);
     const book = data.textbooks[bookList[i].id]
+    console.log(book)
     const bookItem = constructBookItem(book, bookList[i].rating);
     document.getElementById("book-list").appendChild(bookItem);
-    console.log(book)
+    
 //     html += `<div class="book-item">
 //     <div class="cover-display" style="background-image: url('${book.CoverImage}');">
 //     </div>
@@ -134,7 +135,6 @@ function sharePopUp(link)
 }
 function sortRating(a, b)
 {
-  console.log("rating");
   if(a.rating > b.rating)
   {
     return -1
@@ -151,7 +151,6 @@ function sortRating(a, b)
 
 function sortRatingReverse(a, b)
 {
-  console.log("rating reverse");
   if(a.rating < b.rating)
   {
     return -1
@@ -168,7 +167,6 @@ function sortRatingReverse(a, b)
 
 function sortAlphabet(a, b)
 {
-  console.log("sort alphabet");
   var bookA = data.textbooks[a.id];
   var bookB = data.textbooks[b.id];
   const titleA = bookA.Title;
