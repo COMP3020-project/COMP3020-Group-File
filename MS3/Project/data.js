@@ -185,6 +185,27 @@ export function setQuery(book)
     localStorage.setItem("queryID", book['ID']);
 }
 
+var fakeDatabase = {
+    users: [
+      { email: 'user@example.com', password: 'password123', bookList: [{ID: 1, Rating: 9}, {ID: 2, Rating: 8}, {ID: 3, Rating: 4}]}
+    ]
+  };
+
+export function setDatabase(newDatabase)
+{
+    localStorage.set("database", newDatabase);
+}
+
+export function getDatabase()
+{
+    if(localStorage.get("database") === null)
+    {
+        localStorage.set("database", JSON.stringify(fakeDatabase))
+        
+    }
+    return localStorage.get("database");
+}
+
 export function constructTree()
 {
     var bookID = localStorage.getItem("queryID");

@@ -1,13 +1,8 @@
 // Simulated database for demonstration purposes
-const fakeDatabase = {
-    users: [
-      { email: 'user@example.com', password: 'password123' }
-      // Add other user objects as needed
-    ]
-  };
-  
+import * as data from "../data.js"
   // Function to handle the login process
   function handleLogin() {
+    const fakeDatabase = data.getDatabase()
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
   
