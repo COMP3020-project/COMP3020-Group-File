@@ -10,8 +10,8 @@ export const textbooks = {
         "Version": "1.0",
         "CoverImage": "../Images/test_1.png",
         "PreviewPage": [
-            "page1",
-            "page2"
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!",
+            "paLorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!ge2"
         ],
         "ShareLink": "Introduction-to-CS",
     },
@@ -19,31 +19,34 @@ export const textbooks = {
         "ID": "2",
         "DepartmentID": "COMP",
         "YearID": "COMP1",
-        "CourseID": "COMP1020",
-        "Title": "Introduction to CS 2",
-        "Author": "Jane Smith",
-        "Price": "$25.00",
+        "CourseID": "COMP1012",
+        "Title": "MATLAB For Dummies",
+        "Author": "John Paul Mueller ",
+        "Price": "$41.99",
         "Version": "2",
         "CoverImage": "../Images/book1.png",
         "PreviewPage": [
-            "page3",
-            "page4"
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
         ],
         "ShareLink": "https://umbookstore/books/Introduction-to-CS-2",
     },
-    "3": {
+
+    "4": {
         "ID": "3",
         "DepartmentID": "COMP",
         "YearID": "COMP2",
         "CourseID": "COMP2140",
-        "Title": "Data structures and Algorithms",
-        "Author": "Deez Balls",
+        "Title": "Introduction to Algorithms",
+        "Author": "Thomas H. Cormen",
         "Price": "$32.00",
         "Version": "5",
         "CoverImage": "../Images/book2.png",
         "PreviewPage": [
-            "page5",
-            "page6"
+
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+
         ],
         "ShareLink": "https://umbookstore/books/Data-structures-and-Algorithms",
     },
@@ -58,27 +61,44 @@ export const textbooks = {
         "Version": "10",
         "CoverImage": "link",
         "PreviewPage": [
-            "",
-            ""
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+
         ],
         "ShareLink": "",
     },
     "5": {
+        "ID": "4",
+        "DepartmentID": "COMP",
+        "YearID": "COMP3",
+        "CourseID": "COMP3190",
+        "Title": "Artificial Intelligence For Dummies",
+        "Author": "John Paul Mueller ",
+        "Price": "$40.00",
+        "Version": "10",
+        "CoverImage": "link",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "",
+    },
+    "6": {
         "ID": "5",
         "DepartmentID": "COMP",
         "YearID": "COMP4",
         "CourseID": "COMP4020",
-        "Title": "HCI 2",
-        "Author": "Gay Sun",
-        "Price": "$35.00",
+        "Title": "Interaction Design: Beyond Human-Computer Interaction",
+        "Author": "Yvonne Rogers",
+        "Price": "$66.97",
         "Version": "10",
         "CoverImage": "link",
         "PreviewPage": [
-            "",
-            ""
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
         ],
-        "ShareLink": "",
-    }
+        "ShareLink": "https://umbookstore/books/Beyond-Human-Computer-Interaction",
+    },
   };
   
 export const courses = {
@@ -87,6 +107,15 @@ export const courses = {
         "DepartmentID": "COMP",
         "YearID": "COMP1",
         "Name": "Intro to Computer Science",
+        "children": [
+            "1"
+        ]
+    },
+    "COMP1012": {
+        "ID": "COMP1010",
+        "DepartmentID": "COMP",
+        "YearID": "COMP1",
+        "Name": "Computer Programming for Scientists and Engineers",
         "children": [
             "1"
         ]
@@ -100,6 +129,15 @@ export const courses = {
             "2"
         ]
     },
+    "COMP2080": {
+        "ID": "COMP2080",
+        "DepartmentID": "COMP",
+        "YearID": "COMP2",
+        "Name": "Analysis of algorithms",
+        "children": [
+            "3"
+        ]
+    },
     "COMP2140": {
         "ID": "COMP2140",
         "DepartmentID": "COMP",
@@ -109,6 +147,34 @@ export const courses = {
             "3"
         ]
     },
+    "COMP2150": {
+        "ID": "COMP2150",
+        "DepartmentID": "COMP",
+        "YearID": "COMP2",
+        "Name": "Object Orientation",
+        "children": [
+            "3"
+        ]
+    },
+    "COMP2280": {
+        "ID": "COMP2280",
+        "DepartmentID": "COMP",
+        "YearID": "COMP2",
+        "Name": "Introduction to Computer Systems",
+        "children": [
+            "3"
+        ]
+    },
+    "COMP3010": {
+        "ID": "COMP3010",
+        "DepartmentID": "COMP",
+        "YearID": "COMP3",
+        "Name": "Distributed Computing",
+        "children": [
+            "4"
+        ]
+    },
+    
     "COMP3190": {
         "ID": "COMP3190",
         "DepartmentID": "COMP",
@@ -122,11 +188,29 @@ export const courses = {
         "ID": "COMP4020",
         "DepartmentID": "COMP",
         "YearID": "COMP4",
+        "Name": "Human-Computer Interaction 2",
+        "children": [
+            "5"
+        ]
+    },
+    "COMP4020": {
+        "ID": "COMP4350",
+        "DepartmentID": "COMP",
+        "YearID": "COMP4",
+        "Name": "Software Engineering 2",
+        "children": [
+            "5"
+        ]
+    },
+    "COMP4360": {
+        "ID": "COMP4360",
+        "DepartmentID": "Machine Learning",
+        "YearID": "COMP4",
         "Name": "HCI 2",
         "children": [
             "5"
         ]
-    }
+    },
   };
 
 
@@ -143,6 +227,8 @@ export const departments = {
     }
 };
 
+
+
 export const years = {
     "COMP1": {
         "ID": "COMP1",
@@ -150,6 +236,7 @@ export const years = {
         "Name": "Year 1",
         "children": [
             "COMP1010",
+            "COMP1012",
             "COMP1020"
         ]
     },
@@ -158,7 +245,11 @@ export const years = {
         "DepartmentID": "COMP",
         "Name": "Year 2",
         "children": [
-            "COMP2140"
+            "COMP2080",
+            "COMP2140",
+            "COMP2150",
+            "COMP2160",
+            "COMP2280",
         ]
     },
     "COMP3": {
@@ -166,6 +257,9 @@ export const years = {
         "DepartmentID": "COMP",
         "Name": "Year 3",
         "children": [
+            "COMP3010",
+            "COMP3020",
+            "COMP3030",
             "COMP3190"
         ]
     },
@@ -174,7 +268,9 @@ export const years = {
         "DepartmentID": "COMP",
         "Name": "Year 4",
         "children": [
-            "COMP4020"
+            "COMP4020",
+            "COMP4350",
+            "COMP4360"
         ]
     }
 };
@@ -187,14 +283,14 @@ export function setQuery(book)
 
 var fakeDatabase = {
     users: [
-      { email: 'user@example.com', password: 'password123', bookList: [{id: 1, rating: 2.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.7}]}
+      { email: 'user@example.com', password: 'password123', bookList: [{ID: 1, Rating: 9}, {ID: 2, Rating: 8}, {ID: 3, Rating: 4}]}
     ]
   };
 
-export var fakeUser = {email: 'user@example.com', username:'Robert', password: 'password123', gender: "Male", DOB:"2011-11-20", bookList: [{id: 1, rating: 2.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.7}]}
+var fakeUser = {}
 export function setDatabase(newDatabase)
 {
-    localStorage.set("database", JSON,stringify(newDatabase));
+    localStorage.set("database", newDatabase);
 }
 
 export function getDatabase()
@@ -204,7 +300,7 @@ export function getDatabase()
         localStorage.set("database", JSON.stringify(fakeDatabase))
         
     }
-    return JSON.parse(localStorage.get("database"));
+    return localStorage.get("database");
 }
 
 export function constructTree()
