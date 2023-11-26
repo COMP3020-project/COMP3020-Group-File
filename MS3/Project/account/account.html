@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
+    <script type="module" src="account.js"></script>
 
     <title>Account</title>
 </head>
 
 <body>
     <div class="top-section-container">
-        <h2 >Welcome, User</h2>
+        <h2>Welcome, User</h2>
         <button id="Sign-Out">Sign Out</button>
     </div>
     <div class="big-container">
@@ -48,18 +48,6 @@
                             </div>
 
                         </div>
-
-                        <div class="input-section">
-                            <div class="col-25">
-                                <label for="email">Email:</label>
-                            </div>
-
-                            <div class="col-75">
-                                <input class="user-input" type="text" id="email" name="email" placeholder="Email">
-                            </div>
-
-                        </div>
-
                         <div class="input-section">
                             <div class="col-25">
                                 <label for="gender">Gender:</label>
@@ -84,6 +72,8 @@
                                     placeholder="dd/mm/yyyy">
                             </div>
                         </div>
+                        <button id="profile-button" class="submit-button">Change
+                            Profile</button>
                     </div>
                     <div class="account-section">
                         <span class="section-title">Password</span>
@@ -92,14 +82,15 @@
                                 placeholder="Current Password">
                         </div>
                         <div class="input-section">
-                            <input class="user-input" type="password" id="currentPassword" placeholder="New Password">
+                            <input class="user-input" type="password" id="newPassword" placeholder="New Password">
                         </div>
                         <div id="passwordError"></div>
                         <div class="input-section">
-                            <input class="user-input" type="password" id="currentPassword"
+                            <input class="user-input" type="password" id="newPasswordConfirm"
                                 placeholder="Confirm New Password">
                         </div>
-
+                        <div id="error-password" class="error"></div>
+                        <button id="password-button" class="submit-button">Change Password</button>
                     </div>
                 </div>
             </div>
@@ -107,21 +98,20 @@
                 <div class="account-title">
                     <span style="width: 40%;">Favorite Book</span>
                     <div>
-                        <label for="filter">Filter:</label>
-                        <select id="filter" name="filter" class="user-input">
+                        <label for="sort">Sort:</label>
+                        <select id="sort" name="sort" class="user-input">
                             <option value="1" selected>High to low</option>
                             <option value="2">Low to high</option>
                             <option value="3">Alphabet</option>
-                            <option value="4">By Year</option>
                         </select>
                     </div>
                 </div>
 
                 <!-- Resize your image to 150-250 for this to work properly -->
                 <!-- Or copy the direct link of the image for this to work-->
-                <div class="book-grid">
+                <div id="book-list" class="book-grid">
                     <div class="book-item">
-                        <div class="cover-display" style="background-image: url('../Images/test_1.png');">
+                        <div class="cover-display" style="background-image: url(' ../Images/test_1.png');">
                         </div>
                         <span>Algorithm and data structure</span>
                         <button>Share</button>
@@ -188,9 +178,6 @@
                 </div>
             </div>
         </div>
-
-
-        <script src="script.js"></script>
 </body>
 
 </html>

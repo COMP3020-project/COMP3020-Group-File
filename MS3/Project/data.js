@@ -187,14 +187,14 @@ export function setQuery(book)
 
 var fakeDatabase = {
     users: [
-      { email: 'user@example.com', password: 'password123', bookList: [{ID: 1, Rating: 9}, {ID: 2, Rating: 8}, {ID: 3, Rating: 4}]}
+      { email: 'user@example.com', password: 'password123', bookList: [{id: 1, rating: 2.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.7}]}
     ]
   };
 
-var fakeUser = {}
+export var fakeUser = {email: 'user@example.com', username:'Robert', password: 'password123', gender: "Male", DOB:"2011-11-20", bookList: [{id: 1, rating: 2.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.7}]}
 export function setDatabase(newDatabase)
 {
-    localStorage.set("database", newDatabase);
+    localStorage.set("database", JSON,stringify(newDatabase));
 }
 
 export function getDatabase()
@@ -204,7 +204,7 @@ export function getDatabase()
         localStorage.set("database", JSON.stringify(fakeDatabase))
         
     }
-    return localStorage.get("database");
+    return JSON.parse(localStorage.get("database"));
 }
 
 export function constructTree()
