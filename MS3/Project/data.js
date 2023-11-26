@@ -180,7 +180,7 @@ export const years = {
 };
 
 
-export function changeQuery(book)
+export function setQuery(book)
 {
     localStorage.setItem("queryID", book['ID']);
 }
@@ -196,11 +196,34 @@ export function constructTree()
     else
     {
         console.log(book);
-        console.log(book.DepartmentID);
         var departmentID = book.DepartmentID;
 
         console.log(departmentID);
-        var deparment = {...departments[departmentID]};
-        for (let i = 0)
+        var department = {...departments[departmentID]};
+        console.log(department);
+        for (let i =0; i < department.children.length; i++)
+        {
+            var yearID = department.children[i]
+            console.log(yearID)
+            var yearInfo = {...years[yearID]}
+            for (let j = 0; j < yearInfo.children.length; j++)
+            {
+                var courseID = yearInfo.children[j];
+                var courseInfo = {...courses[courseID]};
+                console.log(courseID);
+                console.log(courseInfo);
+                for (let k = 0; k < courseInfo.children.length; k++)
+                {
+                    var bookID = courseInfo.children[k];
+                    var bookInfo = {...textbooks[bookID]};
+                    courseInfo.children[k] = bookInfo;
+                }
+                yearInfo.children[j] = courseID;
+            }
+            department.children[i] = yearInfo
+        }
+
+        console.log(department);
+        console.log(departments)
     }
 }
