@@ -320,7 +320,7 @@ export function getUser(userID)
 {
     if(localStorage.getItem(userID) === null)
     {
-        localStorage.setItem(userID, JSON.stringify(fakeDatabase))
+        localStorage.setItem(userID, JSON.stringify(fakeUser))
     }
     return JSON.parse(localStorage.getItem(userID));
 }

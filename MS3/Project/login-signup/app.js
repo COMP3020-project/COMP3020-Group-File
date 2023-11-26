@@ -40,9 +40,9 @@
           email: email,
           username: userDetails.username,
           password: userDetails.password,
-          gender: "Male", // defult value
-          DOB: "2011-11-20", // defult value
-          bookList: [{id: 1, rating: 9}, {id: 2, rating: 8}, {id: 3, rating: 4}] // defult
+          gender: "Male", // default value
+          DOB: "2011-11-20", // default value
+          bookList: [{id: 1, rating: 9}, {id: 2, rating: 8}, {id: 3, rating: 4}] // default
         };
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
         window.location.href = '../search-files/search.html';
