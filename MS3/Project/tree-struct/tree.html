@@ -9,23 +9,10 @@
       fill: #fff;
       stroke: steelblue;
       stroke-width: 3px;
-      border-radius: 10px;
-      /* rounded corners */
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-      /* subtle shadow */
     }
-
-    .node:hover rect {
-      fill: #e6f7ff;
-      stroke: #1890ff;
-    }
-
 
     .node text {
-      font: 14px 'Segoe UI', sans-serif;
-      /* updated font */
-      fill: #333;
-
+      font: 12px sans-serif;
     }
 
     .link {
@@ -33,8 +20,6 @@
       stroke: #ccc;
       stroke-width: 2px;
       opacity: 1;
-      transition: all 0.5s ease-in-out;
-
     }
 
     .link.hidden {
@@ -43,19 +28,16 @@
 
     body {
       margin: 0;
-      overflow: hidden;
-      /* Hide any potential scrollbars */
+      overflow: hidden; /* Hide any potential scrollbars */
     }
 
     .container {
       display: flex;
-      height: 100vh;
-      /* Use the full height of the viewport */
+      height: 100vh; /* Use the full height of the viewport */
     }
 
     .tree-container {
-      flex: 1;
-      /* Allow the tree container to grow and take available space */
+      flex: 1; /* Allow the tree container to grow and take available space */
       overflow: auto;
       background-color: #f0f0f0;
     }
@@ -67,10 +49,8 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 150px;
-      /* Adjust the width as needed */
-      height: 200px;
-      /* Adjust the height as needed */
+      width: 150px; /* Adjust the width as needed */
+      height: 200px; /* Adjust the height as needed */
     }
   </style>
 </head>
@@ -84,197 +64,197 @@
         var data = {
           "name": "Department",
           "children": [{
-            "name": "Year 1",
-            "children": [{
-              "name": "Semester 1",
+              "name": "Year 1",
               "children": [{
-                "name": "Course 5"
-              }, {
-                "name": "Course 6"
-              }]
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 5"
+                  }, {
+                    "name": "Course 6"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 7"
+                  }, {
+                    "name": "Course 8"
+                  }]
+                },
+                {
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 9"
+                  }, {
+                    "name": "Course 10"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 11"
+                  }, {
+                    "name": "Course 12"
+                  }]
+                }
+              ]
             },
             {
-              "name": "Semester 2",
+              "name": "Year 2",
               "children": [{
-                "name": "Course 7"
-              }, {
-                "name": "Course 8"
-              }]
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 5"
+                  }, {
+                    "name": "Course 6"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 7"
+                  }, {
+                    "name": "Course 8"
+                  }]
+                },
+                {
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 9"
+                  }, {
+                    "name": "Course 10"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 11"
+                  }, {
+                    "name": "Course 12"
+                  }]
+                }
+              ]
             },
             {
-              "name": "Semester 1",
+              "name": "Year 3",
               "children": [{
-                "name": "Course 9"
-              }, {
-                "name": "Course 10"
-              }]
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 5"
+                  }, {
+                    "name": "Course 6"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 7"
+                  }, {
+                    "name": "Course 8"
+                  }]
+                },
+                {
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 9"
+                  }, {
+                    "name": "Course 10"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 11"
+                  }, {
+                    "name": "Course 12"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 7"
+                  }, {
+                    "name": "Course 8"
+                  }]
+                },
+                {
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 9"
+                  }, {
+                    "name": "Course 10"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 11"
+                  }, {
+                    "name": "Course 12"
+                  }]
+                }
+              ]
             },
             {
-              "name": "Semester 2",
+              "name": "Year 4",
               "children": [{
-                "name": "Course 11"
-              }, {
-                "name": "Course 12"
-              }]
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 5"
+                  }, {
+                    "name": "Course 6"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 7"
+                  }, {
+                    "name": "Course 8"
+                  }]
+                },
+                {
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 9"
+                  }, {
+                    "name": "Course 10"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 11"
+                  }, {
+                    "name": "Course 12"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 7"
+                  }, {
+                    "name": "Course 8"
+                  }]
+                },
+                {
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 9"
+                  }, {
+                    "name": "Course 10"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 11"
+                  }, {
+                    "name": "Course 12"
+                  }]
+                }
+              ]
             }
-            ]
-          },
-          {
-            "name": "Year 2",
-            "children": [{
-              "name": "Semester 1",
-              "children": [{
-                "name": "Course 5"
-              }, {
-                "name": "Course 6"
-              }]
-            },
-            {
-              "name": "Semester 2",
-              "children": [{
-                "name": "Course 7"
-              }, {
-                "name": "Course 8"
-              }]
-            },
-            {
-              "name": "Semester 1",
-              "children": [{
-                "name": "Course 9"
-              }, {
-                "name": "Course 10"
-              }]
-            },
-            {
-              "name": "Semester 2",
-              "children": [{
-                "name": "Course 11"
-              }, {
-                "name": "Course 12"
-              }]
-            }
-            ]
-          },
-          {
-            "name": "Year 3",
-            "children": [{
-              "name": "Semester 1",
-              "children": [{
-                "name": "Course 5"
-              }, {
-                "name": "Course 6"
-              }]
-            },
-            {
-              "name": "Semester 2",
-              "children": [{
-                "name": "Course 7"
-              }, {
-                "name": "Course 8"
-              }]
-            },
-            {
-              "name": "Semester 1",
-              "children": [{
-                "name": "Course 9"
-              }, {
-                "name": "Course 10"
-              }]
-            },
-            {
-              "name": "Semester 2",
-              "children": [{
-                "name": "Course 11"
-              }, {
-                "name": "Course 12"
-              }]
-            },
-            {
-              "name": "Semester 2",
-              "children": [{
-                "name": "Course 7"
-              }, {
-                "name": "Course 8"
-              }]
-            },
-            {
-              "name": "Semester 1",
-              "children": [{
-                "name": "Course 9"
-              }, {
-                "name": "Course 10"
-              }]
-            },
-            {
-              "name": "Semester 2",
-              "children": [{
-                "name": "Course 11"
-              }, {
-                "name": "Course 12"
-              }]
-            }
-            ]
-          },
-          {
-            "name": "Year 4",
-            "children": [{
-              "name": "Semester 1",
-              "children": [{
-                "name": "Course 5"
-              }, {
-                "name": "Course 6"
-              }]
-            },
-            {
-              "name": "Semester 2",
-              "children": [{
-                "name": "Course 7"
-              }, {
-                "name": "Course 8"
-              }]
-            },
-            {
-              "name": "Semester 1",
-              "children": [{
-                "name": "Course 9"
-              }, {
-                "name": "Course 10"
-              }]
-            },
-            {
-              "name": "Semester 2",
-              "children": [{
-                "name": "Course 11"
-              }, {
-                "name": "Course 12"
-              }]
-            },
-            {
-              "name": "Semester 2",
-              "children": [{
-                "name": "Course 7"
-              }, {
-                "name": "Course 8"
-              }]
-            },
-            {
-              "name": "Semester 1",
-              "children": [{
-                "name": "Course 9"
-              }, {
-                "name": "Course 10"
-              }]
-            },
-            {
-              "name": "Semester 2",
-              "children": [{
-                "name": "Course 11"
-              }, {
-                "name": "Course 12"
-              }]
-            }
-            ]
-          }
           ]
         };
 
@@ -284,12 +264,12 @@
           bottom: 20,
           left: 120
         },
-          width = window.innerWidth - margin.right - margin.left,
-          height = window.innerHeight - margin.top - margin.bottom;
+        width = 960 - margin.right - margin.left,
+        height = 400 - margin.top - margin.bottom;
 
         var i = 0,
-          duration = 750,
-          root;
+        duration = 750,
+        root;
 
         var tree = d3.tree().size([width, height]);
 
@@ -301,46 +281,11 @@
             return d.y;
           });
 
-        // GRID
-        var ratio = width / height;
-        var xTick = 20;
-        console.log(ratio);
-        /* GRID SETUP */
-
-        var x = d3.scaleLinear()
-          .domain([-width / 2, width / 2])
-          .range([0, width]);
-
-        var y = d3.scaleLinear()
-          .domain([-height / 2, height / 2])
-          .range([height, 0]);
-
-        var xAxis = d3.axisBottom().scale(x).ticks(xTick).tickSize(-height);
-
-        console.log(Math.round(xTick / ratio));
-        var yAxis = d3.axisLeft().scale(y).ticks(Math.round(xTick / ratio)).tickSize(-width);
-        //END SETUP
-
-
-
         var svg = d3.select(".tree-container").append("svg")
           .attr("width", width + margin.right + margin.left)
           .attr("height", height + margin.top + margin.bottom)
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-        //ADD GRID TO GRAPH
-        svg.append("g")
-          .attr("class", "x axis")
-          .attr("transform", "translate(0," + height + ")")
-          .call(xAxis);
-
-        svg.append("g")
-          .attr("class", "y axis")
-          .call(yAxis);
-
-        //END GRID SETUP
 
         root = d3.hierarchy(data);
         root.x0 = width / 2;
@@ -352,7 +297,7 @@
         update(root);
 
         d3.select(self.frameElement).style("height", "500px");
-
+        
         var shoppingCart = {
           name: "Shopping Cart",
           children: []
@@ -441,17 +386,17 @@
                     return "translate(" + d.x + "," + d.y + ")";
                   });
                 }
+              })
+              .on("end", function (d) {
+                if (isLeafNode(d) && d.dragStarted) {
+                  d.dragStarted = false;
+                  d.x = initialX;
+                  d.y = initialY;
+                  d3.select(this).transition().duration(500).attr("transform", function (d) {
+                    return "translate(" + d.x + "," + d.y + ")";
+                  });
+                }
               }));
-          // .on("end", function (d) {
-          //   if (isLeafNode(d) && d.dragStarted) {
-          //     d.dragStarted = false;
-          //     d.x = initialX;
-          //     d.y = initialY;
-          //     d3.select(this).transition().duration(500).attr("transform", function (d) {
-          //       return "translate(" + d.x + "," + d.y + ")";
-          //     });
-          //   }
-          // }));
 
           nodeEnter.append("rect")
             .attr("width", function (d) {
@@ -524,35 +469,33 @@
           }
         }
 
-
-
       </script>
     </div>
     <div>
       <script>
         var cartGroup = d3.select(".tree-container").append("svg")
           .attr("class", "shopping-cart")
-          .attr("width", 300) // Adjust the width as needed
-          .attr("height", 800) // Adjust the height as needed
+          .attr("width", 150) // Adjust the width as needed
+          .attr("height", 200) // Adjust the height as needed
           .attr("style", "position: absolute; top: 0; right: 0;");
-
+      
         cartGroup.append("rect")
           .attr("width", 150) // Adjust the width as needed
           .attr("height", 200) // Adjust the height as needed
           .style("fill", "#fff")
           .style("stroke", "black");
-
+      
         cartGroup.append("text")
           .attr("x", 75) // Adjust the x-position as needed
           .attr("y", 20)
           .attr("text-anchor", "middle")
           .text("Cart");
-
+      
         // Container for displaying items
         var itemsContainer = cartGroup.append("g")
           .attr("class", "items-container")
           .attr("transform", "translate(10, 40)"); // Adjust the translation as needed
-
+      
         // Event listener for the tree container to capture clicks and add to the cart
         d3.select(".tree-container")
           .on("mousemove", function () {
@@ -593,71 +536,71 @@
               }
             }
           });
-
+      
         // Function to update the display of items in the cart
         // Function to update the display of items in the cart
-        function updateCartItems() {
-          var items = itemsContainer.selectAll(".cart-item").data(shoppingCart.children);
-          items.exit().remove();
+      function updateCartItems() {
+        var items = itemsContainer.selectAll(".cart-item").data(shoppingCart.children);
+        items.exit().remove();
 
-          // Update existing items
-          items.select(".quantity-text").text(function (d) {
+        // Update existing items
+        items.select(".quantity-text").text(function (d) {
+          return d.name + "   Qty: " + d.quantity;
+        });
+
+        // Create new items
+        var newItem = items.enter().append("g")
+          .attr("class", "cart-item")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; })
+          .on("mouseover", function (d) {
+            d3.select(this).select(".quantity-controls").style("display", "inline");
+          })
+          .on("mouseout", function (d) {
+            d3.select(this).select(".quantity-controls").style("display", "none");
+          });
+
+        // Display name and quantity for both existing and new items
+        newItem.append("text")
+          .attr("class", "quantity-text")
+          .attr("text-anchor", "start")
+          .text(function (d) {
             return d.name + "   Qty: " + d.quantity;
           });
 
-          // Create new items
-          var newItem = items.enter().append("g")
-            .attr("class", "cart-item")
-            .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; })
-            .on("mouseover", function (d) {
-              d3.select(this).select(".quantity-controls").style("display", "inline");
-            })
-            .on("mouseout", function (d) {
-              d3.select(this).select(".quantity-controls").style("display", "none");
-            });
+        // Add buttons for quantity control
+        var controls = newItem.append("g")
+          .attr("class", "quantity-controls")
+          .style("display", "none");
+        
+        controls.append("text")
+        .attr("class", "control-button")
+        .attr("x", 65)
+        .attr("y", 0) // Adjust the y-position as needed
+        .text("-")
+        .on("click", function (d) {
+          // Decrease quantity on button click
+          d.quantity = Math.max(1, (d.quantity || 1) - 1);
+          updateCartItems();
+        });
 
-          // Display name and quantity for both existing and new items
-          newItem.append("text")
-            .attr("class", "quantity-text")
-            .attr("text-anchor", "start")
-            .text(function (d) {
-              return d.name + "   Qty: " + d.quantity;
-            });
+        controls.append("text")
+          .attr("class", "control-button")
+          .attr("x", 120)
+          .attr("y", 0) // Adjust the y-position as needed
+          .text("+")
+          .on("click", function (d) {
+            // Increase quantity on button click
+            d.quantity = (d.quantity || 1) + 1;
+            updateCartItems();
+          });
 
-          // Add buttons for quantity control
-          var controls = newItem.append("g")
-            .attr("class", "quantity-controls")
-            .style("display", "none");
+        
 
-          controls.append("text")
-            .attr("class", "control-button")
-            .attr("x", 65)
-            .attr("y", 0) // Adjust the y-position as needed
-            .text("-")
-            .on("click", function (d) {
-              // Decrease quantity on button click
-              d.quantity = Math.max(1, (d.quantity || 1) - 1);
-              updateCartItems();
-            });
+        // Merge the new items with the existing items
+        items = items.merge(newItem);
+      }
 
-          controls.append("text")
-            .attr("class", "control-button")
-            .attr("x", 120)
-            .attr("y", 0) // Adjust the y-position as needed
-            .text("+")
-            .on("click", function (d) {
-              // Increase quantity on button click
-              d.quantity = (d.quantity || 1) + 1;
-              updateCartItems();
-            });
-
-
-
-          // Merge the new items with the existing items
-          items = items.merge(newItem);
-        }
-
-
+  
       </script>
     </div>
   </div>
