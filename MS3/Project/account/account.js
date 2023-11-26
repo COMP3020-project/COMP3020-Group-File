@@ -21,7 +21,7 @@ var currentUser = data.fakeUser;
 document.getElementById("username").value = currentUser.username;
 document.getElementById("gender").value  = currentUser.gender;
 document.getElementById("dateofbirth").value  = currentUser.DOB;
-document.getElementById("book-list").innerHTML = constructBookList();
+constructBookList();
 
 document.getElementById("profile-button").addEventListener("click", updateProfile);
 document.getElementById("password-button").addEventListener("click", updatePassword);
@@ -79,17 +79,18 @@ function constructBookList()
   console.log(bookList);
   for(let i =0; i < bookList.length; i++)
   {
-    const book = data.textbooks[bookList[i].ID]
+    const book = data.textbooks[bookList[i].id]
     console.log(book)
     html += `<div class="book-item">
     <div class="cover-display" style="background-image: url('${book.CoverImage}');">
     </div>
     <span>${book.Title}</span>
-    <button onclick=>Share</button>
+    <button onclick="sharePopUp(${bookList[i].ShareLink})">Share</button>
     <div class="Stars" style="--rating: ${bookList[i].rating};" aria-label="Rating of this product is ${bookList[i].rating} out of 5.">
     </div>
 </div>`
   }
+  document.getElementById("book-list").innerHTML = html;
 }
 function sharePopUp(link)
 {
