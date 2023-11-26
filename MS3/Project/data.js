@@ -222,8 +222,5 @@ export function constructTree()
             }
             department.children[i] = yearInfo
         }
-
-        console.log(department);
-        console.log(departments);
     }
 }
