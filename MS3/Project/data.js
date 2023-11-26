@@ -44,9 +44,12 @@ export const textbooks = {
         "CoverImage": "../Images/book2.png",
         "PreviewPage": [
 <<<<<<< HEAD
+<<<<<<< HEAD
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!",
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
 =======
+=======
+>>>>>>> 6424953d28964c5e6db8b386d203c51a49d56569
             "page5",
             "page6"
         ],
