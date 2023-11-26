@@ -1,8 +1,6 @@
 // Simulated database for demonstration purposes
-import * as data from "../data.js"
   // Function to handle the login process
   function handleLogin() {
-    const fakeDatabase = data.getDatabase()
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
   

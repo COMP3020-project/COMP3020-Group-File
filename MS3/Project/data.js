@@ -8,12 +8,12 @@ export const textbooks = {
         "Author": "John Doe",
         "Price": "$30.00",
         "Version": "1.0",
-        "CoverImage": "link1",
+        "CoverImage": "../Images/test_1.png",
         "PreviewPage": [
             "page1",
             "page2"
         ],
-        "ShareLink": "",
+        "ShareLink": "Introduction-to-CS",
     },
     "2": {
         "ID": "2",
@@ -24,12 +24,12 @@ export const textbooks = {
         "Author": "Jane Smith",
         "Price": "$25.00",
         "Version": "2",
-        "CoverImage": "link",
+        "CoverImage": "../Images/book1.png",
         "PreviewPage": [
             "page3",
             "page4"
         ],
-        "ShareLink": "",
+        "ShareLink": "https://umbookstore/books/Introduction-to-CS-2",
     },
     "3": {
         "ID": "3",
@@ -40,12 +40,12 @@ export const textbooks = {
         "Author": "Deez Balls",
         "Price": "$32.00",
         "Version": "5",
-        "CoverImage": "link",
+        "CoverImage": "../Images/book2.png",
         "PreviewPage": [
-            "",
-            ""
+            "page5",
+            "page6"
         ],
-        "ShareLink": "",
+        "ShareLink": "https://umbookstore/books/Data-structures-and-Algorithms",
     },
     "4": {
         "ID": "4",
@@ -191,6 +191,7 @@ var fakeDatabase = {
     ]
   };
 
+var fakeUser = {}
 export function setDatabase(newDatabase)
 {
     localStorage.set("database", newDatabase);
@@ -243,5 +244,6 @@ export function constructTree()
             }
             department.children[i] = yearInfo
         }
+        return department;
     }
 }
