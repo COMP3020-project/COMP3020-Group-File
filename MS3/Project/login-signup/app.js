@@ -5,7 +5,7 @@
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
-  
+
     if (password.length >= 12) {
       if (password === confirmPassword) {
         // save the user into LocalStorage
@@ -22,29 +22,21 @@
     } else {
       alert('Password must be at least 12 characters long.');
     }
-  
+
     return false; // Prevent form submission
   }
-  
+
   
   function handleLogin() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-  
+
     const storedUser = localStorage.getItem(email);
     if (storedUser) {
       const userDetails = JSON.parse(storedUser);
       if (password === userDetails.password) {
-        // save information to  LocalStorag
-        const currentUser = {
-          email: email,
-          username: userDetails.username,
-          password: userDetails.password,
-          gender: "Male", // default value
-          DOB: "2011-11-20", // default value
-          bookList: [{id: 1, rating: 9}, {id: 2, rating: 8}, {id: 3, rating: 4}] // default
-        };
-        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+        // Save only the email of the current user in LocalStorage
+        localStorage.setItem("currentUser", email);
         window.location.href = '../search-files/search.html';
       } else {
         alert('Login failed: incorrect password.');
@@ -52,11 +44,10 @@
     } else {
       alert('Login failed: user not found.');
     }
-  
+
     return false;
   }
-  
-  
+
 
   // Function to check password length
   function checkPasswordLength() {
@@ -74,21 +65,20 @@
   function handleGoToSignup() {
     window.location.href = 'signup.html'; // Adjust to the correct path
   }
-  
+
   // Redirect to the login page
   function handleGoToLogin() {
     window.location.href = 'login.html'; // Adjust to the correct path
   }
-  
+
   // Handle "Continue as guest" action
   function handleContinueAsGuest() {
     // Implement the logic for continuing as guest
     window.location.href = "../search-files/search.html"
   }
-  
+
   // Handle "Forgot password" action
   function handleForgotPassword() {
     // Implement the logic for forgotten password
     alert('we have sent an email to your email address.');
   }
-  
