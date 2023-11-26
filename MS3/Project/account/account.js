@@ -17,11 +17,10 @@ document.getElementById("Sign-Out").addEventListener('click',() =>{
     window.location.href = "../account/account.html";
   });
   
-var currentUser = data.fakeUser;
-
+var currentUser = data.getUser("user@example.com");
+console.log(currentUser);
 //------
-var test = localStorage.getItem("currentUser");
-console.log(test);
+
 
 
 document.getElementById("username").value = currentUser.username;
@@ -32,6 +31,7 @@ constructBookList();
 document.getElementById("profile-button").addEventListener("click", () => {updateProfile();});
 document.getElementById("password-button").addEventListener("click",() => {updatePassword();});
 document.getElementById("sort").addEventListener("change", () => {constructBookList();})
+document.getElementById("sort").addEventListener("click", () => {constructBookList();})
 
 function updateProfile()
 {
@@ -39,6 +39,8 @@ function updateProfile()
   currentUser.gender = document.getElementById("gender").value;
   currentUser.DOB = document.getElementById("dateofbirth").value;
   console.log("profile updated");
+  alert("Profile Update");
+  localStorage.setItem(currentUser.email, JSON.stringify(currentUser));
 }
 
 function updatePassword()
@@ -63,6 +65,11 @@ function updatePassword()
   }
   document.getElementById("error-password").innerText = ""
   currentUser.password = currentPassword;
+  alert("Password Update");
+  localStorage.setItem(currentUser.email, JSON.stringify(currentUser));
+  document.getElementById("currentPassword").value = "";
+  document.getElementById("newPassword").value = "";
+  document.getElementById("newPasswordConfirm").value = "";
 }
 
 function constructBookList()

@@ -284,17 +284,16 @@ export function setQuery(book)
 export var fakeUser = {email: 'user@example.com', password: 'password123', gender: "Male", DOB: "2011-12-29", username: "Rob", bookList: [{id: 1, rating: 4.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.2}]}
 export function setUser(userID,newUserInfo)
 {
-    localStorage.set(userID, newUserInfo);
+    localStorage.setItem(userID, newUserInfo);
 }
 
 export function getUser(userID)
 {
-    if(localStorage.get(userID) === null)
+    if(localStorage.getItem(userID) === null)
     {
-        localStorage.set(userID, JSON.stringify(fakeDatabase))
-        
+        localStorage.setItem(userID, JSON.stringify(fakeDatabase))
     }
-    return localStorage.get("database");
+    return JSON.parse(localStorage.getItem(userID));
 }
 
 export function constructTree()
