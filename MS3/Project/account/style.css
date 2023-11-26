@@ -19,10 +19,10 @@ body {
 }
 
 .top-section-container h2 {
-    color: #707070; 
-    font-size: 2em;  
-    text-align: center; 
-    padding: 20px;  
+    color: #707070;
+    font-size: 2em;
+    text-align: center;
+    padding: 20px;
 }
 
 
@@ -264,6 +264,11 @@ img {
     font-size: 2rem;
 }
 
+.submit-button {
+    margin: 20px;
+    width: max-content;
+}
+
 .user-input {
     font-size: 1.3rem;
 }
@@ -296,6 +301,13 @@ img {
     background-size: 100%;
     width: 75%;
     height: 75%;
+}
+
+.error {
+    margin: 20px;
+    color: red;
+    font-weight: bold;
+    font-size: 1.3 rem;
 }
 
 /*https://css-tricks.com/five-methods-for-five-star-ratings/*/
