@@ -759,7 +759,7 @@ export function constructTree()
     var book = textbooks[bookID];
     if (book === null)
     {
-        return {};
+        localStorage.setItem("tree", JSON.stringify({}));;
     }
     else
     {
@@ -787,6 +787,6 @@ export function constructTree()
             }
             department.children[i] = yearInfo
         }
-        return department;
+        localStorage.setItem("tree", JSON.stringify(department));
     }
 }
