@@ -8,17 +8,13 @@
 
   <link rel="stylesheet" href="treeStyle.css">
   <style>
+
     .node rect {
       fill: #fff;
       stroke: steelblue;
       stroke-width: 3px;
-      border-radius: 10px;
-      /* rounded corners */
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-      /* subtle shadow */
-
-
-
+      border-radius: 10px; /* rounded corners */
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* subtle shadow */
     }
 
     .node:hover rect {
@@ -28,11 +24,9 @@
 
 
     .node text {
-      font: 20px 'Segoe UI', sans-serif;
-      /* updated font */
+      font: 20px 'Segoe UI', sans-serif; /* updated font */
       fill: #333;
       cursor: pointer;
-
     }
 
     .link {
@@ -41,7 +35,6 @@
       stroke-width: 2px;
       opacity: 1;
       transition: all 0.5s ease-in-out;
-
     }
 
     .link.hidden {
@@ -50,160 +43,233 @@
 
     body {
       margin: 0;
-      overflow: hidden;
-      /* Hide any potential scrollbars */
+      overflow: hidden; /* Hide any potential scrollbars */
     }
 
     .container {
       display: flex;
       justify-content: center;
-      height: 100vh;
-      /* Use the full height of the viewport */
-
+      height: 100vh; /* Use the full height of the viewport */
     }
 
     .tree-container {
-      flex: 0 1 80%;
+      flex: 0 1 80%; 
       max-width: 1200px;
       overflow: auto;
       background-color: #ffffff;
-      margin-top: 200px;
-      margin-left: 120px;
-
-
-
+      margin:200px 50px;
     }
 
     .shopping-cart {
-
-      stroke: darkgreen;
-      stroke-width: 2;
-      position: absolute;
-      width: 150px;
-      height: px;
-      transform: translateY(360%);
+      position: fixed;
+      top: 80px;
+      width: 320px;
+      height: 400px;
+      background-color: #fff;
+      border: 2px solid darkgreen;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      visibility: hidden;
     }
+
+    .cart-header {
+      background-color: darkgreen;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .cart-items {
+      padding: 10px;
+      overflow-y: auto;
+      height: 300px;
+    }
+
+    .cart-item {
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .cart-item:hover {
+      background-color: #f0f8ff; /* LightSteelBlue */
+    }
+
+    .quantity-controls {
+      display: none;
+      float: right;
+    }
+
+    .quantity-controls .control-button {
+      cursor: pointer;
+      font-size: 18px;
+      margin: 0 5px;
+    }
+
+    .quantity-controls .control-button:hover {
+      fill: #006400; /* Darker shade of green on hover */
+    }
+
+    .control-button {
+      cursor: pointer;
+      font-size: 18px;
+      margin: 0 5px;
+    }
+
+    .close-button {
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .close-button text {
+      font-size: 18px;
+    }
+
+    .close-button rect {
+      fill: #ccc;
+      stroke: black;
+    }
+
+    .info-box {
+      position: absolute;
+      bottom: 100px; /* Adjust the bottom position as needed */
+      width: 300px;
+      height: 400px;
+      background-color: lightblue;
+      border: 1px solid #ccc;
+      padding: 10px;
+      visibility: hidden;
+    }
+
+    .info-box-header {
+      background-color: #1890ff;
+      color: #fff;
+      padding: 5px;
+      text-align: center;
+      margin-bottom: 10px;
+      top: 250px; /* Adjust as needed */
+      right: 0px;
+    }
+
+    .checkout-button {
+      cursor: pointer;
+    }
+
+    .checkout-button:hover {
+      fill: #006400; /* Darker shade of green on hover */
+    }
+
   </style>
 </head>
 
 <body>
-  <div class="top-section-container">
-    <h2 style=" color: #707070; font-size: 2em;   padding: 20px;  ">Welcome, User</h2>
-    <button id="Sign-Out">Sign Out</button>
-  </div>
-
-  <div class="search-left-container">
-    <h2><i class="fas fa-magnifying-glass"></i> Search</h2>
-  </div>
-  <div class="tree-left-container " style="background-color: orange;"">
-        <h2><i class=" fa-solid fa-share-nodes"></i></i> Tree</h2>
-  </div>
-  <div class="account-left-container">
-    <h2><i class="fa-regular fa-user"></i> Account</h2>
-  </div>
+      <div class="top-section-container">
+        <h2 style = " color: #707070; font-size: 2em;   padding: 20px;  ">Welcome, User</h2>
+        <button id="Sign-Out">Sign Out</button>
+    </div>
+   
+    <div class = "search-left-container">
+        <h2><i class="fas fa-magnifying-glass"></i> Search</h2>
+    </div>
+    <div class = "tree-left-container " style="background-color: orange;"">
+        <h2><i class="fa-solid fa-share-nodes"></i></i> Tree</h2>
+    </div>
+    <div class = "account-left-container">
+        <h2><i class="fa-regular fa-user"></i> Account</h2>
+    </div>
   <div class="container">
-
+      
     <div class="tree-container">
-
       <!-- Tree SVG will be appended here -->
       <script>
         // Your existing JavaScript code for the tree
         var data = {
-          "name": "Computer Science",
+          "name": "Department",
           "children": [{
-            "name": "Year 1",
-            "children": [{
-              "name": "COMP 1010",
+              "name": "Year 1",
               "children": [{
-                "name": "Introduction to CS"
-              }]
-            },
-            {
-              "name": "COMP 1012",
-              "children": [{
-                "name": "Intro to CS for Engineers"
-              }]
-            },
-            {
-              "name": "COMP 1020",
-
-            }
-            ]
-          },
-          {
-            "name": "Year 2",
-            "children": [{
-              "name": "COMP 2080"
-            }, {
-              "name": "COMP 2140",
-              "children": [{
-                "name": "Introduction to Algorithms"
-              },
-              ]
-            },
-
-            {
-              "name": "COMP 2150"
-            },
-            {
-              "name": "COMP 2160",
-              "children": [{
-                "name": "C for Beginners"
-              },
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 5"
+                  }, {
+                    "name": "Course 6"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 7"
+                  }, {
+                    "name": "Course 8"
+                  }]
+                },    
               ]
             },
             {
-              "name": "COMP 2280",
+              "name": "Year 2",
+              "children": [{
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 5"
+                  }, {
+                    "name": "Course 6"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 7"
+                  }, {
+                    "name": "Course 8"
+                  }]
+                },    
+              ]
+            },
+            {
+              "name": "Year 3",
+              "children": [{
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 5"
+                  }, {
+                    "name": "Course 6"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 7"
+                  }, {
+                    "name": "Course 8"
+                  }]
+                },    
+              ]
+            },
+            {
+              "name": "Year 4",
+              "children": [{
+                  "name": "Semester 1",
+                  "children": [{
+                    "name": "Course 5"
+                  }, {
+                    "name": "Course 6"
+                  }]
+                },
+                {
+                  "name": "Semester 2",
+                  "children": [{
+                    "name": "Course 7"
+                  }, {
+                    "name": "Course 8"
+                  }]
+                },    
+              ]
             }
-
-            ]
-          },
-          {
-            "name": "Year 3",
-            "children": [{
-              "name": "COMP 3010",
-              "children": [{
-                "name": "Intro to Distributed Computing"
-              },]
-            },
-            {
-              "name": "COMP 3020",
-            },
-            {
-              "name": "COMP 3030",
-            },
-            {
-              "name": "COMP 3190",
-              "children": [{
-                "name": "Artificial Intelligence For Dummies"
-              },]
-
-            },
-
-
-            ]
-          },
-          {
-            "name": "Year 4",
-            "children": [{
-              "name": "COMP 4020",
-
-            },
-            {
-              "name": "COMP 4350",
-            },
-            {
-              "name": "COMP 4360",
-              "children": [{
-                "name": "Advanced Machine Learning"
-              },]
-            },
-
-
-
-            ]
-
-          }
           ]
         };
 
@@ -213,12 +279,12 @@
           bottom: 20,
           left: 120
         },
-          width = 960 - margin.right - margin.left,
-          height = 400 - margin.top - margin.bottom;
+        width = 1000 - margin.right - margin.left,
+        height = 400 - margin.top - margin.bottom;
 
         var i = 0,
-          duration = 100,
-          root;
+        duration = 100,
+        root;
 
         var tree = d3.tree().size([width, height]);
 
@@ -246,7 +312,7 @@
         update(root);
 
         d3.select(self.frameElement).style("height", "500px");
-
+        
         var shoppingCart = {
           name: "Shopping Cart",
           children: []
@@ -261,7 +327,7 @@
         }
 
         var simulation = d3.forceSimulation()
-          .force("link", d3.forceLink().id(function (d) {
+        .force("link", d3.forceLink().id(function (d) {
             return d.id;
           }).strength(2))
           .force("charge", d3.forceManyBody().strength(-50))
@@ -324,6 +390,10 @@
                     initialX = d.x;
                     initialY = d.y;
                     d3.select(this).classed("dragging", true); // Add dragging class
+                    var cart = d3.select(".shopping-cart");
+                    var visibility = cart.style("visibility");
+                    cart.style("visibility", "visible");
+
                   }
                 }
               })
@@ -356,10 +426,7 @@
               return -(d.data.name.length * 4);
             })
             .attr("y", -10)
-            .style("fill", function (d) {
-              // Check if the node is a leaf node
-              return d.children || d._children ? "#fff" : "red"; // White for nodes with children, red for leaf nodes
-            });
+            .style("fill", "#fff");
 
           nodeEnter.append("text")
             .attr("x", 0)
@@ -399,12 +466,30 @@
             .remove();
         }
 
-
-
         function isLeafNode(d) {
-          return !d.children && !d._children;
+          return !d.children && !d._children && (d.depth == 3);
         }
+        
+        var infoBox = d3.select(".tree-container").append("div")
+          .attr("class", "info-box")
+          .attr("style", "position: absolute; top: " + 100 + "px; right: 0;");
 
+        
+        function updateInfoBox(d) {
+          // Update the content of the info box based on the clicked leaf node
+          if (isLeafNode(d)) {
+            infoBox.style("visibility", "visible");
+            infoBox.html(
+              '<div class="info-box-header">Node Information</div>' +
+              '<p>Name: ' + d.data.name + '</p>' +
+              '<p>Other info: Add your additional information here</p>'
+            );
+          } else {
+            // Clear the info box if a non-leaf node is clicked
+            infoBox.html('');
+            infoBox.style("visibility", "hidden");
+          }
+        }
         function toggle(d) {
           if (d.children) {
             d._children = d.children;
@@ -421,35 +506,77 @@
             d.children = d._children;
             d._children = null;
           }
+          updateInfoBox(d);
         }
 
       </script>
     </div>
     <div>
       <script>
+        var cartTopPosition = 520;
         var cartGroup = d3.select(".tree-container").append("svg")
           .attr("class", "shopping-cart")
-          .attr("width", 150) // Adjust the width as needed
-          .attr("height", 200) // Adjust the height as needed
-          .attr("style", "position: absolute; top: 0; right: 0;");
+          .attr("style", "position: absolute; top: " + cartTopPosition + "px; right: 0;");
 
         cartGroup.append("rect")
-          .attr("width", 150) // Adjust the width as needed
-          .attr("height", 200) // Adjust the height as needed
+          .attr("width", 400)
+          .attr("height", 400)
           .style("fill", "#fff")
           .style("stroke", "black");
 
         cartGroup.append("text")
-          .attr("x", 75) // Adjust the x-position as needed
+          .attr("class", "cart-header")
+          .attr("x", 100)
           .attr("y", 20)
           .attr("text-anchor", "middle")
           .text("Cart");
 
-        // Container for displaying items
-        var itemsContainer = cartGroup.append("g")
-          .attr("class", "items-container")
-          .attr("transform", "translate(10, 40)"); // Adjust the translation as needed
+        var closeBtn = cartGroup.append("g")
+            .attr("class", "close-button")
+            .attr("transform", "translate(10, 10)")
+            .on("click", function () {
+                // Add functionality to close the cart here
+                cartGroup.style("visibility", "hidden");
+            });
 
+        closeBtn.append("rect")
+            .attr("width", 20)
+            .attr("height", 20)
+            .style("fill", "#ccc")
+            .style("stroke", "black");
+
+        closeBtn.append("text")
+            .attr("x", 10)
+            .attr("y", 15)
+            .attr("text-anchor", "middle")
+            .text("X");
+
+        // Checkout button
+        cartGroup.append("rect")
+          .attr("class", "checkout-button")
+          .attr("width", 100)
+          .attr("height", 30)
+          .attr("x", 100)
+          .attr("y", 350)
+          .style("fill", "darkgreen")
+          .style("stroke", "black")
+          .on("click", function () {
+            // Add your checkout logic here
+            alert('Checkout button clicked!'); // Replace with your actual checkout functionality
+          });
+
+        cartGroup.append("text")
+          .attr("x", 150)
+          .attr("y", 370)
+          .attr("text-anchor", "middle")
+          .style("fill", "#fff")
+          .style("pointer-events", "none")
+          .text("Checkout");
+        
+        var itemsContainer = cartGroup.append("g")
+          .attr("class", "cart-items")
+          .attr("transform", "translate(10, 40)");
+        
         // Event listener for the tree container to capture clicks and add to the cart
         d3.select(".tree-container")
           .on("mousemove", function () {
@@ -490,7 +617,7 @@
               }
             }
           });
-
+      
         // Function to update the display of items in the cart
         // Function to update the display of items in the cart
         function updateCartItems() {
@@ -527,7 +654,7 @@
             .style("display", "none");
 
           controls.append("text")
-            .attr("class", "control-button")
+            .attr("class", "control-button minus-button")
             .attr("x", 65)
             .attr("y", 0) // Adjust the y-position as needed
             .text("-")
@@ -538,8 +665,8 @@
             });
 
           controls.append("text")
-            .attr("class", "control-button")
-            .attr("x", 120)
+            .attr("class", "control-button plus-button")
+            .attr("x", 100)
             .attr("y", 0) // Adjust the y-position as needed
             .text("+")
             .on("click", function (d) {
@@ -548,26 +675,24 @@
               updateCartItems();
             });
 
-
-
           // Merge the new items with the existing items
           items = items.merge(newItem);
         }
 
-        document.getElementById("Sign-Out").addEventListener('click', () => {
-          localStorage.removeItem("currentUser");
-          window.location.href = "../login-signup/login.html"
+
+        document.getElementById("Sign-Out").addEventListener('click',() =>{
+        window.location.href = "../login-signup/login.html"
         });
 
-        document.querySelector('.search-left-container').addEventListener('click', function () {
-          window.location.href = "../search-files/search.html";
+        document.querySelector('.search-left-container').addEventListener('click', function(){
+        window.location.href = "../search-files/search.html";
         });
-
-        document.querySelector('.tree-left-container').addEventListener('click', function () {
+        
+        document.querySelector('.tree-left-container').addEventListener('click', function(){
           window.location.href = "../tree-struct/tree.html";
         });
-
-        document.querySelector('.account-left-container').addEventListener('click', function () {
+        
+        document.querySelector('.account-left-container').addEventListener('click', function(){
           window.location.href = "../account/account.html";
         });
       </script>

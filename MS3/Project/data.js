@@ -99,9 +99,122 @@ export const textbooks = {
         ],
         "ShareLink": "https://umbookstore/books/Beyond-Human-Computer-Interaction",
     },
+    "6":{
+        "ID": "6",
+        "DepartmentID": "MATH",
+        "YearID": "MATH1",
+        "CourseID": "MATH1300",
+        "Title": "Linear Algebra and Its Applications",
+        "Author": "David",
+        "Price": "$66.97",
+        "Version": "10",
+        "CoverImage": "../Images/Book6.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Linear-Algebra-and-Its-Applications",
+    },
+    "7":{
+        "ID": "7",
+        "DepartmentID": "MATH",
+        "YearID": "MATH1",
+        "CourseID": "MATH1500",
+        "Title": "Calculus 1",
+        "Author": "Rommel",
+        "Price": "$66.97",
+        "Version": "10",
+        "CoverImage": "../Images/Book7.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Calculus-1",
+    },
+    "8":{
+        "ID": "8",
+        "DepartmentID": "MATH",
+        "YearID": "MATH1",
+        "CourseID": "MATH1700",
+        "Title": "Calculus 2",
+        "Author": "Taylor",
+        "Price": "$66.97",
+        "Version": "10",
+        "CoverImage": "../Images/Book8.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Calulus-2",
+    },
+    "9":{
+        "ID": "9",
+        "DepartmentID": "MATH",
+        "YearID": "MATH2",
+        "CourseID": "MATH2150",
+        "Title": "Multivariable Calculus",
+        "Author": "Larson",
+        "Price": "$66.97",
+        "Version": "10",
+        "CoverImage": "../Images/Book9.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Multivariable-Calculus",
+    },
+    "10":{
+        "ID": "10",
+        "DepartmentID": "MATH",
+        "YearID": "MATH3",
+        "CourseID": "MATH3320",
+        "Title": "Algebra 2",
+        "Author": "Hithon",
+        "Price": "$66.97",
+        "Version": "10",
+        "CoverImage": "../Images/Book10.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Algebra-2",
+    },
+    "11":{
+        "ID": "11",
+        "DepartmentID": "MATH",
+        "YearID": "MATH3",
+        "CourseID": "MATH3330",
+        "Title": "Computational Algebra",
+        "Author": "Robia",
+        "Price": "$66.97",
+        "Version": "10",
+        "CoverImage": "../Images/Book11.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Computational-Algebra",
+    },
+    "12":{
+        "ID": "12",
+        "DepartmentID": "MATH",
+        "YearID": "MATH4",
+        "CourseID": "MATH4260",
+        "Title": "Essentials of Measure Theory",
+        "Author": "Strange",
+        "Price": "$66.97",
+        "Version": "10",
+        "CoverImage": "../Images/Book12.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Essentials-of-measure-theory",
+    },
   };
   
 export const courses = {
+    //COMP
     "COMP1010": {
         "ID": "COMP1010",
         "DepartmentID": "COMP",
@@ -233,13 +346,109 @@ export const courses = {
     },
     "COMP4360": {
         "ID": "COMP4360",
-        "DepartmentID": "Machine Learning",
+        "DepartmentID": "COMP",
         "YearID": "COMP4",
         "Name": "HCI 2",
         "children": [
             "5"
         ]
     },
+
+    //MATH
+    "MATH1300":{
+        "ID":"MATH1300",
+        "DepartmentID":"MATH",
+        "YearID":"MATH1",
+        "Name": "Linear Algebra",
+        "children": ["6"]
+    },
+    "MATH1500":{
+        "ID":"MATH1500",
+        "DepartmentID":"MATH",
+        "YearID":"MATH1",
+        "Name": "Cal 1",
+        "children": ["7"]
+    },
+    "MATH1700":{
+        "ID":"MATH1700",
+        "DepartmentID":"MATH",
+        "YearID":"MATH1",
+        "Name": "Cal 2",
+        "children": ["8"]
+    },
+
+    "MATH2030":{
+        "ID":"MATH2030",
+        "DepartmentID":"MATH",
+        "YearID":"MATH2",
+        "Name": "Combinatorics 1",
+        "children": []
+    },
+
+    "MATH2720":{
+        "ID":"MATH2720",
+        "DepartmentID":"MATH",
+        "YearID":"MATH2",
+        "Name": "Multivariable Cal",
+        "children": []
+    },
+    "MATH2150":{
+        "ID":"MATH2150",
+        "DepartmentID":"MATH",
+        "YearID":"MATH2",
+        "Name": "Multivariable Cal",
+        "children": ["9"]
+    },
+    "MATH2740":{
+        "ID":"MATH2740",
+        "DepartmentID":"MATH",
+        "YearID":"MATH2",
+        "Name": "Math in Data Science",
+        "children": []
+    },
+    "MATH3320":{
+        "ID":"MATH3320",
+        "DepartmentID":"MATH",
+        "YearID":"MATH3",
+        "Name": "Algebra 2",
+        "children": ["10"]
+    },
+    "MATH3330":{
+        "ID":"MATH3330",
+        "DepartmentID":"MATH",
+        "YearID":"MATH3",
+        "Name": "Computational Algebra",
+        "children": ["11"]
+    },
+    "MATH3370":{
+        "ID":"MATH3370",
+        "DepartmentID":"MATH",
+        "YearID":"MATH3",
+        "Name": "Graph Theory 2",
+        "children": []
+    },
+    "MATH4260":{
+        "ID":"MATH3370",
+        "DepartmentID":"MATH",
+        "YearID":"MATH4",
+        "Name": "Abstract Measure Theory",
+        "children": ["12"]
+    },
+    "MATH4300":{
+        "ID":"MATH4300",
+        "DepartmentID":"MATH",
+        "YearID":"MATH4",
+        "Name": "Combinatorial Geometry",
+        "children": []
+    },
+    "MATH4330":{
+        "ID":"MATH4330",
+        "DepartmentID":"MATH",
+        "YearID":"MATH4",
+        "Name": "Fundamentals of Approximation Theory",
+        "children": []
+    },
+
   };
 
 
@@ -252,6 +461,26 @@ export const departments = {
             "COMP2",
             "COMP3",
             "COMP4"
+        ]
+    },
+    "MATH":{
+        "ID":"MATH",
+        "Name":"Department Of Mathematics",
+        "children":[
+            "MATH1",
+            "MATH2",
+            "MATH3",
+            "MATH4"
+        ]
+    },
+    "STAT":{
+        "ID":"STAT",
+        "Name":"Department Of Statistics",
+        "children":[
+            "STAT1",
+            "STAT2",
+            "STAT3",
+            "STAT4"
         ]
     }
 };
@@ -301,7 +530,50 @@ export const years = {
             "COMP4350",
             "COMP4360"
         ]
-    }
+    },
+    "MATH1":{
+        "ID": "MATH1",
+        "DepartmentID":"MATH",
+        "Name": "Year 1",
+        "children":[
+            "MATH1300",
+            "MATH1500",
+            "MATH1700"
+        ]
+    },
+    "MATH2":{
+        "ID": "MATH2",
+        "DepartmentID":"MATH",
+        "Name": "Year 2",
+        "children":[
+            "MATH2030",
+            "MATH2720",
+            "MATH2150",
+            "MATH2740",
+        ]
+    },
+    "MATH3":{
+        "ID": "MATH3",
+        "DepartmentID":"MATH",
+        "Name": "Year 3",
+        "children":[
+            "MATH3320",
+            "MATH3330",
+            "MATH3370",
+        ]
+    },
+    "MATH4":{
+        "ID": "MATH4",
+        "DepartmentID":"MATH",
+        "Name": "Year 4",
+        "children":[
+            "MATH4260",
+            "MATH4300",
+            "MATH4330",
+        ]
+    },
+
+    
 };
 
 
@@ -315,6 +587,7 @@ export function setUser(userID,newUserInfo)
     localStorage.setItem(userID, newUserInfo);
 }
 
+var fakeUser = {email: 'user@example.com', password: 'password123', gender: "Male", DOB: "2011-12-29", username: "Rob", bookList: [{id: 1, rating: 4.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.2}]}
 export function getUser(userID)
 {
     if(localStorage.getItem(userID) === null)
