@@ -71,7 +71,6 @@
       height: 400px;
       background-color: #fff;
       border: 2px solid rgb(0, 0, 0);
-      border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       z-index: 1;
       visibility: hidden;
@@ -142,7 +141,10 @@
       width: 300px;
       height: 400px;
       background-color: lightblue;
-      border: 1px solid #ccc;
+      background-color: #fff;
+      border: 2px solid rgb(0, 0, 0);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1;
       padding: 10px;
       visibility: hidden;
     }
@@ -581,13 +583,13 @@
         cartGroup.append("text")
           .attr("class", "cart-header")
           .attr("x", 100)
-          .attr("y", 20)
-          .attr("text-anchor", "middle")
-          .text("Cart");
+          .attr("y", 30)
+          .style("font-size", "23px")
+          .text("Shopping Cart");
 
         var closeBtn = cartGroup.append("g")
           .attr("class", "close-button")
-          .attr("transform", "translate(10, 10)")
+          .attr("transform", "translate(10, 14)")
           .on("click", function () {
             // Add functionality to close the cart here
             cartGroup.style("visibility", "hidden");
@@ -629,7 +631,7 @@
 
         var itemsContainer = cartGroup.append("g")
           .attr("class", "cart-items")
-          .attr("transform", "translate(10, 40)");
+          .attr("transform", "translate(10, 55)");
 
         // Event listener for the tree container to capture clicks and add to the cart
         d3.select(".tree-container")
