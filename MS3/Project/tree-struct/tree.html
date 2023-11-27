@@ -66,32 +66,26 @@
       width: 320px;
       height: 400px;
       background-color: #fff;
-      border: 2px solid darkgreen;
+      border: 2px solid rgb(0, 0, 0);
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       z-index: 1;
       visibility: hidden;
     }
 
-    .cart-header {
-      background-color: darkgreen;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-    }
 
     .cart-items {
       padding: 10px;
+      padding-top: 20px;
       overflow-y: auto;
       height: 300px;
     }
 
     .cart-item {
       padding: 8px;
+      margin-bottom:10px;
       border-bottom: 1px solid #ccc;
-      cursor: pointer;
+      
     }
 
     .cart-item:hover {
@@ -110,7 +104,7 @@
     }
 
     .quantity-controls .control-button:hover {
-      fill: #006400; /* Darker shade of green on hover */
+      fill: #644800; /* Darker shade of green on hover */
     }
 
     .control-button {
@@ -131,8 +125,8 @@
     }
 
     .close-button rect {
-      fill: #ccc;
-      stroke: black;
+      fill: red;
+      stroke: rgb(255, 0, 0);
     }
 
     .info-box {
@@ -189,87 +183,82 @@
       <script>
         // Your existing JavaScript code for the tree
         var data = {
-          "name": "Department",
+          "name": "Computer Science",
           "children": [{
               "name": "Year 1",
               "children": [{
-                  "name": "Semester 1",
+                  "name": "COMP 1000",
                   "children": [{
-                    "name": "Course 5"
-                  }, {
-                    "name": "Course 6"
-                  }]
+                    "name": "Introduction to CS"
+                  }, ]
                 },
                 {
-                  "name": "Semester 2",
+                  "name": "COMP 1012",
                   "children": [{
-                    "name": "Course 7"
-                  }, {
-                    "name": "Course 8"
-                  }]
-                },    
+                    "name": "MATLAB For Dummies"
+                  },]
+                }, {
+                  "name": "COMP 1020",
+                },   
               ]
             },
             {
               "name": "Year 2",
               "children": [{
-                  "name": "Semester 1",
-                  "children": [{
-                    "name": "Course 5"
-                  }, {
-                    "name": "Course 6"
-                  }]
+                  "name": "COMP 2080",
+                  
                 },
                 {
-                  "name": "Semester 2",
+                  "name": "COMP 2140",
                   "children": [{
-                    "name": "Course 7"
-                  }, {
-                    "name": "Course 8"
-                  }]
-                },    
+                    "name": "Introduction to Algorithms",
+                  },]
+                }, {
+                  "name": "COMP 2150",
+                },
+                {
+                  "name": "COMP 2160",
+                },
+                {
+                  "name": "COMP 2280",
+                },
               ]
             },
             {
               "name": "Year 3",
               "children": [{
-                  "name": "Semester 1",
-                  "children": [{
-                    "name": "Course 5"
-                  }, {
-                    "name": "Course 6"
-                  }]
+                  "name": "COMP 3010",
+                  
                 },
                 {
-                  "name": "Semester 2",
+                  "name": "COMP3030",
+                }, {
+                  "name": "COMP3190",
                   "children": [{
-                    "name": "Course 7"
-                  }, {
-                    "name": "Course 8"
-                  }]
-                },    
+                    "name": "Artificial Intelligence For Dummies",
+                  },]
+                },
               ]
             },
             {
               "name": "Year 4",
               "children": [{
-                  "name": "Semester 1",
+                  "name": "COMP 4020",
                   "children": [{
-                    "name": "Course 5"
-                  }, {
-                    "name": "Course 6"
-                  }]
+                    "name": "Interaction Design: Beyond Human-Computer Interaction",
+                  },]
+                  
                 },
                 {
-                  "name": "Semester 2",
+                  "name": "COMP 4350",
+                }, {
+                  "name": "COMP 4360",
                   "children": [{
-                    "name": "Course 7"
-                  }, {
-                    "name": "Course 8"
-                  }]
-                },    
+                    "name": "Artificial Intelligence For Dummies",
+                  },]
+                },
               ]
-            }
+            },
           ]
         };
 
@@ -475,21 +464,41 @@
           .attr("style", "position: absolute; top: " + 100 + "px; right: 0;");
 
         
-        function updateInfoBox(d) {
-          // Update the content of the info box based on the clicked leaf node
-          if (isLeafNode(d)) {
+          function updateInfoBox(d) {
+    // Update the content of the info box based on the clicked leaf node
+        if (isLeafNode(d)) {
             infoBox.style("visibility", "visible");
             infoBox.html(
-              '<div class="info-box-header">Node Information</div>' +
-              '<p>Name: ' + d.data.name + '</p>' +
-              '<p>Other info: Add your additional information here</p>'
+                '<div class="info-box-header">Overview</div>' +
+                '<div class="Stars" style="--rating: 2.3; margin-top:20px;" aria-label="Rating of this product is 2.3 out of 5."></div>' + 
+                '<img src="../images/book1.PNG" alt="book1" class="textbook" style="height:250px; width:150px; display: block; margin: auto;">'+
+                '<div class="book-item" style="display: flex; justify-content: space-around; margin-top: 10px;">' +
+                '<button id="add-to-cart" onclick="addItemToCart(\'' + d.data.name + '\')" style="padding:5px; background-color: orange; margin-left: 35px;">ADD</button>'+
+                '<button id="share" onclick="alert(\'Successfully shared link.\')" style="padding:5px; background-color: #007BFF; margin-right: 33px;"><i class="fa-solid fa-share"></i></button>'+
+                '</div>'    
             );
-          } else {
+        }
+       else {
             // Clear the info box if a non-leaf node is clicked
             infoBox.html('');
             infoBox.style("visibility", "hidden");
           }
         }
+
+      
+
+        function addItemToCart(itemName){
+          let cartItem = shoppingCart.children.find(item => item.name === itemName);
+          if(cartItem){
+            cartItem.quantity = (cartItem.quantity || 1) + 1;
+          }
+          else{
+            shoppingCart.children.push({name:itemName, quantity:1});
+          }
+
+          updateCartItems();
+        }
+
         function toggle(d) {
           if (d.children) {
             d._children = d.children;
@@ -558,11 +567,11 @@
           .attr("height", 30)
           .attr("x", 100)
           .attr("y", 350)
-          .style("fill", "darkgreen")
+          .style("fill", "orange")
           .style("stroke", "black")
           .on("click", function () {
             // Add your checkout logic here
-            alert('Checkout button clicked!'); // Replace with your actual checkout functionality
+            window.location.href = "../checkout-files/check-out.html";
           });
 
         cartGroup.append("text")
@@ -679,9 +688,13 @@
           items = items.merge(newItem);
         }
 
+        
+        document.getElementById("share").addEventListener('click',() =>{
+          alert("Successfully shared link. ")
+        });
 
         document.getElementById("Sign-Out").addEventListener('click',() =>{
-        window.location.href = "../login-signup/login.html"
+        window.location.href = "../login-signup/login.html";
         });
 
         document.querySelector('.search-left-container').addEventListener('click', function(){
