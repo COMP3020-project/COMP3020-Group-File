@@ -90,8 +90,8 @@ export const textbooks = {
         "CourseID": "COMP4020",
         "Title": "Interaction Design: Beyond Human-Computer Interaction",
         "Author": "Yvonne Rogers",
-        "Price": "$66.97",
-        "Version": "10",
+        "Price": "$38.97",
+        "Version": "15",
         "CoverImage": "../Images/Book5.png",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
@@ -106,8 +106,8 @@ export const textbooks = {
         "CourseID": "MATH1300",
         "Title": "Linear Algebra and Its Applications",
         "Author": "David",
-        "Price": "$66.97",
-        "Version": "10",
+        "Price": "$33.97",
+        "Version": "12",
         "CoverImage": "../Images/Book6.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
@@ -122,8 +122,8 @@ export const textbooks = {
         "CourseID": "MATH1500",
         "Title": "Calculus 1",
         "Author": "Rommel",
-        "Price": "$66.97",
-        "Version": "10",
+        "Price": "$50.99",
+        "Version": "9",
         "CoverImage": "../Images/Book7.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
@@ -138,8 +138,8 @@ export const textbooks = {
         "CourseID": "MATH1700",
         "Title": "Calculus 2",
         "Author": "Taylor",
-        "Price": "$66.97",
-        "Version": "10",
+        "Price": "$78.7",
+        "Version": "7",
         "CoverImage": "../Images/Book8.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
@@ -154,8 +154,8 @@ export const textbooks = {
         "CourseID": "MATH2150",
         "Title": "Multivariable Calculus",
         "Author": "Larson",
-        "Price": "$66.97",
-        "Version": "10",
+        "Price": "$123",
+        "Version": "5",
         "CoverImage": "../Images/Book9.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
@@ -170,8 +170,8 @@ export const textbooks = {
         "CourseID": "MATH3320",
         "Title": "Algebra 2",
         "Author": "Hithon",
-        "Price": "$66.97",
-        "Version": "10",
+        "Price": "$99",
+        "Version": "2",
         "CoverImage": "../Images/Book10.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
@@ -186,7 +186,7 @@ export const textbooks = {
         "CourseID": "MATH3330",
         "Title": "Computational Algebra",
         "Author": "Robia",
-        "Price": "$66.97",
+        "Price": "$56.97",
         "Version": "10",
         "CoverImage": "../Images/Book11.jpg",
         "PreviewPage": [
@@ -202,7 +202,7 @@ export const textbooks = {
         "CourseID": "MATH4260",
         "Title": "Essentials of Measure Theory",
         "Author": "Strange",
-        "Price": "$66.97",
+        "Price": "$13.97",
         "Version": "10",
         "CoverImage": "../Images/Book12.jpg",
         "PreviewPage": [
@@ -210,6 +210,70 @@ export const textbooks = {
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
         ],
         "ShareLink": "https://umbookstore/books/Essentials-of-measure-theory",
+    },
+    "13":{
+        "ID": "13",
+        "DepartmentID": "STAT",
+        "YearID": "STAT1",
+        "CourseID": "STAT1000",
+        "Title": "Practice of Statistic",
+        "Author": "Moore",
+        "Price": "$17.57",
+        "Version": "5",
+        "CoverImage": "../Images/Book13.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Practice-of-Statistic",
+    },
+    "14":{
+        "ID": "14",
+        "DepartmentID": "STAT",
+        "YearID": "STAT1",
+        "CourseID":"STAT1000",
+        "Title": "Elementary Statistic",
+        "Author": "Kuby",
+        "Price": "$47.57",
+        "Version": "3",
+        "CoverImage": "../Images/Book14.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Elementary-Statistic",
+    },
+    "15":{
+        "ID": "15",
+        "DepartmentID": "STAT",
+        "YearID": "STAT1",
+        "CourseID":"STAT1150",
+        "Title": "Fundamental of Statistic",
+        "Author": "Shukla",
+        "Price": "$47.57",
+        "Version": "6",
+        "CoverImage": "../Images/Book15.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Fundamental-of-Statistic",
+    },
+    "16":{
+        "ID": "16",
+        "DepartmentID": "STAT",
+        "YearID": "STAT2",
+        "CourseID":"STAT2220",
+        "Title": "Statistic for Engineers",
+        "Author": "William",
+        "Price": "$27.57",
+        "Version": "3",
+        "CoverImage": "../Images/Book16.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Statistic-for-Engineers",
     },
   };
   
@@ -449,6 +513,63 @@ export const courses = {
         "children": []
     },
 
+    //STAT
+    "STAT1000":{
+        "ID":"STAT1000",
+        "DepartmentID":"STAT",
+        "YearID":"STAT1",
+        "Name": "Intro to Stat",
+        "children": ["13", "14"]
+    },
+    "STAT1150":{
+        "ID":"STAT1150",
+        "DepartmentID":"STAT",
+        "YearID":"STAT1",
+        "Name": "Intro to Stat Upgrade",
+        "children": ["15"]
+    },
+    "STAT2220":{
+        "ID":"STAT2220",
+        "DepartmentID":"STAT",
+        "YearID":"STAT2",
+        "Name": "Contemporary Statistics for Engineers",
+        "children": ["16"]
+    },
+    "STAT2150":{
+        "ID":"STAT2150",
+        "DepartmentID":"STAT",
+        "YearID":"STAT2",
+        "Name": "Basic Statistical Analysis 2",
+        "children": []
+    },
+    "STAT3030":{
+        "ID":"STAT3030",
+        "DepartmentID":"STAT",
+        "YearID":"STAT3",
+        "Name": "Introduction to Stochastic Processes",
+        "children": []
+    },
+    "STAT3100":{
+        "ID":"STAT3100",
+        "DepartmentID":"STAT",
+        "YearID":"STAT3",
+        "Name": "Introduction to Statistical Inference",
+        "children": []
+    },
+    "STAT4250":{
+        "ID":"STAT4250",
+        "DepartmentID":"STAT",
+        "YearID":"STAT4",
+        "Name": "Statistical Learning",
+        "children": ["17"]
+    },
+    "STAT4520":{
+        "ID":"STAT4520",
+        "DepartmentID":"STAT",
+        "YearID":"STAT4",
+        "Name": "Sampling Techniques I",
+        "children": []
+    },
   };
 
 
@@ -573,7 +694,42 @@ export const years = {
         ]
     },
 
-    
+    "STAT1":{
+        "ID": "STAT1",
+        "DepartmentID":"STAT",
+        "Name": "Year 1",
+        "children":[
+            "STAT1000",
+            "STAT1150",
+        ]
+    },
+    "STAT2":{
+        "ID": "STAT2",
+        "DepartmentID":"STAT",
+        "Name": "Year 2",
+        "children":[
+            "STAT2220",
+            "STAT2150",
+        ]
+    },
+    "STAT3":{
+        "ID": "STAT3",
+        "DepartmentID":"STAT",
+        "Name": "Year 3",
+        "children":[
+            "STAT3030",
+            "STAT3100",
+        ]
+    },
+    "STAT4":{
+        "ID": "STAT4",
+        "DepartmentID":"STAT",
+        "Name": "Year 4",
+        "children":[
+            "STAT4250",
+            "STAT4520",
+        ]
+    },
 };
 
 
