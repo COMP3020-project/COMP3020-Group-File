@@ -99,7 +99,6 @@ document.getElementById("search-button").addEventListener('click', setQuery);
 function setQuery()
 {
   data.setQuery(bookToSearch);
-  data.constructTree();
-  //window.location.href = "../tree-struct/tree.html";
+  window.location.href = "../tree-struct/tree.html";
 }
 

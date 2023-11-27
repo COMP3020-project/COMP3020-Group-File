@@ -156,6 +156,7 @@ function rateBook(event, ratingDiv, id)
   }
   localStorage.setItem(currentUser.email, JSON.stringify(currentUser));
 }
+
 function sharePopUp(link)
 {
   console.log(link)

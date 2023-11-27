@@ -275,6 +275,22 @@ export const textbooks = {
         ],
         "ShareLink": "https://umbookstore/books/Statistic-for-Engineers",
     },
+    "17":{
+        "ID": "17",
+        "DepartmentID": "STAT",
+        "YearID": "STAT4",
+        "CourseID":"STAT4520",
+        "Title": "Sampling Technique",
+        "Author": "Nova",
+        "Price": "$100",
+        "Version": "3",
+        "CoverImage": "../Images/Book17.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Sampling-Technique",
+    },
   };
   
 export const courses = {
@@ -285,7 +301,7 @@ export const courses = {
         "YearID": "COMP1",
         "Name": "Intro to Computer Science",
         "children": [
-            "1"
+            "0"
         ]
     },
     "COMP1012": {
@@ -302,54 +318,42 @@ export const courses = {
         "DepartmentID": "COMP",
         "YearID": "COMP1",
         "Name": "Intro to Computer Science 2",
-        "children": [
-            "2"
-        ]
+        "children": []
     },
     "COMP2080": {
         "ID": "COMP2080",
         "DepartmentID": "COMP",
         "YearID": "COMP2",
         "Name": "Analysis of algorithms",
-        "children": [
-            "3"
-        ]
+        "children": []
     },
     "COMP2140": {
         "ID": "COMP2140",
         "DepartmentID": "COMP",
         "YearID": "COMP2",
         "Name": "Data structures and Algorithms",
-        "children": [
-            "3"
-        ]
+        "children": ["3"]
     },
     "COMP2160": {
         "ID": "COMP2160",
         "DepartmentID": "COMP",
         "YearID": "COMP2",
         "Name": "Data structures and Algorithms",
-        "children": [
-            "3"
-        ]
+        "children": []
     },
     "COMP2150": {
         "ID": "COMP2150",
         "DepartmentID": "COMP",
         "YearID": "COMP2",
         "Name": "Object Orientation",
-        "children": [
-            "3"
-        ]
+        "children": [ ]
     },
     "COMP2280": {
         "ID": "COMP2280",
         "DepartmentID": "COMP",
         "YearID": "COMP2",
         "Name": "Introduction to Computer Systems",
-        "children": [
-            "3"
-        ]
+        "children": []
     },
     "COMP3010": {
         "ID": "COMP3010",
@@ -404,18 +408,14 @@ export const courses = {
         "DepartmentID": "COMP",
         "YearID": "COMP4",
         "Name": "Software Engineering 2",
-        "children": [
-            "5"
-        ]
+        "children": []
     },
     "COMP4360": {
         "ID": "COMP4360",
         "DepartmentID": "COMP",
         "YearID": "COMP4",
-        "Name": "HCI 2",
-        "children": [
-            "5"
-        ]
+        "Name": "Professional Practice",
+        "children": []
     },
 
     //MATH
@@ -561,14 +561,14 @@ export const courses = {
         "DepartmentID":"STAT",
         "YearID":"STAT4",
         "Name": "Statistical Learning",
-        "children": ["17"]
+        "children": []
     },
     "STAT4520":{
         "ID":"STAT4520",
         "DepartmentID":"STAT",
         "YearID":"STAT4",
         "Name": "Sampling Techniques I",
-        "children": []
+        "children": ["17"]
     },
   };
 
@@ -763,7 +763,6 @@ export function constructTree()
     }
     else
     {
-        console.log(book);
         var departmentID = book.DepartmentID;
 
         console.log(departmentID);
@@ -772,21 +771,19 @@ export function constructTree()
         for (let i =0; i < department.children.length; i++)
         {
             var yearID = department.children[i]
-            console.log(yearID)
             var yearInfo = JSON.parse(JSON.stringify(years[yearID]));
             for (let j = 0; j < yearInfo.children.length; j++)
             {
                 var courseID = yearInfo.children[j];
                 var courseInfo = JSON.parse(JSON.stringify(courses[courseID]));
-                console.log(courseID);
-                console.log(courseInfo);
                 for (let k = 0; k < courseInfo.children.length; k++)
                 {
                     var bookID = courseInfo.children[k];
                     var bookInfo = JSON.parse(JSON.stringify(textbooks[bookID]));
+                    bookInfo.Name = bookInfo.Title;
                     courseInfo.children[k] = bookInfo;
                 }
-                yearInfo.children[j] = courseID;
+                yearInfo.children[j] = courseInfo;
             }
             department.children[i] = yearInfo
         }
