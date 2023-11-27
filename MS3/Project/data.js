@@ -779,7 +779,6 @@ export function constructTree()
     }
     else
     {
-        console.log(book);
         var departmentID = book.DepartmentID;
 
         console.log(departmentID);
@@ -788,21 +787,18 @@ export function constructTree()
         for (let i =0; i < department.children.length; i++)
         {
             var yearID = department.children[i]
-            console.log(yearID)
             var yearInfo = JSON.parse(JSON.stringify(years[yearID]));
             for (let j = 0; j < yearInfo.children.length; j++)
             {
                 var courseID = yearInfo.children[j];
                 var courseInfo = JSON.parse(JSON.stringify(courses[courseID]));
-                console.log(courseID);
-                console.log(courseInfo);
                 for (let k = 0; k < courseInfo.children.length; k++)
                 {
                     var bookID = courseInfo.children[k];
                     var bookInfo = JSON.parse(JSON.stringify(textbooks[bookID]));
                     courseInfo.children[k] = bookInfo;
                 }
-                yearInfo.children[j] = courseID;
+                yearInfo.children[j] = courseInfo;
             }
             department.children[i] = yearInfo
         }
