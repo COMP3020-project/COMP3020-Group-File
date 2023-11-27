@@ -116,7 +116,7 @@
   
 
     &::before {
-        margin-left:80px;
+    
         content: '★★★★★';
         letter-spacing: 3px;
         background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
@@ -163,4 +163,9 @@
     }
 }
     } }
+
+
+#share-button{
+    cursor:pointer;
+}
 
