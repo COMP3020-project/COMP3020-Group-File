@@ -114,6 +114,7 @@ function constructBookItem(book, rating)
   var innerDiv1 = document.createElement("div");
   innerDiv1.classList.add("cover-display");
   innerDiv1.style.setProperty("background-image", `url('${book.CoverImage}')`);
+  
 
   var title = document.createElement("span");
   title.textContent = book.Title
@@ -128,13 +129,17 @@ function constructBookItem(book, rating)
   ratingDiv.style.setProperty("aria-label", `Rating of this product is ${rating} out of 5.`)
   ratingDiv.addEventListener("click", (event) => {rateBook(event, ratingDiv, book.ID)})
 
+  var tooltip = document.createElement("div");
+  tooltip.classList.add("tooltiptext");
+  tooltip.innerText = "Title: " + book.Title + "\n" + "Author: " + book.Author + "\n" + "Version: " + book.Version + "\n" + "Price: " + book.Price;
+
   outerDiv.appendChild(innerDiv1);
   outerDiv.appendChild(title);
   outerDiv.appendChild(shareButton);
   outerDiv.appendChild(ratingDiv);
+  outerDiv.appendChild(tooltip);
   return outerDiv;
 }
-
 
 function rateBook(event, ratingDiv, id)
 {
