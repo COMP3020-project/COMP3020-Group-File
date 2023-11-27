@@ -2,7 +2,8 @@
   // Function to handle the login process
 
   //Create fakeuser
-  var fakeUser = {email: 'user@example.com', password: 'password123', gender: "Male", DOB: "2011-12-29", username: "Rob", bookList: [{id: 1, rating: 4.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.2}]}
+  var fakeUser = {email: 'user@example.com', password: 'password123', gender: "Male", DOB: "2011-12-29", username: "Rob", bookList: [{id: 1, rating: 4.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.2}, {id:4, rating:4}, {id:5, rating:5},{id:6, rating:1.2}
+    ,{id:7, rating:3.75}, {id:8, rating:4}, {id:9, rating:2.3}]}
   localStorage.setItem("user@example.com", JSON.stringify(fakeUser));
 
   function handleSignup() {
@@ -15,7 +16,7 @@
       if (password === confirmPassword) {
         // save the user into LocalStorage
         if (!localStorage.getItem(email)) { // check if user exist
-          var newUser = {email: email, password: password, username: username, gender: "", DOB:"1999-12-23", bookList:[]}
+          var newUser = {email: email, password: password, username: username, gender: "", DOB:"1999-12-23", bookList:[{id: 0, rating: 3.2}, {id: 7, rating: 4.3}, {id:9, rating:2.2}]}
           localStorage.setItem(email, JSON.stringify(newUser));
           alert('Signup successful!');
           window.location.href = 'login.html';

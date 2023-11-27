@@ -8,7 +8,7 @@ export const textbooks = {
         "Author": "John Doe",
         "Price": "$30.00",
         "Version": "1.0",
-        "CoverImage": "../Images/test_1.png",
+        "CoverImage": "../Images/Book0.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!",
             "paLorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!ge2"
@@ -24,7 +24,7 @@ export const textbooks = {
         "Author": "John Paul Mueller ",
         "Price": "$41.99",
         "Version": "2",
-        "CoverImage": "../Images/book1.png",
+        "CoverImage": "../Images/Book1.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!",
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
@@ -41,7 +41,7 @@ export const textbooks = {
         "Author": "Thomas H. Cormen",
         "Price": "$32.00",
         "Version": "5",
-        "CoverImage": "../Images/book2.png",
+        "CoverImage": "../Images/Book2.jpg",
         "PreviewPage": [
 
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!",
@@ -59,7 +59,7 @@ export const textbooks = {
         "Author": "Deez Balls",
         "Price": "$40.00",
         "Version": "10",
-        "CoverImage": "../Images/IntroToAI.jpg",
+        "CoverImage": "../Images/Book3.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
@@ -76,7 +76,7 @@ export const textbooks = {
         "Author": "John Paul Mueller ",
         "Price": "$40.00",
         "Version": "10",
-        "CoverImage": "link",
+        "CoverImage": "../Images/Book4.jpg",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!",
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
@@ -92,7 +92,7 @@ export const textbooks = {
         "Author": "Yvonne Rogers",
         "Price": "$66.97",
         "Version": "10",
-        "CoverImage": "../Images/HCI-textbook.png",
+        "CoverImage": "../Images/Book5.png",
         "PreviewPage": [
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
