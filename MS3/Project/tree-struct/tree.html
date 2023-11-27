@@ -193,6 +193,7 @@
         var data = JSON.parse(localStorage.getItem("tree"));
         var userEmail = localStorage.getItem("currentUser");
         var currentUser = JSON.parse(localStorage.getItem(userEmail));
+        console.log(currentUser)
         // var data = {
         //   "name": "Computer Science",
         //   "children": [{
@@ -502,16 +503,17 @@
           if (isLeafNode(d)) {
             infoBox.style("visibility", "visible");
             var bookInfo = d.data;
-            var rating = currentUser.bookList.filter((obj) => { return obj.id === bookInfo.ID })
+            var rating = currentUser.bookList.filter((obj) => { return obj.id == bookInfo.ID })
             if (rating.length === 0) {
               rating = 0
             }
             else {
               rating = rating[0].rating;
             }
+            console.log(rating);
             infoBox.html(
               '<div class="info-box-header">Overview</div>' +
-              '<div id="rating" class="Stars" style="--rating: 2.3; margin-top:20px;" aria-label="Rating of this product is 2.3 out of 5."></div>' +
+              `<div id="rating" class="Stars" style="--rating: ${rating}; margin-top:20px;" aria-label="Rating of this product is 2.3 out of 5."></div>` +
               `<img src=${bookInfo.CoverImage} alt="book1" class="textbook" style="height:250px; width:150px; display: block; margin: auto;">` +
               '<div class="book-item" style="display: flex; justify-content: space-around; margin-top: 10px;">' +
               '<button id="add-to-cart" onclick="addItemToCart(\'' + d.data.Name + '\')" style="padding:5px; background-color: orange; margin-left: 35px;">ADD</button>' +
@@ -731,19 +733,10 @@
           items = items.merge(newItem);
         }
 
-<<<<<<< HEAD
-        
-       
-=======
-
-        // document.getElementById("share").addEventListener('click',() =>{
-        //   alert("Successfully shared link. ")
-        // });
-
         document.getElementById("Sign-Out").addEventListener('click', () => {
           window.location.href = "../login-signup/login.html";
+          localStorage.removeItem("currentUser");
         });
->>>>>>> 7010c980dada9724ae4cc7a87a03d432cef1ea5b
 
         document.querySelector('.search-left-container').addEventListener('click', function () {
           window.location.href = "../search-files/search.html";

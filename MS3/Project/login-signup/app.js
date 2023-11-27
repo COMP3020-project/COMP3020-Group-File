@@ -81,6 +81,7 @@
   // Handle "Continue as guest" action
   function handleContinueAsGuest() {
     // Implement the logic for continuing as guest
+    localStorage.setItem("currentUser", 'user@example.com');
     window.location.href = "../search-files/search.html"
   }
 
