@@ -336,3 +336,22 @@ img {
     }
 }
 
+.book-item:hover .tooltiptext {
+    visibility: visible;
+}
+
+.book-item .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    margin-left: 300px;
+    font-size: large;
+    z-index: 1;
+}

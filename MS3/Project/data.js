@@ -275,6 +275,22 @@ export const textbooks = {
         ],
         "ShareLink": "https://umbookstore/books/Statistic-for-Engineers",
     },
+    "17":{
+        "ID": "17",
+        "DepartmentID": "STAT",
+        "YearID": "STAT4",
+        "CourseID":"STAT4520",
+        "Title": "Sampling Technique",
+        "Author": "Nova",
+        "Price": "$100",
+        "Version": "3",
+        "CoverImage": "../Images/Book17.jpg",
+        "PreviewPage": [
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium! ",
+            "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
+        ],
+        "ShareLink": "https://umbookstore/books/Sampling-Technique",
+    },
   };
   
 export const courses = {
