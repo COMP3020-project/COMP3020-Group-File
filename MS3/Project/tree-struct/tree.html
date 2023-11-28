@@ -186,6 +186,8 @@
   <div class="account-left-container">
     <h2><i class="fa-regular fa-user"></i> Account</h2>
   </div>
+  <div id="tooltip" style="position: absolute; visibility: hidden; background-color: lightgrey; padding: 5px; border-radius: 5px;"></div>
+
   <div class="container">
 
     <div class="tree-container">
@@ -432,12 +434,26 @@
             .attr("y", -10)
             .style("fill", "#fff");
 
+          nodeEnter.on("mouseover", function(d) {
+            if (!d.children && !d._children) { // Condition to check if the node (class) has no textbooks
+                d3.select("#tooltip")
+                  .style("visibility", "visible")
+                  .text("Cannot Expand Further") // Tooltip text
+                  .style("left", (d3.event.pageX + 5) + "px") // Positioning
+                  .style("top", (d3.event.pageY - 28) + "px");
+            }
+        })
+        .on("mouseout", function() {
+            d3.select("#tooltip").style("visibility", "hidden");
+        });
+
           nodeEnter.append("text")
             .attr("x", 0)
             .attr("dy", ".35em")
             .attr("text-anchor", "middle")
             .text(function (d) {
               return d.data.Name;
+             
             })
             .style("fill-opacity", 1)
             .each(function (d) {
@@ -514,6 +530,8 @@
             }
             console.log(rating);
             infoBox.html(
+           
+            
               '<div class="info-box-header">Overview</div>' +
               `<div id="rating" class="Stars" style="--rating: ${rating}; margin-top:20px;" aria-label="Rating of this product is 2.3 out of 5."></div>` +
               `<img src=${bookInfo.CoverImage} alt="book1" class="textbook" style="height:250px; width:150px; display: block; margin: auto;">` +
@@ -532,8 +550,7 @@
           }
         }
 
-
-
+        
         function addItemToCart(itemName) {
           let cartItem = shoppingCart.children.find(item => item.name === itemName);
           if (cartItem) {
@@ -543,7 +560,13 @@
             shoppingCart.children.push({ name: itemName, quantity: 1 });
           }
 
-          updateCartItems();
+        updateCartItems();
+
+      // Check if the shopping cart is hidden and show it if necessary
+          var cart = d3.select(".shopping-cart");
+          if (cart.style("visibility") === "hidden") {
+            cart.style("visibility", "visible");
+          }
         }
 
         function toggle(d) {
@@ -674,8 +697,7 @@
             }
           });
 
-        // Function to update the display of items in the cart
-        // Function to update the display of items in the cart
+        
         function updateCartItems() {
           var items = itemsContainer.selectAll(".cart-item").data(shoppingCart.children);
           items.exit().remove();

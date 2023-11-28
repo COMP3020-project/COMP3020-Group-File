@@ -113,15 +113,20 @@
     font-size: var(--star-size);
     font-family: Times;
     line-height: 1;
+    transform: translateX(80px); 
   
 
     &::before {
-    
+        
         content: '★★★★★';
+        
         letter-spacing: 3px;
         background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
+    
+
 
 @media screen and (max-width: 768px) {
     .top-section-container,
@@ -131,7 +136,7 @@
         width: 100%; /* Make each container full width */
         margin-bottom: 10px;
         order: -1; /* Ensure these elements are at the top */
-    }
+    
 
     /* Since we don't have .left-container in your HTML, we adjust the specific elements themselves */
     .search-left-container,
@@ -162,10 +167,20 @@
         font-size: 1em;
     }
 }
-    } }
-
+}
+    
+    }}
 
 #share-button{
     cursor:pointer;
 }
 
+
+#tooltip {
+    position: absolute;
+    visibility: hidden;
+    background-color: lightgrey;
+    padding: 5px;
+    border-radius: 5px;
+    /* Additional styles (e.g., font size, color) */
+  }
