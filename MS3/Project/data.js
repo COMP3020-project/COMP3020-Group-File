@@ -729,7 +729,10 @@ export const years = {
     },
 };
 
-
+localStorage.setItem("textbooks", JSON.stringify(textbooks));
+localStorage.setItem("courses", JSON.stringify(courses));
+localStorage.setItem("departments", JSON.stringify(departments));
+localStorage.setItem("years", JSON.stringify(years));
 export function setQuery(book)
 {
     localStorage.setItem("queryID", book['ID']);

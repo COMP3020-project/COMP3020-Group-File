@@ -199,7 +199,8 @@
       cursor: pointer;
       font-size: 20px;
       fill: red;
-      display: none; /* Hide the remove button by default */
+      display: none;
+      /* Hide the remove button by default */
     }
 
     .remove-button:hover {
@@ -231,6 +232,7 @@
 
     <div class="tree-container">
       <!-- Tree SVG will be appended here -->
+      <script type="module" src="../data.js"></script>
       <script>
         // Your existing JavaScript code for the tree
         var data = JSON.parse(localStorage.getItem("tree"));
@@ -471,7 +473,7 @@
         var infoBox = d3.select(".tree-container").append("div")
           .attr("class", "info-box")
           .attr("style", "position: absolute; top: " + 100 + "px; right: 0;");
-        
+
         var searchBox = d3.select(".tree-container").append("div")
           .attr("class", "search-box")
           .attr("style", "position: absolute; top: " + 100 + "px; right: 0;");
@@ -482,10 +484,10 @@
           <input type="text" id="searchInput" placeholder="Search departments">
           <button id="searchButton">Search</button>
         `);
-        
+
         document.getElementById("searchButton").addEventListener('click', function () {
           const searchTerm = document.getElementById("searchInput").value;
-          
+
           console.log(searchTerm);
         });
         function sharePopUp(link) {
@@ -560,7 +562,7 @@
           if (cart.style("visibility") === "hidden") {
             cart.style("visibility", "visible");
           }
-          localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+          localStorage.setItem('cartItems', JSON.stringify(shoppingCart.children));
         }
 
         function toggle(d) {
@@ -712,11 +714,11 @@
             });
 
           items.select(".remove-button")
-          .text(function (d) {
+            .text(function (d) {
               var nameText = d3.select(this.parentNode).select(".quantity-text");
               var textLength = nameText.node() ? nameText.node().getComputedTextLength() : 180;
               return Array.from({ length: Math.ceil(textLength / 8) }, () => "-").join('');
-          });
+            });
 
           // Set the length of the dynamic line
           newItem.append("text")
@@ -736,9 +738,9 @@
           // Update the length of the dynamic line for all items
           items.select(".remove-button")
             .text(function (d) {
-                var nameText = d3.select(this.parentNode).select(".quantity-text");
-                var textLength = nameText.node() ? nameText.node().getComputedTextLength() : 180;
-                return Array.from({ length: Math.ceil(textLength / 8) }, () => "-").join('');
+              var nameText = d3.select(this.parentNode).select(".quantity-text");
+              var textLength = nameText.node() ? nameText.node().getComputedTextLength() : 180;
+              return Array.from({ length: Math.ceil(textLength / 8) }, () => "-").join('');
             });
         }
 
@@ -746,8 +748,9 @@
         updateCartItems();
 
         document.getElementById("Sign-Out").addEventListener('click', () => {
-          window.location.href = "../index.html";
           localStorage.removeItem("currentUser");
+          localStorage.removeItem('cartItems');
+          window.location.href = "../index.html";
         });
 
         document.querySelector('.search-left-container').addEventListener('click', function () {

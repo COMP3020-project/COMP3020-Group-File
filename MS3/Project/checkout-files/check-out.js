@@ -8,14 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function loadCartItems() {
-        const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
+        const cartData = JSON.parse(localStorage.getItem('cartItems'));
+        console.log(cartData);
         const cartContainer = document.querySelector('.cart');
         
         // Clear existing hardcoded items
         cartContainer.innerHTML = '<h1>Shopping Cart</h1>';
 
-        if (cartData && cartData.children && cartData.children.length > 0) {
-            cartData.children.forEach((item, index) => {
+        if (cartData.length > 0) {
+            cartData.forEach((item, index) => {
                 const textbookDiv = document.createElement('div');
                 textbookDiv.className = 'textbook';
                 textbookDiv.id = 'textbook' + index;
@@ -59,8 +60,8 @@ function loadCartItems() {
 
     function removeFromLocalStorage(itemName) {
         const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
-        const updatedItems = cartData.children.filter(item => item.Name !== itemName);
-        cartData.children = updatedItems;
+        const updatedItems = cartData.filter(item => item.Name !== itemName);
+        cartData = updatedItems;
         localStorage.setItem('shoppingCart', JSON.stringify(cartData));
     }
 
@@ -79,7 +80,7 @@ function loadCartItems() {
 
     function updateQuantityInLocalStorage(itemName, newQuantity) {
         const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
-        cartData.children.forEach(item => {
+        cartData.forEach(item => {
             if (item.Name === itemName) {
                 item.quantity = newQuantity;
             }
@@ -119,7 +120,9 @@ function loadCartItems() {
 
     function placeOrder(){
         document.getElementById("place-order").addEventListener('click', () => {
+            localStorage.removeItem('cartItems');
             alert("Order has been successfully place. ")
+            window.location.href = '../search-files/search.html';
         });
     }
 
