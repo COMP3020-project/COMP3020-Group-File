@@ -241,9 +241,10 @@
 
         d3.select(self.frameElement).style("height", "500px");
 
+        var storeItems = localStorage.getItem("cartItems") == null ? [] : localStorage.getItem("cartItems")
         var shoppingCart = {
           name: "Shopping Cart",
-          children: []
+          children: storeItems
         };
 
         function collapse(d) {
@@ -576,7 +577,7 @@
           .style("fill", "orange")
           .style("stroke", "black")
           .on("click", function () {
-            // Add your checkout logic here
+            localStorage.setItem("cartItems", JSON.stringify(shoppingCart.children));
             window.location.href = "../checkout-files/check-out.html";
           });
 
