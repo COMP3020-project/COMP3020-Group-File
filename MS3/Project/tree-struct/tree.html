@@ -199,86 +199,6 @@
         var data = JSON.parse(localStorage.getItem("tree"));
         var userEmail = localStorage.getItem("currentUser");
         var currentUser = JSON.parse(localStorage.getItem(userEmail));
-        console.log(currentUser)
-        // var data = {
-        //   "name": "Computer Science",
-        //   "children": [{
-        //     "name": "Year 1",
-        //     "children": [{
-        //       "name": "COMP 1000",
-        //       "children": [{
-        //         "name": "Introduction to CS"
-        //       },]
-        //     },
-        //     {
-        //       "name": "COMP 1012",
-        //       "children": [{
-        //         "name": "MATLAB For Dummies"
-        //       },]
-        //     }, {
-        //       "name": "COMP 1020",
-        //     },
-        //     ]
-        //   },
-        //   {
-        //     "name": "Year 2",
-        //     "children": [{
-        //       "name": "COMP 2080",
-
-        //     },
-        //     {
-        //       "name": "COMP 2140",
-        //       "children": [{
-        //         "name": "Introduction to Algorithms",
-        //       },]
-        //     }, {
-        //       "name": "COMP 2150",
-        //     },
-        //     {
-        //       "name": "COMP 2160",
-        //     },
-        //     {
-        //       "name": "COMP 2280",
-        //     },
-        //     ]
-        //   },
-        //   {
-        //     "name": "Year 3",
-        //     "children": [{
-        //       "name": "COMP 3010",
-
-        //     },
-        //     {
-        //       "name": "COMP3030",
-        //     }, {
-        //       "name": "COMP3190",
-        //       "children": [{
-        //         "name": "Artificial Intelligence For Dummies",
-        //       },]
-        //     },
-        //     ]
-        //   },
-        //   {
-        //     "name": "Year 4",
-        //     "children": [{
-        //       "name": "COMP 4020",
-        //       "children": [{
-        //         "name": "Interaction Design: Beyond Human-Computer Interaction",
-        //       },]
-
-        //     },
-        //     {
-        //       "name": "COMP 4350",
-        //     }, {
-        //       "name": "COMP 4360",
-        //       "children": [{
-        //         "name": "Artificial Intelligence For Dummies",
-        //       },]
-        //     },
-        //     ]
-        //   },
-        //   ]
-        // };
 
         var margin = {
           top: 20,
@@ -537,6 +457,7 @@
           if (isLeafNode(d)) {
             infoBox.style("visibility", "visible");
             var bookInfo = d.data;
+
             var rating = currentUser.bookList.filter((obj) => { return obj.id == bookInfo.ID })
             if (rating.length === 0) {
               rating = 0
@@ -549,11 +470,12 @@
               `<div id="rating" class="Stars" style="--rating: ${rating};" aria-label="Rating of this product is 2.3 out of 5."></div>` +
               `<img src=${bookInfo.CoverImage} alt="book1" class="textbook" style="height:250px; width:150px; display: block; margin: auto;">` +
               '<div class="book-item" style="display: flex; justify-content: space-around; margin-top: 10px;">' +
-              '<button id="add-to-cart" onclick="addItemToCart(\'' + d.data + '\')" style="padding:5px; background-color: orange; margin-left: 35px;">ADD</button>' +
+              `<button id="add-to-cart" style="padding:5px; background-color: orange; margin-left: 35px;">ADD</button>` +
               '<button id="share-button" style="padding:5px; background-color: #007BFF; margin-right: 33px;"><i class="fa-solid fa-share"></i></button>' +
               '</div>'
             );
             document.getElementById("share-button").addEventListener('click', () => { sharePopUp(bookInfo.ShareLink) })
+            document.getElementById("add-to-cart").addEventListener('click', () => { addItemToCart(bookInfo) });
             document.getElementById("rating").addEventListener('click', (event) => { rateBook(event, document.getElementById("rating"), bookInfo.ID) })
           }
           else {
@@ -564,13 +486,14 @@
         }
 
 
-        function addItemToCart(itemName) {
-          let cartItem = shoppingCart.children.find(item => item.name === itemName);
+        function addItemToCart(addItem) {
+          console.log(addItem);
+          let cartItem = shoppingCart.children.find(item => item.Name === addItem.Name);
           if (cartItem) {
             cartItem.quantity = (cartItem.quantity || 1) + 1;
           }
           else {
-            shoppingCart.children.push({ name: itemName, quantity: 1 });
+            shoppingCart.children.push({ ...addItem, quantity: 1 });
           }
 
           updateCartItems();
@@ -713,11 +636,12 @@
 
         function updateCartItems() {
           var items = itemsContainer.selectAll(".cart-item").data(shoppingCart.children);
+          console.log(items);
           items.exit().remove();
 
           // Update existing items
           items.select(".quantity-text").text(function (d) {
-            return d.name + "   Qty: " + d.quantity;
+            return d.Name + "   Qty: " + d.quantity;
           });
 
           // Create new items
