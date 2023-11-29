@@ -632,17 +632,7 @@
                   var draggedItem = draggedNode.__data__.data;
 
                   // Check if the item is already in the cart
-                  var existingItem = shoppingCart.children.find(item => item.Name === draggedItem.Name);
-
-                  if (existingItem) {
-                    // Item already in the cart, increase quantity
-                    existingItem.quantity = (existingItem.quantity || 1) + 1;
-                  } else {
-                    // Item not in the cart, add it with quantity 1
-                    draggedItem.quantity = 1;
-                    shoppingCart.children.push({ ...draggedItem });
-                  }
-                  updateCartItems();
+                  addItemToCart(draggedItem);
                 }
 
                 // Reset the dragging class
