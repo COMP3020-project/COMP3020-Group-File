@@ -168,6 +168,17 @@
       fill: #006400;
       /* Darker shade of green on hover */
     }
+
+    .remove-button {
+      cursor: pointer;
+      font-size: 14px;
+      fill: red;
+      display: none; /* Hide the remove button by default */
+    }
+
+    .remove-button:hover {
+      fill: darkred;
+    }
   </style>
 </head>
 
@@ -648,7 +659,7 @@
 
           // Update existing items
           items.select(".quantity-text").text(function (d) {
-            return d.Name + "   Qty: " + d.quantity;
+            return d.Name.substr(0,30) + "   Qty: " + d.quantity;
           });
 
           // Create new items
@@ -656,44 +667,31 @@
             .attr("class", "cart-item")
             .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; })
             .on("mouseover", function (d) {
-              d3.select(this).select(".quantity-controls").style("display", "inline");
+              d3.select(this).select(".remove-button").style("display", "inline");
             })
             .on("mouseout", function (d) {
-              d3.select(this).select(".quantity-controls").style("display", "none");
+              d3.select(this).select(".remove-button").style("display", "none");
             });
 
           // Display name and quantity for both existing and new items
-          newItem.append("text")
+          var nameText = newItem.append("text")
             .attr("class", "quantity-text")
             .attr("text-anchor", "start")
             .text(function (d) {
-              return d.Name + "   Qty: " + d.quantity;
+              return d.Name.substr(0,30) + "   Qty: " + d.quantity;
             });
-
-          // Add buttons for quantity control
-          var controls = newItem.append("g")
-            .attr("class", "quantity-controls")
-            .style("display", "none");
-
-          controls.append("text")
-            .attr("class", "control-button minus-button")
-            .attr("x", 65)
-            .attr("y", 0) // Adjust the y-position as needed
-            .text("-")
+          
+          var nameTextLength = nameText.node().getComputedTextLength();
+          var dashesLine = Array.from({ length: Math.ceil(nameTextLength / 6) }, () => "-").join('');
+          
+          newItem.append("text")
+            .attr("class", "remove-button")
+            .attr("x", 0)
+            .attr("y", 0)
+            .text(dashesLine)
             .on("click", function (d) {
-              // Decrease quantity on button click
-              d.quantity = Math.max(1, (d.quantity || 1) - 1);
-              updateCartItems();
-            });
-
-          controls.append("text")
-            .attr("class", "control-button plus-button")
-            .attr("x", 100)
-            .attr("y", 0) // Adjust the y-position as needed
-            .text("+")
-            .on("click", function (d) {
-              // Increase quantity on button click
-              d.quantity = (d.quantity || 1) + 1;
+              // Remove the item from the shopping cart
+              shoppingCart.children = shoppingCart.children.filter(item => item.Name !== d.Name);
               updateCartItems();
             });
 
