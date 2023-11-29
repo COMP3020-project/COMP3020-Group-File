@@ -44,7 +44,7 @@
       if (password === userDetails.password) {
         // Save only the email of the current user in LocalStorage
         localStorage.setItem("currentUser", email);
-        window.location.href = '../search-files/search.html';
+        window.location.href = './search-files/search.html';
       } else {
         alert('Login failed: incorrect password.');
       }
@@ -75,14 +75,14 @@
 
   // Redirect to the login page
   function handleGoToLogin() {
-    window.location.href = 'login.html'; // Adjust to the correct path
+    window.location.href = 'index.html'; // Adjust to the correct path
   }
 
   // Handle "Continue as guest" action
   function handleContinueAsGuest() {
     // Implement the logic for continuing as guest
     localStorage.setItem("currentUser", 'user@example.com');
-    window.location.href = "../search-files/search.html"
+    window.location.href = "./search-files/search.html"
   }
 
   // Handle "Forgot password" action

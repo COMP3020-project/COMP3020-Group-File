@@ -3,7 +3,7 @@ const textbooks = data.textbooks;
 // sign out alert
 document.getElementById("Sign-Out").addEventListener('click',() =>{
   localStorage.removeItem("currentUser");
-  window.location.href = "../login-signup/login.html"
+  window.location.href = "../index.html"
 });
 
 document.querySelector('.search-left-container').addEventListener('click', function(){
