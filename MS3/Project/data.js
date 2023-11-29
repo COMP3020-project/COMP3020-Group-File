@@ -760,7 +760,6 @@ export function constructTree()
     else
     {
         var departmentID = book.DepartmentID;
-
         console.log(departmentID);
         var department = JSON.parse(JSON.stringify(departments[departmentID]));
         console.log(department);
