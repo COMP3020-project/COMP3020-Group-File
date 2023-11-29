@@ -171,13 +171,13 @@
 
     .remove-button {
       cursor: pointer;
-      font-size: 14px;
+      font-size: 20px;
       fill: red;
       display: none; /* Hide the remove button by default */
     }
 
     .remove-button:hover {
-      fill: darkred;
+      fill: red;
     }
   </style>
 </head>
@@ -654,14 +654,12 @@
 
         function updateCartItems() {
           var items = itemsContainer.selectAll(".cart-item").data(shoppingCart.children);
-          console.log(items);
           items.exit().remove();
-
+          var dashesLine;
           // Update existing items
           items.select(".quantity-text").text(function (d) {
             return d.Name.substr(0,30) + "   Qty: " + d.quantity;
           });
-
           // Create new items
           var newItem = items.enter().append("g")
             .attr("class", "cart-item")
@@ -681,9 +679,12 @@
               return d.Name.substr(0,30) + "   Qty: " + d.quantity;
             });
           
-          var nameTextLength = nameText.node().getComputedTextLength();
-          var dashesLine = Array.from({ length: Math.ceil(nameTextLength / 6) }, () => "-").join('');
-          
+          var nameTextLength = nameText.node() ? nameText.node().getComputedTextLength() : 40;
+
+          // Create a dynamic line of dashes based on the length of the Name
+          dashesLine = Array.from({ length: Math.ceil(nameTextLength / 8) }, () => "-").join('');
+
+          // Set the length of the dynamic line
           newItem.append("text")
             .attr("class", "remove-button")
             .attr("x", 0)
@@ -694,7 +695,6 @@
               shoppingCart.children = shoppingCart.children.filter(item => item.Name !== d.Name);
               updateCartItems();
             });
-
           // Merge the new items with the existing items
           items = items.merge(newItem);
         }
