@@ -101,7 +101,6 @@ function loadCartItems() {
             subtotal += currQuantity * currPrice;
         });
     
-        updateShoppingCartNumber(totalItems);
     
         const GST = subtotal * 0.05;
         const PST = subtotal * 0.07;
@@ -117,13 +116,6 @@ function loadCartItems() {
         subtotalElement.textContent = subtotal.toFixed(2); 
     }
 
-    function updateShoppingCartNumber(totalItems){
-
-        let cart = (document.querySelector('.cart h1'));
-        let cartItems = cart.textContent.match(/\((\d+)\)/)[1];
-        cart.textContent = cart.textContent.replace(/\(\d+\)/, `(${totalItems})`);
-        
-    }
 
     function placeOrder(){
         document.getElementById("place-order").addEventListener('click', () => {
