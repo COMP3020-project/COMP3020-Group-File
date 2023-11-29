@@ -42,29 +42,49 @@ function loadCartItems() {
     }
 
 
-    function removeItems(){
+    function removeItems() {
         const removeBtn = document.querySelectorAll('.remove-btn');
-
+    
         removeBtn.forEach(button => {
             button.addEventListener('click', (event) => {
-                const textBook = event.target.closest('.textbook');
-                textBook.remove();
+                const textbook = event.target.closest('.textbook');
+                const itemName = textbook.querySelector('.textbook-info h3').textContent;
+                removeFromLocalStorage(itemName);
+                textbook.remove();
                 updatePrice();
                 checkCartEmpty();
-                
             });
-        });   
+        });
     }
 
-    function quantityChangePrice(){
-        let quantityInputs = document.querySelectorAll('.textbook-info input[type="number"]');
+    function removeFromLocalStorage(itemName) {
+        const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
+        const updatedItems = cartData.children.filter(item => item.Name !== itemName);
+        cartData.children = updatedItems;
+        localStorage.setItem('shoppingCart', JSON.stringify(cartData));
+    }
 
-        for(let i = 0; i < quantityInputs.length; i++){
-            quantityInputs[i].addEventListener('change',updatePrice);
-        }
-        
-        updatePrice();
+    function quantityChangePrice() {
+        let quantityInputs = document.querySelectorAll('.textbook-info input[type="number"]');
     
+        quantityInputs.forEach(input => {
+            input.addEventListener('change', (event) => {
+                const itemName = event.target.closest('.textbook').querySelector('.textbook-info h3').textContent;
+                const newQuantity = parseInt(event.target.value);
+                updateQuantityInLocalStorage(itemName, newQuantity);
+                updatePrice();
+            });
+        });
+    }
+
+    function updateQuantityInLocalStorage(itemName, newQuantity) {
+        const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
+        cartData.children.forEach(item => {
+            if (item.Name === itemName) {
+                item.quantity = newQuantity;
+            }
+        });
+        localStorage.setItem('shoppingCart', JSON.stringify(cartData));
     }
 
     function updatePrice() {
@@ -113,11 +133,12 @@ function loadCartItems() {
 
     function checkCartEmpty() {
         let textbooks = document.querySelectorAll('.textbook');
-
+    
         if (textbooks.length === 0) {
             let h1 = document.createElement('h1');
             h1.textContent = 'Your Cart is Empty';
             document.querySelector('.cart').appendChild(h1);
+            localStorage.removeItem('shoppingCart'); // Clear the cart in localStorage
         }
     }
 
