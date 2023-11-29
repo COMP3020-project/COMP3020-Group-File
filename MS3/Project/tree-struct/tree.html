@@ -160,6 +160,32 @@
       right: 0px;
     }
 
+    .search-box {
+      position: absolute;
+      bottom: 100px;
+      /* Adjust the bottom position as needed */
+      width: 300px;
+      height: 400px;
+      background-color: lightblue;
+      background-color: #fff;
+      border: 2px solid rgb(0, 0, 0);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      padding: 10px;
+      visibility: visible;
+    }
+
+    .search-box-header {
+      background-color: #1890ff;
+      color: #fff;
+      padding: 5px;
+      text-align: center;
+      margin-bottom: 10px;
+      top: 250px;
+      /* Adjust as needed */
+      right: 0px;
+    }
+
     .checkout-button {
       cursor: pointer;
     }
@@ -211,7 +237,6 @@
         if (data == null) {
           data = { Name: "Empty", children: [{ Name: "Empty" }] };
         }
-        console.log(data);
         var userEmail = localStorage.getItem("currentUser");
         var currentUser = JSON.parse(localStorage.getItem(userEmail));
 
@@ -446,7 +471,23 @@
         var infoBox = d3.select(".tree-container").append("div")
           .attr("class", "info-box")
           .attr("style", "position: absolute; top: " + 100 + "px; right: 0;");
-
+        
+        var searchBox = d3.select(".tree-container").append("div")
+          .attr("class", "search-box")
+          .attr("style", "position: absolute; top: " + 100 + "px; right: 0;");
+        searchBox.html(`
+          <div class="search-box-header">
+            <h2><i class="fas fa-search"></i> Search</h2>
+          </div>
+          <input type="text" id="searchInput" placeholder="Search departments">
+          <button id="searchButton">Search</button>
+        `);
+        
+        document.getElementById("searchButton").addEventListener('click', function () {
+          const searchTerm = document.getElementById("searchInput").value;
+          
+          console.log(searchTerm);
+        });
         function sharePopUp(link) {
           alert(`Sharing link: \n ${link}`)
         }
@@ -504,7 +545,6 @@
 
 
         function addItemToCart(addItem) {
-          console.log(addItem);
           let cartItem = shoppingCart.children.find(item => item.Name === addItem.Name);
           if (cartItem) {
             cartItem.quantity = (cartItem.quantity || 1) + 1;
@@ -632,17 +672,7 @@
                   var draggedItem = draggedNode.__data__.data;
 
                   // Check if the item is already in the cart
-                  var existingItem = shoppingCart.children.find(item => item.Name === draggedItem.Name);
-
-                  if (existingItem) {
-                    // Item already in the cart, increase quantity
-                    existingItem.quantity = (existingItem.quantity || 1) + 1;
-                  } else {
-                    // Item not in the cart, add it with quantity 1
-                    draggedItem.quantity = 1;
-                    shoppingCart.children.push({ ...draggedItem });
-                  }
-                  updateCartItems();
+                  addItemToCart(draggedItem);
                 }
 
                 // Reset the dragging class
@@ -656,10 +686,12 @@
           var items = itemsContainer.selectAll(".cart-item").data(shoppingCart.children);
           items.exit().remove();
           var dashesLine;
+
           // Update existing items
           items.select(".quantity-text").text(function (d) {
-            return d.Name.substr(0,30) + "   Qty: " + d.quantity;
+            return d.Name.substr(0, 30) + "   Qty: " + d.quantity;
           });
+
           // Create new items
           var newItem = items.enter().append("g")
             .attr("class", "cart-item")
@@ -676,13 +708,15 @@
             .attr("class", "quantity-text")
             .attr("text-anchor", "start")
             .text(function (d) {
-              return d.Name.substr(0,30) + "   Qty: " + d.quantity;
+              return d.Name.substr(0, 30) + "   Qty: " + d.quantity;
             });
-          
-          var nameTextLength = nameText.node() ? nameText.node().getComputedTextLength() : 60;
 
-          // Create a dynamic line of dashes based on the length of the Name
-          dashesLine = Array.from({ length: Math.ceil(nameTextLength / 8) }, () => "-").join('');
+          items.select(".remove-button")
+          .text(function (d) {
+              var nameText = d3.select(this.parentNode).select(".quantity-text");
+              var textLength = nameText.node() ? nameText.node().getComputedTextLength() : 180;
+              return Array.from({ length: Math.ceil(textLength / 8) }, () => "-").join('');
+          });
 
           // Set the length of the dynamic line
           newItem.append("text")
@@ -695,9 +729,19 @@
               shoppingCart.children = shoppingCart.children.filter(item => item.Name !== d.Name);
               updateCartItems();
             });
+
           // Merge the new items with the existing items
           items = items.merge(newItem);
+
+          // Update the length of the dynamic line for all items
+          items.select(".remove-button")
+            .text(function (d) {
+                var nameText = d3.select(this.parentNode).select(".quantity-text");
+                var textLength = nameText.node() ? nameText.node().getComputedTextLength() : 180;
+                return Array.from({ length: Math.ceil(textLength / 8) }, () => "-").join('');
+            });
         }
+
 
         updateCartItems();
 
