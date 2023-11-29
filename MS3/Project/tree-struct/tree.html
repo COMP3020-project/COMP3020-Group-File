@@ -503,6 +503,7 @@
           if (cart.style("visibility") === "hidden") {
             cart.style("visibility", "visible");
           }
+          localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
         }
 
         function toggle(d) {
