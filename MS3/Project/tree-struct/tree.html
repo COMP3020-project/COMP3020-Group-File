@@ -504,7 +504,6 @@
 
 
         function addItemToCart(addItem) {
-          console.log(addItem);
           let cartItem = shoppingCart.children.find(item => item.Name === addItem.Name);
           if (cartItem) {
             cartItem.quantity = (cartItem.quantity || 1) + 1;
@@ -646,10 +645,12 @@
           var items = itemsContainer.selectAll(".cart-item").data(shoppingCart.children);
           items.exit().remove();
           var dashesLine;
+
           // Update existing items
           items.select(".quantity-text").text(function (d) {
-            return d.Name.substr(0,30) + "   Qty: " + d.quantity;
+            return d.Name.substr(0, 30) + "   Qty: " + d.quantity;
           });
+
           // Create new items
           var newItem = items.enter().append("g")
             .attr("class", "cart-item")
@@ -666,13 +667,15 @@
             .attr("class", "quantity-text")
             .attr("text-anchor", "start")
             .text(function (d) {
-              return d.Name.substr(0,30) + "   Qty: " + d.quantity;
+              return d.Name.substr(0, 30) + "   Qty: " + d.quantity;
             });
-          
-          var nameTextLength = nameText.node() ? nameText.node().getComputedTextLength() : 60;
 
-          // Create a dynamic line of dashes based on the length of the Name
-          dashesLine = Array.from({ length: Math.ceil(nameTextLength / 8) }, () => "-").join('');
+          items.select(".remove-button")
+          .text(function (d) {
+              var nameText = d3.select(this.parentNode).select(".quantity-text");
+              var textLength = nameText.node() ? nameText.node().getComputedTextLength() : 180;
+              return Array.from({ length: Math.ceil(textLength / 8) }, () => "-").join('');
+          });
 
           // Set the length of the dynamic line
           newItem.append("text")
@@ -685,9 +688,19 @@
               shoppingCart.children = shoppingCart.children.filter(item => item.Name !== d.Name);
               updateCartItems();
             });
+
           // Merge the new items with the existing items
           items = items.merge(newItem);
+
+          // Update the length of the dynamic line for all items
+          items.select(".remove-button")
+            .text(function (d) {
+                var nameText = d3.select(this.parentNode).select(".quantity-text");
+                var textLength = nameText.node() ? nameText.node().getComputedTextLength() : 180;
+                return Array.from({ length: Math.ceil(textLength / 8) }, () => "-").join('');
+            });
         }
+
 
         updateCartItems();
 
