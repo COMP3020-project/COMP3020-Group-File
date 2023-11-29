@@ -370,9 +370,7 @@ export const courses = {
         "DepartmentID": "COMP",
         "YearID": "COMP3",
         "Name": "HCI",
-        "children": [
-            "4"
-        ]
+        "children": []
     },
     
     "COMP3030": {
@@ -380,9 +378,7 @@ export const courses = {
         "DepartmentID": "COMP",
         "YearID": "COMP3",
         "Name": "Automata",
-        "children": [
-            "4"
-        ]
+        "children": []
     },
     
     "COMP3190": {
