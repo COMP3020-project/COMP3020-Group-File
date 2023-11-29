@@ -197,6 +197,10 @@
       <script>
         // Your existing JavaScript code for the tree
         var data = JSON.parse(localStorage.getItem("tree"));
+        if (data == null) {
+          data = { Name: "Empty", children: [{ Name: "Empty" }] };
+        }
+        console.log(data);
         var userEmail = localStorage.getItem("currentUser");
         var currentUser = JSON.parse(localStorage.getItem(userEmail));
 
