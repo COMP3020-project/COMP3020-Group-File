@@ -679,7 +679,7 @@
               return d.Name.substr(0,30) + "   Qty: " + d.quantity;
             });
           
-          var nameTextLength = nameText.node() ? nameText.node().getComputedTextLength() : 40;
+          var nameTextLength = nameText.node() ? nameText.node().getComputedTextLength() : 60;
 
           // Create a dynamic line of dashes based on the length of the Name
           dashesLine = Array.from({ length: Math.ceil(nameTextLength / 8) }, () => "-").join('');
