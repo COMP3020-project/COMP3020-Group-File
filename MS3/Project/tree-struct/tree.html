@@ -173,7 +173,8 @@
       cursor: pointer;
       font-size: 20px;
       fill: red;
-      display: none; /* Hide the remove button by default */
+      display: none;
+      /* Hide the remove button by default */
     }
 
     .remove-button:hover {
@@ -205,8 +206,10 @@
 
     <div class="tree-container">
       <!-- Tree SVG will be appended here -->
+      <script src="../data.js"></script>
       <script>
         // Your existing JavaScript code for the tree
+        console.log(textbooks);
         var data = JSON.parse(localStorage.getItem("tree"));
         if (data == null) {
           data = { Name: "Empty", children: [{ Name: "Empty" }] };
@@ -671,11 +674,11 @@
             });
 
           items.select(".remove-button")
-          .text(function (d) {
+            .text(function (d) {
               var nameText = d3.select(this.parentNode).select(".quantity-text");
               var textLength = nameText.node() ? nameText.node().getComputedTextLength() : 180;
               return Array.from({ length: Math.ceil(textLength / 8) }, () => "-").join('');
-          });
+            });
 
           // Set the length of the dynamic line
           newItem.append("text")
@@ -695,9 +698,9 @@
           // Update the length of the dynamic line for all items
           items.select(".remove-button")
             .text(function (d) {
-                var nameText = d3.select(this.parentNode).select(".quantity-text");
-                var textLength = nameText.node() ? nameText.node().getComputedTextLength() : 180;
-                return Array.from({ length: Math.ceil(textLength / 8) }, () => "-").join('');
+              var nameText = d3.select(this.parentNode).select(".quantity-text");
+              var textLength = nameText.node() ? nameText.node().getComputedTextLength() : 180;
+              return Array.from({ length: Math.ceil(textLength / 8) }, () => "-").join('');
             });
         }
 
