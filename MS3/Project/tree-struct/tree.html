@@ -241,11 +241,12 @@
 
         d3.select(self.frameElement).style("height", "500px");
 
-        var storeItems = localStorage.getItem("cartItems") == null ? [] : localStorage.getItem("cartItems")
+        var storeItems = localStorage.getItem("cartItems") == null ? [] : JSON.parse(localStorage.getItem("cartItems"))
         var shoppingCart = {
           name: "Shopping Cart",
           children: storeItems
         };
+
 
         function collapse(d) {
           if (d.children) {
@@ -696,20 +697,25 @@
           items = items.merge(newItem);
         }
 
+        updateCartItems();
+
         document.getElementById("Sign-Out").addEventListener('click', () => {
           window.location.href = "../login-signup/login.html";
           localStorage.removeItem("currentUser");
         });
 
         document.querySelector('.search-left-container').addEventListener('click', function () {
+          localStorage.setItem("cartItems", JSON.stringify(shoppingCart.children));
           window.location.href = "../search-files/search.html";
         });
 
         document.querySelector('.tree-left-container').addEventListener('click', function () {
+          localStorage.setItem("cartItems", JSON.stringify(shoppingCart.children));
           window.location.href = "../tree-struct/tree.html";
         });
 
         document.querySelector('.account-left-container').addEventListener('click', function () {
+          localStorage.setItem("cartItems", JSON.stringify(shoppingCart.children));
           window.location.href = "../account/account.html";
         });
       </script>
