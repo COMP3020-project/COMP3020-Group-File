@@ -1,4 +1,4 @@
-export const textbooks = {
+const textbooks = {
     "0": {
         "ID": "0",
         "DepartmentID": "COMP",
@@ -294,7 +294,7 @@ export const textbooks = {
   };
 
   
-export const courses = {
+const courses = {
     //COMP
     "COMP1010": {
         "ID": "COMP1010",
@@ -570,7 +570,7 @@ export const courses = {
   };
 
 
-export const departments = {
+const departments = {
     "COMP": {
         "ID": "COMP",
         "Name": "Department Of Computer Science",
@@ -605,7 +605,7 @@ export const departments = {
 
 
 
-export const years = {
+const years = {
     "COMP1": {
         "ID": "COMP1",
         "DepartmentID": "COMP",
@@ -730,18 +730,18 @@ export const years = {
 };
 
 
-export function setQuery(book)
+function setQuery(book)
 {
     localStorage.setItem("queryID", book['ID']);
 }
 
-export function setUser(userID,newUserInfo)
+function setUser(userID,newUserInfo)
 {
     localStorage.setItem(userID, newUserInfo);
 }
 
 var fakeUser = {email: 'user@example.com', password: 'password123', gender: "Male", DOB: "2011-12-29", username: "Rob", bookList: [{id: 1, rating: 4.5}, {id: 2, rating: 1.1}, {id: 3, rating: 3.2}]}
-export function getUser(userID)
+function getUser(userID)
 {
     if(localStorage.getItem(userID) === null)
     {
@@ -750,7 +750,7 @@ export function getUser(userID)
     return JSON.parse(localStorage.getItem(userID));
 }
 
-export function constructTree()
+function constructTree()
 {
     var bookID = localStorage.getItem("queryID");
     var book = textbooks[bookID];
