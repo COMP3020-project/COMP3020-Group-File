@@ -205,6 +205,41 @@
     .remove-button:hover {
       fill: red;
     }
+    #searchInput {
+    width: 70%;
+    padding: 8px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+
+  #searchButton {
+    width: 25%;
+    padding: 8px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .search-suggestions {
+    margin-top: 10px;
+  }
+
+  .search-node {
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .search-node:hover {
+    background-color: #f0f8ff;
+  }
   </style>
 </head>
 
@@ -479,14 +514,25 @@
           <div class="search-box-header">
             <h2><i class="fas fa-search"></i> Search</h2>
           </div>
-          <input type="text" id="searchInput" placeholder="Search departments">
+          <input type="text" id="searchInput" placeholder="Search departments or root node...">
           <button id="searchButton">Search</button>
+          <div class="search-suggestions">
+            <div class="search-node" data-name="MATH">MATH</div>
+            <div class="search-node" data-name="Computer Science">Computer Science</div>
+            <div class="search-node" data-name="Statistics">Statistics</div>
+          </div>
         `);
-        
+
         document.getElementById("searchButton").addEventListener('click', function () {
           const searchTerm = document.getElementById("searchInput").value;
-          
-          console.log(searchTerm);
+          ////////////console.log(searchTerm);
+        });
+
+        document.querySelectorAll(".search-node").forEach(node => {
+          node.addEventListener('click', function () {
+            const searchTerm = this.dataset.name;
+            document.getElementById("searchInput").value = searchTerm;
+          });
         });
         function sharePopUp(link) {
           alert(`Sharing link: \n ${link}`)
