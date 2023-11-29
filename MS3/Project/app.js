@@ -19,7 +19,7 @@
           var newUser = {email: email, password: password, username: username, gender: "", DOB:"1999-12-23", bookList:[{id: 0, rating: 3.2}, {id: 7, rating: 4.3}, {id:9, rating:2.2}]}
           localStorage.setItem(email, JSON.stringify(newUser));
           alert('Signup successful!');
-          window.location.href = 'login.html';
+          window.location.href = 'index.html';
         } else {
           alert('Email already registered.');
         }
