@@ -426,9 +426,6 @@
               }));
 
           nodeEnter.append("rect")
-            // .attr("width", function (d) {
-            //   return d.data.Name.length * 8;
-            // })
             .attr("width", function (d) {
               return d.data.Name.length * 8;
             })
@@ -468,6 +465,9 @@
             .attr("dy", ".35em")
             .attr("text-anchor", "middle")
             .text(function (d) {
+              if (d.data.YearID != null && d.data.DepartmentID != null && d.data.CourseID == null) {
+                return d.data.ID;
+              }
               return d.data.Name;
 
             })
@@ -547,9 +547,6 @@
             infoBox.html(
               '<div class="info-box-header">Overview</div>' +
               `<div id="rating" class="Stars" style="--rating: ${rating};" aria-label="Rating of this product is 2.3 out of 5."></div>` +
-              `<div style="text-align: center;">Title: ${bookInfo.Title}</div>` +
-              `<div style="text-align: center;">Author: ${bookInfo.Author}</div>` +
-              `<div style="text-align: center;">Version: ${bookInfo.Version}</div>` +
               `<img src=${bookInfo.CoverImage} alt="book1" class="textbook" style="height:250px; width:150px; display: block; margin: auto;">` +
               '<div class="book-item" style="display: flex; justify-content: space-around; margin-top: 10px;">' +
               '<button id="add-to-cart" onclick="addItemToCart(\'' + d.data + '\')" style="padding:5px; background-color: orange; margin-left: 35px;">ADD</button>' +
