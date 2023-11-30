@@ -58,8 +58,7 @@
 
     .tree-container {
       flex: 0 1 80%;
-      max-width: 1500px;
-      max-height: 1500px;
+      max-width: 1200px;
       overflow: auto;
       background-color: #ffffff;
       margin: 200px 50px;
@@ -288,14 +287,14 @@
         var currentUser = JSON.parse(localStorage.getItem(userEmail));
 
         var margin = {
-          top: 80,
+          top: 20,
           right: 120,
-          bottom: 80,
+          bottom: 20,
           left: 120
         },
+          width = 1000 - margin.right - margin.left,
+          height = 400 - margin.top - margin.bottom;
 
-          width = window.innerWidth * 0.5 - margin.right - margin.left,
-          height = window.innerHeight * 0.5 - margin.top - margin.bottom;
         var i = 0,
           duration = 100,
           root;
