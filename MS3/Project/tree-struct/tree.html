@@ -526,8 +526,8 @@
         `);
 
         document.getElementById("searchButton").addEventListener('click', function () {
-          const departmentID = document.getElementById("searchInput").value;
-          reconstructTree(searchTerm);
+          const department = document.getElementById("searchInput").value;
+          reconstructTree(department);
         });
 
         function reconstructTree(departmentID) {
@@ -566,7 +566,7 @@
             document.getElementById("searchInput").value = searchTerm;
           }
         })
-        
+
         function sharePopUp(link) {
           alert(`Sharing link: \n ${link}`)
         }
