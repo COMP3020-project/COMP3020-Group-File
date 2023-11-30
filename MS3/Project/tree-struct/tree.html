@@ -65,10 +65,12 @@
     }
 
     .shopping-cart {
-      position: fixed;
-      top: 80px;
+      overflow: auto;
+      position: absolute;
+      top: 50%;
+      right: 0%;
       width: 320px;
-      height: 400px;
+      height: 40%;
       background-color: #fff;
       border: 2px solid rgb(0, 0, 0);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -135,11 +137,12 @@
     }
 
     .info-box {
+      overflow: auto;
       position: absolute;
-      bottom: 100px;
+      bottom: 5%;
       /* Adjust the bottom position as needed */
       width: 300px;
-      height: 400px;
+      height: 40%;
       background-color: lightblue;
       background-color: #fff;
       border: 2px solid rgb(0, 0, 0);
@@ -161,11 +164,12 @@
     }
 
     .search-box {
+      overflow: auto;
       position: absolute;
-      bottom: 100px;
+      bottom: 5%;
       /* Adjust the bottom position as needed */
       width: 300px;
-      height: 400px;
+      height: 40%;
       background-color: lightblue;
       background-color: #fff;
       border: 2px solid rgb(0, 0, 0);
@@ -187,6 +191,8 @@
     }
 
     .checkout-button {
+      width: 100px;
+      height: 30px;
       cursor: pointer;
     }
 
@@ -668,14 +674,10 @@
     </div>
     <div>
       <script>
-        var cartTopPosition = 520;
         var cartGroup = d3.select(".tree-container").append("svg")
           .attr("class", "shopping-cart")
-          .attr("style", "position: absolute; top: " + cartTopPosition + "px; right: 0;");
 
         cartGroup.append("rect")
-          .attr("width", 400)
-          .attr("height", 400)
           .style("fill", "#fff")
           .style("stroke", "black");
 
@@ -709,22 +711,21 @@
         // Checkout button
         cartGroup.append("rect")
           .attr("class", "checkout-button")
-          .attr("width", 100)
-          .attr("height", 30)
-          .attr("x", 100)
-          .attr("y", 350)
           .style("fill", "orange")
           .style("stroke", "black")
+          .attr("height", "100px")
+          .attr("x", "65%")
+          .attr("y", "90%")
           .on("click", function () {
             localStorage.setItem("cartItems", JSON.stringify(shoppingCart.children));
             window.location.href = "../checkout-files/check-out.html";
           });
 
         cartGroup.append("text")
-          .attr("x", 150)
-          .attr("y", 370)
+          .attr("x", "78.5%")
+          .attr("y", "94%")
           .attr("text-anchor", "middle")
-          .style("fill", "#fff")
+          .style("fill", "#000")
           .style("pointer-events", "none")
           .text("Checkout");
 
