@@ -492,7 +492,6 @@
               return "translate(" + d.x + "," + d.y + ")";
             })
             .style("opacity", 1);
-
           // Exit the nodes.
           node.exit()
             .transition()
@@ -528,6 +527,7 @@
         document.getElementById("searchButton").addEventListener('click', function () {
           const department = document.getElementById("searchInput").value;
           reconstructTree(department);
+          location.reload();
         });
 
         function reconstructTree(departmentID) {
