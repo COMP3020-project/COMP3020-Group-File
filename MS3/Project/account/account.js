@@ -54,6 +54,12 @@ function updatePassword()
   var currentPassword = document.getElementById("currentPassword").value;
   var newPassword = document.getElementById("newPassword").value;
   var newPasswordConfirm = document.getElementById("newPasswordConfirm").value;
+
+  var confirmChange = confirm("Are you sure you want to change your password?");
+  if (!confirmChange) {
+    return; // Stop the function if the user cancels
+  }
+  
   if(currentPassword !== currentUser.password)
   {
     document.getElementById("error-password").innerText = "Wrong current password";
