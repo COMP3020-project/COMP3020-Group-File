@@ -106,7 +106,12 @@ function setQuery()
   localStorage.setItem("queryID", bookToSearch['ID']);
 
   var book = textbooks[bookToSearch['ID']]
+  if(book == null)
+  {
+    window.location.href = "../tree-struct/tree.html";
+  }
   var departmentID = book["DepartmentID"]
+
   constructTree(departmentID)
   window.location.href = "../tree-struct/tree.html";
 }
