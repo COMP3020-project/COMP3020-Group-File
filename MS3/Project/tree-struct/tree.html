@@ -139,7 +139,8 @@
     .info-box {
       overflow: auto;
       position: absolute;
-      bottom: 5%;
+      top: 7%;
+      right: 0%;
       /* Adjust the bottom position as needed */
       width: 300px;
       height: 40%;
@@ -166,7 +167,8 @@
     .search-box {
       overflow: auto;
       position: absolute;
-      bottom: 5%;
+      top: 7%;
+      right: 0%;
       /* Adjust the bottom position as needed */
       width: 300px;
       height: 40%;
@@ -513,11 +515,9 @@
 
         var infoBox = d3.select(".tree-container").append("div")
           .attr("class", "info-box")
-          .attr("style", "position: absolute; top: " + 100 + "px; right: 0;");
 
         var searchBox = d3.select(".tree-container").append("div")
           .attr("class", "search-box")
-          .attr("style", "position: absolute; top: " + 100 + "px; right: 0;");
         searchBox.html(`
           <div class="search-box-header">
             <h2><i class="fas fa-search"></i> Search</h2>
