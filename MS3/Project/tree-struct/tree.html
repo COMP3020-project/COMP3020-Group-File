@@ -492,6 +492,7 @@
               return "translate(" + d.x + "," + d.y + ")";
             })
             .style("opacity", 1);
+
           // Exit the nodes.
           node.exit()
             .transition()
@@ -592,6 +593,7 @@
         function updateInfoBox(d) {
           // Update the content of the info box based on the clicked leaf node
           if (isLeafNode(d)) {
+            searchBox.style("visibility", "hidden");
             infoBox.style("visibility", "visible");
             var bookInfo = d.data;
 
@@ -619,6 +621,7 @@
             // Clear the info box if a non-leaf node is clicked
             infoBox.html('');
             infoBox.style("visibility", "hidden");
+            searchBox.style("visibility", "visible");
           }
         }
 
