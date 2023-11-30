@@ -288,7 +288,7 @@
     <div class="tree-container">
 
       <!-- Tree SVG will be appended here -->
-      <script type="module" src="../data.js"></script>
+      <script src="../data.js"></script>
       <script>
         var userEmail = localStorage.getItem("currentUser");
         if (userEmail == null) {
@@ -556,10 +556,6 @@
         });
 
         function reconstructTree(departmentID) {
-          const departments = JSON.parse(localStorage.getItem("departments"));
-          const courses = JSON.parse(localStorage.getItem("courses"));
-          const years = JSON.parse(localStorage.getItem("years"));
-          const textbooks = JSON.parse(localStorage.getItem("textbooks"));
           localStorage.removeItem("tree");
           var newRoot = JSON.parse(JSON.stringify(departments[departmentID]));
           for (let i = 0; i < newRoot.children.length; i++) {

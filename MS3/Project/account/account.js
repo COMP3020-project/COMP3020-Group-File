@@ -1,5 +1,3 @@
-import * as data from "../data.js";
-
 document.getElementById("Sign-Out").addEventListener('click',() =>{
     localStorage.removeItem("currentUser");
     localStorage.removeItem('cartItems');
@@ -20,12 +18,10 @@ document.getElementById("Sign-Out").addEventListener('click',() =>{
   });
 
 var userEmail = localStorage.getItem("currentUser");
-console.log(userEmail);
-var currentUser = data.getUser(userEmail);
-// console.log(test);
-// var currentUser = data.getUser("user@example.com");
-// console.log(currentUser);
-//------
+if (userEmail == null) {
+  userEmail = "user@example.com"
+}
+var currentUser = JSON.parse(localStorage.getItem(userEmail));
 
 
 
@@ -107,7 +103,7 @@ function constructBookList()
   for(let i =0; i < bookList.length; i++)
   {
     console.log(bookList[i].id);
-    const book = data.textbooks[bookList[i].id]
+    const book = textbooks[bookList[i].id]
     console.log(book)
     const bookItem = constructBookItem(book, bookList[i].rating);
     document.getElementById("book-list").appendChild(bookItem);
@@ -204,8 +200,8 @@ function sortRatingReverse(a, b)
 
 function sortAlphabet(a, b)
 {
-  var bookA = data.textbooks[a.id];
-  var bookB = data.textbooks[b.id];
+  var bookA = textbooks[a.id];
+  var bookB = textbooks[b.id];
   const titleA = bookA.Title;
   const titleB = bookB.Title;
   if (titleA < titleB)
