@@ -15,7 +15,7 @@ function loadCartItems() {
         // Clear existing hardcoded items
         cartContainer.innerHTML = '<h1>Shopping Cart</h1>';
 
-        if (cartData.length > 0) {
+        if (cartData != null && cartData.length > 0) {
             cartData.forEach((item, index) => {
                 const textbookDiv = document.createElement('div');
                 textbookDiv.className = 'textbook';
@@ -59,10 +59,10 @@ function loadCartItems() {
     }
 
     function removeFromLocalStorage(itemName) {
-        const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
+        var cartData = JSON.parse(localStorage.getItem('cartItems'));
         const updatedItems = cartData.filter(item => item.Name !== itemName);
         cartData = updatedItems;
-        localStorage.setItem('shoppingCart', JSON.stringify(cartData));
+        localStorage.setItem('cartItems', JSON.stringify(cartData));
     }
 
     function quantityChangePrice() {
@@ -79,13 +79,13 @@ function loadCartItems() {
     }
 
     function updateQuantityInLocalStorage(itemName, newQuantity) {
-        const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
+        const cartData = JSON.parse(localStorage.getItem('cartItems'));
         cartData.forEach(item => {
             if (item.Name === itemName) {
                 item.quantity = newQuantity;
             }
         });
-        localStorage.setItem('shoppingCart', JSON.stringify(cartData));
+        localStorage.setItem('cartItems', JSON.stringify(cartData));
     }
 
     function updatePrice() {
@@ -133,7 +133,7 @@ function loadCartItems() {
             let h1 = document.createElement('h1');
             h1.textContent = 'Your Cart is Empty';
             document.querySelector('.cart').appendChild(h1);
-            localStorage.removeItem('shoppingCart'); // Clear the cart in localStorage
+            localStorage.removeItem('cartItems'); // Clear the cart in localStorage
         }
     }
 
