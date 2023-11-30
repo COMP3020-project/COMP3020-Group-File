@@ -527,7 +527,7 @@
 
         document.getElementById("searchButton").addEventListener('click', function () {
           const departmentID = document.getElementById("searchInput").value;
-          //This should only be used to filter
+          reconstructTree(searchTerm);
         });
 
         function reconstructTree(departmentID) {
@@ -562,17 +562,11 @@
 
         document.querySelectorAll(".search-node").forEach(node => {
           node.onclick = event => {
-            if (event.detail === 1) {
-              const searchTerm = node.dataset.name;
-              document.getElementById("searchInput").value = searchTerm;
-            }
-            else if (event.detail === 2) {
-              const searchTerm = node.dataset.name;
-              reconstructTree(searchTerm);
-            }
-
+            const searchTerm = node.dataset.name;
+            document.getElementById("searchInput").value = searchTerm;
           }
         })
+        
         function sharePopUp(link) {
           alert(`Sharing link: \n ${link}`)
         }
