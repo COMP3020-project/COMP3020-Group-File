@@ -3,6 +3,7 @@ import * as data from "../data.js";
 document.getElementById("Sign-Out").addEventListener('click',() =>{
     localStorage.removeItem("currentUser");
     localStorage.removeItem('cartItems');
+    localStorage.removeItem('tree');
     window.location.href = "../index.html"
   });
 

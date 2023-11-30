@@ -4,6 +4,7 @@ const textbooks = data.textbooks;
 document.getElementById("Sign-Out").addEventListener('click',() =>{
   localStorage.removeItem("currentUser");
   localStorage.removeItem('cartItems');
+  localStorage.removeItem('tree');
   window.location.href = "../index.html"
 });
 
@@ -25,7 +26,6 @@ const searchInput = document.querySelector('.search-bar');
 const suggestionsList = document.getElementById('suggestions');
 
 var userEmail = localStorage.getItem("currentUser");
-console.log(userEmail);
 var currentUser = data.getUser(userEmail);
 document.getElementById("welcome-text").innerText = "Hello" + ", " + currentUser.username;
 

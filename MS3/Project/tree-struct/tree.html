@@ -250,20 +250,31 @@
     .search-node:hover {
       background-color: #f0f8ff;
     }
+
+    .info-text {
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .summary-text {
+      font-size: 14px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 
 <body>
   <div class="top-section-container">
-    <h2 style=" color: #707070; font-size: 2em;   padding: 20px;  ">Welcome, User</h2>
+    <h2 id="welcome-text" style=" color: #707070; font-size: 2em;   padding: 20px;  ">Welcome, User</h2>
     <button id="Sign-Out">Sign Out</button>
   </div>
 
   <div class="search-left-container">
     <h2><i class="fas fa-magnifying-glass"></i> Search</h2>
   </div>
-  <div class="tree-left-container " style="background-color: orange;"">
-        <h2><i class=" fa-solid fa-share-nodes"></i></i> Tree</h2>
+  <div class="tree-left-container " style="background-color: orange;">
+    <h2><i class=" fa-solid fa-share-nodes"></i></i> Tree</h2>
   </div>
   <div class="account-left-container">
     <h2><i class="fa-regular fa-user"></i> Account</h2>
@@ -275,9 +286,16 @@
   <div class="container">
 
     <div class="tree-container">
+
       <!-- Tree SVG will be appended here -->
       <script type="module" src="../data.js"></script>
       <script>
+        var userEmail = localStorage.getItem("currentUser");
+        if (userEmail == null) {
+          userEmail = "user@example.com"
+        }
+        var currentUser = JSON.parse(localStorage.getItem(userEmail));
+        document.getElementById("welcome-text").innerText = "Hello" + ", " + currentUser.username;
         // Your existing JavaScript code for the tree
         var data = JSON.parse(localStorage.getItem("tree"));
         if (data == null) {
@@ -614,10 +632,14 @@
               '<div class="info-box-header">Overview</div>' +
               `<div id="rating" class="Stars" style="--rating: ${rating};" aria-label="Rating of this product is 2.3 out of 5."></div>` +
               `<img src=${bookInfo.CoverImage} alt="book1" class="textbook" style="height:250px; width:150px; display: block; margin: auto;">` +
+              `<div class="info-text">Title: ${bookInfo.Title}</div>` +
+              `<div class="info-text">Author: ${bookInfo.Author}</div>` +
+              `<div class="info-text">Version: ${bookInfo.Version}</div>` +
               '<div class="book-item" style="display: flex; justify-content: space-around; margin-top: 10px;">' +
               `<button id="add-to-cart" style="padding:5px; background-color: orange; margin-left: 35px;">ADD</button>` +
               '<button id="share-button" style="padding:5px; background-color: #007BFF; margin-right: 33px;"><i class="fa-solid fa-share"></i></button>' +
-              '</div>'
+              '</div>' +
+              `<div class="summary-text">Summary: ${bookInfo.PreviewPage}</div>`
             );
             document.getElementById("share-button").addEventListener('click', () => { sharePopUp(bookInfo.ShareLink) })
             document.getElementById("add-to-cart").addEventListener('click', () => { addItemToCart(bookInfo) });
@@ -831,6 +853,7 @@
         document.getElementById("Sign-Out").addEventListener('click', () => {
           localStorage.removeItem("currentUser");
           localStorage.removeItem('cartItems');
+          localStorage.removeItem('tree');
           window.location.href = "../index.html";
         });
 
