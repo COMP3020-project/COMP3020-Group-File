@@ -206,41 +206,42 @@
     .remove-button:hover {
       fill: red;
     }
+
     #searchInput {
-    width: 70%;
-    padding: 8px;
-    margin-right: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-  }
+      width: 70%;
+      padding: 8px;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
 
-  #searchButton {
-    width: 25%;
-    padding: 8px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
+    #searchButton {
+      width: 25%;
+      padding: 8px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
 
-  .search-suggestions {
-    margin-top: 10px;
-  }
+    .search-suggestions {
+      margin-top: 10px;
+    }
 
-  .search-node {
-    padding: 8px;
-    margin-bottom: 5px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    cursor: pointer;
-  }
+    .search-node {
+      padding: 8px;
+      margin-bottom: 5px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+    }
 
-  .search-node:hover {
-    background-color: #f0f8ff;
-  }
+    .search-node:hover {
+      background-color: #f0f8ff;
+    }
   </style>
 </head>
 
@@ -307,7 +308,6 @@
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         root = d3.hierarchy(data);
-        console.log(root);
         root.x0 = width / 2;
         root.y0 = 0;
 
@@ -520,22 +520,59 @@
           <button id="searchButton">Search</button>
           <div class="search-suggestions">
             <div class="search-node" data-name="MATH">MATH</div>
-            <div class="search-node" data-name="Computer Science">Computer Science</div>
-            <div class="search-node" data-name="Statistics">Statistics</div>
+            <div class="search-node" data-name="COMP">Computer Science</div>
+            <div class="search-node" data-name="STAT">Statistics</div>
           </div>
         `);
 
         document.getElementById("searchButton").addEventListener('click', function () {
-          const searchTerm = document.getElementById("searchInput").value;
-          ////////////console.log(searchTerm);
+          const departmentID = document.getElementById("searchInput").value;
+          //This should only be used to filter
         });
 
+        function reconstructTree(departmentID) {
+          const departments = JSON.parse(localStorage.getItem("departments"));
+          const courses = JSON.parse(localStorage.getItem("courses"));
+          const years = JSON.parse(localStorage.getItem("years"));
+          const textbooks = JSON.parse(localStorage.getItem("textbooks"));
+          localStorage.removeItem("tree");
+          var newRoot = JSON.parse(JSON.stringify(departments[departmentID]));
+          for (let i = 0; i < newRoot.children.length; i++) {
+            var yearID = newRoot.children[i]
+            var yearInfo = JSON.parse(JSON.stringify(years[yearID]));
+            for (let j = 0; j < yearInfo.children.length; j++) {
+              var courseID = yearInfo.children[j];
+              var courseInfo = JSON.parse(JSON.stringify(courses[courseID]));
+              for (let k = 0; k < courseInfo.children.length; k++) {
+                var bookID = courseInfo.children[k];
+                var bookInfo = JSON.parse(JSON.stringify(textbooks[bookID]));
+                bookInfo.Name = bookInfo.Title;
+                courseInfo.children[k] = bookInfo;
+              }
+              yearInfo.children[j] = courseInfo;
+            }
+            newRoot.children[i] = yearInfo
+          }
+          localStorage.setItem("tree", JSON.stringify(newRoot));
+          data = JSON.parse(localStorage.getItem("tree"));
+          root = d3.hierarchy(data);
+          root.children.forEach(collapse);
+          update(root);
+        }
+
         document.querySelectorAll(".search-node").forEach(node => {
-          node.addEventListener('click', function () {
-            const searchTerm = this.dataset.name;
-            document.getElementById("searchInput").value = searchTerm;
-          });
-        });
+          node.onclick = event => {
+            if (event.detail === 1) {
+              const searchTerm = node.dataset.name;
+              document.getElementById("searchInput").value = searchTerm;
+            }
+            else if (event.detail === 2) {
+              const searchTerm = node.dataset.name;
+              reconstructTree(searchTerm);
+            }
+
+          }
+        })
         function sharePopUp(link) {
           alert(`Sharing link: \n ${link}`)
         }
