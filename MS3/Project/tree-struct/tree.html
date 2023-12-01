@@ -305,6 +305,14 @@
         var userEmail = localStorage.getItem("currentUser");
         var currentUser = JSON.parse(localStorage.getItem(userEmail));
 
+        var searcbook = localStorage.getItem("queryID");
+        localStorage.removeItem("queryID")
+        var searchTextbook = JSON.parse(JSON.stringify(textbooks[searcbook])).Title;
+        
+        if(searcbook){
+          searchAndHighlightNode(searchTextbook);
+        }
+        
         var margin = {
           top: 20,
           right: 120,
@@ -344,6 +352,52 @@
         update(root);
 
         d3.select(self.frameElement).style("height", "500px");
+
+        function searchAndHighlightNode(bookTitle) {
+          // Traverse the tree to find the node with the matching book title
+          var foundNode = traverseTreeAndSearch(root, bookTitle);
+
+          if (foundNode) {
+            // Highlight the found node
+            highlightNode(foundNode);
+          }
+        }
+
+        function traverseTreeAndSearch(node, targetTitle) {
+          if (node.data.Name == targetTitle) {
+            return node;
+          }
+
+          if (node.children) {
+            for (const child of node.children) {
+              const result = traverseTreeAndSearch(child, targetTitle);
+              if (result) {
+                return result;
+              }
+            }
+          } else if (node._children) {
+            for (const child of node._children) {
+              const result = traverseTreeAndSearch(child, targetTitle);
+              if (result) {
+                return result;
+              }
+            }
+          }
+
+          return null;
+        }
+
+        function highlightNode(node) {
+          var current = node;
+          while (current.parent) {
+            if (current.parent._children) {
+              current.parent.children = current.parent._children;
+              current.parent._children = null;
+            }
+            current = current.parent;
+          }
+          update(root);
+        }
 
         var storeItems = localStorage.getItem("cartItems") == null ? [] : JSON.parse(localStorage.getItem("cartItems"))
         var shoppingCart = {
