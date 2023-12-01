@@ -365,7 +365,7 @@
 
         function traverseTreeAndSearch(node, targetTitle) {
           console.log(node);
-          if (node.data.Name == targetTitle) {
+          if (node.data.Title && node.data.Title == targetTitle) {
             return node;
           }
 

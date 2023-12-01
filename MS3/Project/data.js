@@ -65,7 +65,7 @@ const textbooks = {
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
 
         ],
-        "ShareLink": "",
+        "ShareLink": "https://umbookstore/books/AI-Intro",
     },
     "4": {
         "ID": "4",
@@ -81,7 +81,7 @@ const textbooks = {
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!",
             "Lorem ipsum dolor sit amet. Aut galisum voluptatem eos quis eveniet eum dolores internos est illo quae quo facere voluptate. Aut error maxime sed internos placeat qui dolorem rerum non impedit distinctio. Est harum deleniti aut maxime exercitationem et impedit nostrum et ipsum quisquam. Ad natus autem eum autem aspernatur non nihil labore eos nesciunt libero et quia praesentium!"
         ],
-        "ShareLink": "https://umbookstore/books/AI",
+        "ShareLink": "https://umbookstore/books/AI-Dummies",
     },
     "5": {
         "ID": "5",
