@@ -105,19 +105,14 @@ function setQuery() {
   localStorage.setItem("queryID", bookToSearch['ID']);
 
   var book = textbooks[bookToSearch['ID']]
-<<<<<<< Updated upstream
-  if(book == null)
-  {
-    localStorage.removeItem("tree");
-    window.location.href = "../tree-struct/tree.html";
-=======
+
   if(book == null) {
       let confirmUser = confirm("Book not found, feel free to explore");
       if(confirmUser){
+        localStorage.removeItem("tree");
         window.location.href = '../tree-struct/tree.html';
       }
       return;
->>>>>>> Stashed changes
   }
   var departmentID = book["DepartmentID"]
 
