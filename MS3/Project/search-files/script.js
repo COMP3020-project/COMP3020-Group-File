@@ -108,6 +108,7 @@ function setQuery()
   var book = textbooks[bookToSearch['ID']]
   if(book == null)
   {
+    localStorage.removeItem("tree");
     window.location.href = "../tree-struct/tree.html";
   }
   var departmentID = book["DepartmentID"]
