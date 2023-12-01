@@ -124,7 +124,11 @@ function constructBookItem(book, rating)
   title.textContent = book.Title
 
   var shareButton = document.createElement("button");
-  shareButton.textContent = "Share"
+  shareButton.classList.add("share-button");
+  var icon = document.createElement("i");
+  icon.classList.add("fa-solid");
+  icon.classList.add("fa-share");
+  shareButton.appendChild(icon);
   shareButton.addEventListener('click', () => {sharePopUp(book.ShareLink)});
 
   var ratingDiv = document.createElement("div")

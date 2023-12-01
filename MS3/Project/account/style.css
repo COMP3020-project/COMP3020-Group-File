@@ -355,3 +355,9 @@ img {
     font-size: large;
     z-index: 1;
 }
+
+.share-button {
+    padding: 5px;
+    background-color: #007BFF;
+    margin-right: 33px;
+}

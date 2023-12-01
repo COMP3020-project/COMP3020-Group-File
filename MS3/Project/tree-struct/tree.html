@@ -347,7 +347,7 @@
 
         var searchBook = localStorage.getItem("queryID");
         localStorage.removeItem("queryID")
-        if (searchBook) {
+        if (searchBook && searchBook !== "undefined") {
           var searchTextbook = JSON.parse(JSON.stringify(textbooks[searchBook])).Title;
           searchAndHighlightNode(searchTextbook);
         }
