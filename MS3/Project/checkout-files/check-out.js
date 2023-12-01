@@ -71,18 +71,25 @@ function loadCartItems() {
         quantityInputs.forEach(input => {
             input.addEventListener('change', (event) => {
                 const itemName = event.target.closest('.textbook').querySelector('.textbook-info h3').textContent;
-                const newQuantity = parseInt(event.target.value);
+                let newQuantity = parseInt(event.target.value);
+                if (newQuantity < 1) {
+                    alert("Quantity has to be positive");
+                    newQuantity = 1;
+                    event.target.value = newQuantity;
+                }
                 updateQuantityInLocalStorage(itemName, newQuantity);
                 updatePrice();
             });
         });
     }
-
+    
     function updateQuantityInLocalStorage(itemName, newQuantity) {
         const cartData = JSON.parse(localStorage.getItem('cartItems'));
         cartData.forEach(item => {
             if (item.Name === itemName) {
-                item.quantity = newQuantity;
+                if (newQuantity >= 1) {
+                    item.quantity = newQuantity;
+                }
             }
         });
         localStorage.setItem('cartItems', JSON.stringify(cartData));
