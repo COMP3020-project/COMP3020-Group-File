@@ -61,8 +61,8 @@
       max-width: 1200px;
       overflow: auto;
       background-color: #ffffff;
-      margin-top:100px;
-      
+      margin-top: 100px;
+
     }
 
     .shopping-cart {
@@ -305,14 +305,8 @@
         var userEmail = localStorage.getItem("currentUser");
         var currentUser = JSON.parse(localStorage.getItem(userEmail));
 
-        var searcbook = localStorage.getItem("queryID");
-        localStorage.removeItem("queryID")
-        var searchTextbook = JSON.parse(JSON.stringify(textbooks[searcbook])).Title;
-        
-        if(searcbook){
-          searchAndHighlightNode(searchTextbook);
-        }
-        
+
+
         var margin = {
           top: 20,
           right: 120,
@@ -351,6 +345,12 @@
 
         update(root);
 
+        var searchBook = localStorage.getItem("queryID");
+        localStorage.removeItem("queryID")
+        if (searchBook) {
+          var searchTextbook = JSON.parse(JSON.stringify(textbooks[searchBook])).Title;
+          searchAndHighlightNode(searchTextbook);
+        }
         d3.select(self.frameElement).style("height", "500px");
 
         function searchAndHighlightNode(bookTitle) {
@@ -364,6 +364,7 @@
         }
 
         function traverseTreeAndSearch(node, targetTitle) {
+          console.log(node);
           if (node.data.Name == targetTitle) {
             return node;
           }
